@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 function TopBar() {
   return (
     <div className="top-bar">
-      <span>Caden Lee</span>
+      <h1>Caden Lee</h1>
       <div className="top-buttons">
         <a href="/">
           Home

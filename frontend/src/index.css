@@ -25,12 +25,66 @@
   background-color: var(--pagebg);
 }
 
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-weight: bold;
+  src: url('./assets/Lato-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  src: url('./assets/AtkinsonHyperlegible-Regular.ttf');
+}
+
 body {
   color: var(--textcolor);
   padding: 0px;
   margin: 0px;
+  font-family: 'Lato' !important;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0px;
+  color: var(--headercolor);
+  font-weight: normal;
+  font-family: 'Atkinson Hyperlegible';
+  font-size: 22px;
+  font-family: 'Atkinson Hyperlegible';
+}
+h2 {
+  font-size: 20px;
+  margin: 0px;
+  color: var(--headercolor);
+  font-weight: normal;
+  font-family: 'Atkinson Hyperlegible';
+}
+h3 {
+  font-size: 18px;
+  margin: 0px;
+  color: var(--headercolor);
+}
+span.minihead {
+  font-size: 14px;
+  color: var(--hrborderdark);
+}
+span.bigfont {
+  font-weight: bold;
+  font-size: 24px;
+}
+span.codesmall {
+  font-family: monospace;
+  background-color: var(--sectionbgmid);
+  border-radius: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
