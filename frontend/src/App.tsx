@@ -1,33 +1,5 @@
 import './App.css'
-import type { ReactNode } from 'react';
-
-function TopBar() {
-  return (
-    <div className="top-bar">
-      TOP BAR
-    </div>
-  );
-}
-
-function Footer() {
-  return (
-    <div className="top-bar">
-      FOOTER
-    </div>
-  );
-}
-
-function PageFrame(props: { children: ReactNode }) {
-  return (
-    <div className="outer-wrapper">
-      <div className="inner-wrapper">
-        <TopBar />
-        {props.children}
-        <Footer />
-      </div>
-    </div>
-  );
-}
+import PageFrame from './components/PageFrame';
 
 function App() {
   return (
