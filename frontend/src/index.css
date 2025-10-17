@@ -1,7 +1,36 @@
 :root {
-  background-color: white;
+  /* Light Theme colors */
+  --pagebg: rgb(204, 212, 219);
+  --sectionbg: rgb(218, 226, 232);
+  --sectionbgmid: rgb(199, 209, 217);
+  --sectionbglight: rgb(223, 230, 235);
+  --whitesectionbg: rgb(225, 233, 240);
+  --whitesectionbglight: rgb(233, 238, 242);
+  --sectionborder: rgb(176, 186, 194);
+  --sectionbordershadow: rgba(176, 186, 194, 0.5);
+  --sectionborderdark: rgb(165, 175, 184);
+  --hrborder: rgb(176, 186, 194);
+  --hrborderdark: rgb(156, 166, 173);
+  --headercolor: rgb(29, 33, 41);
+  --textcolor: rgb(70, 78, 94);
+  --textcolorlight: rgb(93, 102, 120);
+  --blue1light: rgb(106, 183, 212);
+  --blue1: rgb(75, 173, 209);
+  --blue1mid: rgb(58, 140, 181);
+  --blue1dark: rgb(50, 117, 166);
+  --darkb: rgba(0, 0, 0, 0.3);
+  --darkb2: rgba(0, 0, 0, 0.5);
+  --darkb3: rgba(0, 0, 0, 0.8);
+
+  background-color: var(--pagebg);
 }
 
 body {
-  margin: 0;
+  color: var(--textcolor);
+  padding: 0px;
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
 }

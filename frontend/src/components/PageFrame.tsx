@@ -1,17 +1,32 @@
+import '../App.css';
 import './PageFrame.css';
 import type { ReactNode } from 'react';
 
 function TopBar() {
   return (
     <div className="top-bar">
-      TOP BAR
+      <span>Caden Lee</span>
+      <div className="top-buttons">
+        <a href="/">
+          Home
+        </a>
+        <a href="/projects">
+          Resume
+        </a>
+        <a href="/contact">
+          Contact
+        </a>
+        <a href="/blog">
+          Blog
+        </a>
+      </div>
     </div>
   );
 }
 
 function Footer() {
   return (
-    <div className="top-bar">
+    <div className="section">
       FOOTER
     </div>
   );
