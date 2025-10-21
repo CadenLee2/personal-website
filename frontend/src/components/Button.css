@@ -5,13 +5,20 @@
   color: var(--text);
   text-decoration: none;
   padding: 4px 0px;
+  border: none;
   border-radius: 4px;
   font-size: 14px;
   transition: background-color 0.05s;
+  font-family: 'Lato';
 
   &:hover {
     background-color: var(--sectionbgmid);
     cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    cursor: default;
   }
 }
 

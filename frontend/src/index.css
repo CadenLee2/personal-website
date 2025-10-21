@@ -45,7 +45,7 @@ body {
   color: var(--textcolor);
   padding: 0px;
   margin: 0px;
-  font-family: 'Lato' !important;
+  font-family: 'Lato';
 }
 
 * {

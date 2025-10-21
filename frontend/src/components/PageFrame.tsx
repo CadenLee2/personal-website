@@ -3,12 +3,14 @@ import './PageFrame.css';
 import type { ReactNode } from 'react';
 import { LinkButton } from '../components/Button';
 
-function TopBar() {
+type PageName = 'home' | 'resume' | 'contact' | 'blog';
+
+function TopBar(props: { pageName?: PageName }) {
   return (
     <div className="top-bar">
       <h1>Caden Lee</h1>
       <div className="top-buttons">
-        <LinkButton href="/">
+        <LinkButton href="/" disabled={props.pageName === "home"}>
           Home
         </LinkButton>
         <LinkButton href="/projects">
@@ -33,11 +35,14 @@ function Footer() {
   );
 }
 
-export default function PageFrame(props: { children: ReactNode }) {
+export default function PageFrame(props: {
+  children: ReactNode,
+  pageName?: PageName,
+}) {
   return (
     <div className="outer-wrapper">
       <div className="inner-wrapper">
-        <TopBar />
+        <TopBar pageName={props.pageName} />
         {props.children}
         <Footer />
       </div>
