@@ -1,24 +1,25 @@
 import '../App.css';
 import './PageFrame.css';
 import type { ReactNode } from 'react';
+import { LinkButton } from '../components/Button';
 
 function TopBar() {
   return (
     <div className="top-bar">
       <h1>Caden Lee</h1>
       <div className="top-buttons">
-        <a href="/">
+        <LinkButton href="/">
           Home
-        </a>
-        <a href="/projects">
+        </LinkButton>
+        <LinkButton href="/projects">
           Resume
-        </a>
-        <a href="/contact">
+        </LinkButton>
+        <LinkButton href="/contact">
           Contact
-        </a>
-        <a href="/blog">
+        </LinkButton>
+        <LinkButton href="/blog">
           Blog
-        </a>
+        </LinkButton>
       </div>
     </div>
   );
