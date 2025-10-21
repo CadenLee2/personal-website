@@ -31,7 +31,8 @@ function Error() {
         <h2>Page not found</h2>
         This page does not exist!
         <br />
-        <LinkButton href="/">Home</LinkButton>
+        <br />
+        <LinkButton variant="blue" href="/">Home</LinkButton>
       </div>
     </PageFrame>
   );
