@@ -13,6 +13,8 @@ import Marquee from '../components/Marquee';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 
+import { LinkButton } from '../components/Button';
+
 function Home() {
   // TODO: make fastlinks section have relevant pictures & contents
   // TODO: (team photos for team projects, code for projects, image for photos, music, etc.)
@@ -48,6 +50,12 @@ function Home() {
               I'm leading the PeterPortal team at UCI's ICS Student Council.
               We're improving a course planning service used by thousands of students!
             </span>
+            <LinkButton href="https://peterportal.org/" variant="action-blue">
+              Visit PeterPortal
+            </LinkButton>
+            <LinkButton href="https://peterportal.org/" variant="action-blue">
+              Contribute on GitHub
+            </LinkButton>
             <RoadmapTree details={[
               { status: "Project Co-Lead", date: "2025" },
               { status: "Software Developer", date: "Fall 2024" },

@@ -2,7 +2,7 @@ import './Button.css';
 import type { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
 
-type Variant = 'blue' | 'gray-light';
+type Variant = 'blue' | 'gray-light' | 'action-blue';
 
 export function Button(props: {
   children: ReactNode, disabled?: boolean, variant?: Variant

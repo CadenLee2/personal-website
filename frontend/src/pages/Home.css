@@ -49,6 +49,14 @@ div.peterportal {
   .left {
     flex-grow: 1;
     height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h3 {
+      margin-bottom: 0px;
+    }
   }
 
   .right {

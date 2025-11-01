@@ -47,3 +47,9 @@ a.button {
     background-color: var(--blue1dark);
   }
 }
+
+.button.action-blue {
+  background-color: var(--darkb2);
+  color: white;
+  border-bottom: solid 3px var(--blue1);
+}
