@@ -28,3 +28,45 @@
   text-align: left;
   margin-top: 10px;
 }
+
+/* Fancy roadmap tree/path climb */
+.pathclimb-container {
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
+    padding-bottom: 19px;
+    margin-top: auto;
+}
+.pathclimb-container div.branch {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    padding-bottom: 22px;
+}
+.pathclimb-container img.branchimg {
+    width: 50px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    /* Display the branch svg image on every branch */
+    content: url('../assets/images/branchpath.svg');
+    opacity: 0.6;
+    mask-image: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%);
+}
+.pathclimb-container div.contents {
+    position: relative;
+    left: 64px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: calc(100% - 64px);
+}
+.pathclimb-container span.head {
+    font-weight: bold;
+}
+.pathclimb-container span.subhead {
+    font-size: 13px;
+    margin-left: 10px;
+    opacity: 0.6;
+}

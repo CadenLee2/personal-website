@@ -1,7 +1,7 @@
 import '../App.css';
 import './Home.css';
 import PageFrame from '../components/PageFrame';
-import Showcase from '../components/Showcase';
+import Showcase, { RoadmapTree } from '../components/Showcase';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 
@@ -38,6 +38,10 @@ function Home() {
               I'm leading the PeterPortal team at UCI's ICS Student Council.
               We're improving a course planning service used by thousands of students!
             </span>
+            <RoadmapTree details={[
+              { status: "Project Co-Lead", date: "2025" },
+              { status: "Software Developer", date: "Fall 2024" },
+            ]} />
           </div>
           <div className="right">
             <img src={BombayBoat} />
@@ -46,6 +50,11 @@ function Home() {
         </Showcase>
         <Showcase className="knickknack">
           KnickKnack
+            <RoadmapTree details={[
+              { status: "Launching to Market!", date: "in 2025" },
+              { status: "Placed 1st in Demo Day Competition", date: "Spring 2025" },
+              { status: "Met in UCI's Product Fellowship", date: "2024" },
+            ]} />
         </Showcase>
       </div>
     </PageFrame>
