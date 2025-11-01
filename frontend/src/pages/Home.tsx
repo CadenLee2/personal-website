@@ -1,7 +1,15 @@
 import '../App.css';
 import './Home.css';
 import PageFrame from '../components/PageFrame';
-import Showcase, { RoadmapTree } from '../components/Showcase';
+import Showcase, { RoadmapTree, ToolsList } from '../components/Showcase';
+
+import TypescriptPlain from 'devicons-react/icons/TypescriptPlain';
+import ReactOriginal from 'devicons-react/icons/ReactOriginal';
+import PostgresqlPlain from 'devicons-react/icons/PostgresqlPlain';
+import SassOriginal from 'devicons-react/icons/SassOriginal';
+import TrpcPlain from 'devicons-react/icons/TrpcPlain';
+import NextjsPlain from 'devicons-react/icons/NextjsPlain';
+import Marquee from '../components/Marquee';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 
@@ -11,6 +19,8 @@ function Home() {
   // TODO: (title should be "Jump to [section]")
 
   // TODO: make linkedin and github icons work
+
+  const marqueeTextDemo = ".marquee { width: 200px; background-color: rgb(22, 31, 54); color: rgb(54, 179, 106); font-family: monospace; border-radius: 4px; white-space: nowrap; overflow: hidden; padding: 4px; } .marquee span { display: inline-block; padding-left: 100%; animation: marquee 90s linear infinite; } @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }";
 
   return (
     <PageFrame pageName="home">
@@ -42,6 +52,14 @@ function Home() {
               { status: "Project Co-Lead", date: "2025" },
               { status: "Software Developer", date: "Fall 2024" },
             ]} />
+            <ToolsList>
+              <TypescriptPlain size={18} />
+              <ReactOriginal size={18} />
+              <PostgresqlPlain size={18} />
+              <SassOriginal size={18} />
+              <TrpcPlain size={18} />
+              <NextjsPlain size={18} />
+            </ToolsList>
           </div>
           <div className="right">
             <img src={BombayBoat} />
@@ -56,6 +74,11 @@ function Home() {
               { status: "Met in UCI's Product Fellowship", date: "2024" },
             ]} />
         </Showcase>
+      </div>
+      <div className="section">
+        <Marquee duration={50}>
+          {marqueeTextDemo}
+        </Marquee>
       </div>
     </PageFrame>
   );

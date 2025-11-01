@@ -9,11 +9,10 @@ type RoadmapTreeItem = {
 
 export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
   const { details } = props;
-
   return (
     <div className="pathclimb-container">
       {details.map(detail => (
-        <div className="branch">
+        <div key={detail.status + '-' + detail.date} className="branch">
           <img className="branchimg" />
           <div className="contents">
             <span className="head">
@@ -23,6 +22,15 @@ export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+export function ToolsList(props: { children: ReactNode | ReactNode[] }) {
+  const { children } = props;
+  return (
+    <div className="toolslist">
+      {children}
     </div>
   );
 }
