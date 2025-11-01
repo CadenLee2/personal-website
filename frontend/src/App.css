@@ -9,3 +9,14 @@ div.section {
     background-color: var(--sectionbglight);
   }
 }
+
+div.section-break {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.small-text {
+  color: var(--textcolorlight);
+  font-size: 14px;
+}

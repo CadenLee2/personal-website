@@ -25,12 +25,6 @@ export function LinkButton(props: {
     );
   }
 
-  /*return (
-    <a href={props.href} className={`button ${props.variant ?? ''}`} onDragStart={(e) => e.preventDefault()}>
-      EEE
-    </a>
-    )*/
-
   return (
     <NavLink to={props.href} onDragStart={(e) => e.preventDefault()} className={`button ${props.variant ?? ''}`}>
       {props.children}

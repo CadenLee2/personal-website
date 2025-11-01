@@ -2,6 +2,7 @@ import '../App.css';
 import './PageFrame.css';
 import type { ReactNode } from 'react';
 import { LinkButton } from '../components/Button';
+import { NavLink } from 'react-router-dom';
 
 type PageName = 'home' | 'resume' | 'contact' | 'blog';
 
@@ -13,7 +14,7 @@ function TopBar(props: { pageName?: PageName }) {
         <LinkButton href="/" disabled={props.pageName === "home"}>
           Home
         </LinkButton>
-        <LinkButton href="/projects">
+        <LinkButton href="/resume">
           Resume
         </LinkButton>
         <LinkButton href="/contact">
@@ -28,9 +29,18 @@ function TopBar(props: { pageName?: PageName }) {
 }
 
 function Footer() {
+  // TODO: link to repo to view the source code
   return (
     <div className="section">
-      FOOTER
+      <span>© 2025 Caden Lee</span>
+      <br />
+      <span className="small-text">
+        Image credits: most images taken by me. For specific technology product icons, all their names, logos, and brands are property of their respective owners and are used here for identification purposes only.
+      </span>
+      <br />
+      <a href="https://github.com/CadenLee2">Website source</a>
+      {" "}•{" "}
+      <NavLink to="/contact">Contact</NavLink>
     </div>
   );
 }

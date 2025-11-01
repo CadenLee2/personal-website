@@ -88,3 +88,12 @@ span.codesmall {
   padding-left: 3px;
   padding-right: 3px;
 }
+
+a {
+  color: var(--blue1);
+  text-decoration: inherit;
+
+  &:hover {
+    color: var(--blue1light);
+  }
+}

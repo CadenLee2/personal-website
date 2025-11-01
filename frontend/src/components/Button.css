@@ -16,11 +16,13 @@
 
   &:hover {
     background-color: var(--sectionbgmid);
+    color: var(--textcolor);
     cursor: pointer;
   }
 
   &:disabled {
     background-color: transparent;
+    color: var(--textcolor);
     cursor: default;
   }
 }
@@ -34,7 +36,7 @@ a.button {
   color: var(--sectionbg);
 
   &:hover {
-    background-color: var(--blue1mid);
+    background-color: var(--blue1light);
   }
 
   &:active {

@@ -1,0 +1,39 @@
+div.top-showcase {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-right: 0px;
+
+  > :first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.fastlinks {
+  display: flex;
+  flex-direction: row;
+  border-radius: 22px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+  justify-content: stretch;
+  flex-grow: 1;
+  gap: 4px;
+  height: 58px;
+
+  img {
+    /* TODO: don't hardcode heights */
+    height: 100%;
+    flex-grow: 1;
+    width: 10px;
+    transition: opacity 0.1s;
+    object-fit: cover;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+}
