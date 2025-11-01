@@ -37,3 +37,29 @@ div.top-showcase {
     }
   }
 }
+
+/* Specific showcase sections */
+div.peterportal {
+  background-image: url('../assets/images/projects/PPCRoadmap.png');
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  gap: 12px;
+
+  .left {
+    flex-grow: 1;
+    height: fit-content;
+  }
+
+  .right {
+    max-width: 50%;
+    min-width: 50%;
+    height: fit-content;
+
+    img {
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+    }
+  }
+}

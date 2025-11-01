@@ -33,14 +33,14 @@ function Footer() {
   return (
     <div className="section">
       <span>© 2025 Caden Lee</span>
-      <br />
       <span className="small-text">
         Image credits: most images taken by me. For specific technology product icons, all their names, logos, and brands are property of their respective owners and are used here for identification purposes only.
       </span>
-      <br />
-      <a href="https://github.com/CadenLee2">Website source</a>
-      {" "}•{" "}
-      <NavLink to="/contact">Contact</NavLink>
+      <span>
+        <a href="https://github.com/CadenLee2">Website source</a>
+        {" "}•{" "}
+        <NavLink to="/contact">Contact</NavLink>
+      </span>
     </div>
   );
 }

@@ -69,9 +69,8 @@ h2 {
   font-family: 'Atkinson Hyperlegible';
 }
 h3 {
-  font-size: 18px;
+  font-size: 17px;
   margin: 0px;
-  color: var(--headercolor);
 }
 span.minihead {
   font-size: 14px;
