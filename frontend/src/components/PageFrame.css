@@ -35,7 +35,23 @@
   width: 100%;
   gap: 8px;
 
-  a {
+  > div {
+    display: flex;
+    gap: 8px;
+    width: 0px;
+    flex-grow: 1;
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+  }
+
+  a, button {
     min-width: 0px;
+    flex-grow: 1;
   }
 }

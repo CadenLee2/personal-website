@@ -13,18 +13,22 @@ function TopBar(props: { pageName?: PageName }) {
     <div className="top-bar">
       <h1>Caden Lee</h1>
       <div className="top-buttons">
-        <LinkButton href="/" disabled={props.pageName === "home"}>
-          <MdHome /> Home
-        </LinkButton>
-        <LinkButton href="/resume">
-          <MdDescription /> Resume
-        </LinkButton>
-        <LinkButton href="/contact">
-          <MdEmail /> Contact
-        </LinkButton>
-        <LinkButton href="/blog">
-          <MdMenuBook /> Blog
-        </LinkButton>
+        <div>
+          <LinkButton href="/" disabled={props.pageName === "home"}>
+            <MdHome /> Home
+          </LinkButton>
+          <LinkButton href="/resume">
+            <MdDescription /> Resume
+          </LinkButton>
+        </div>
+        <div>
+          <LinkButton href="/contact">
+            <MdEmail /> Contact
+          </LinkButton>
+          <LinkButton href="/blog">
+            <MdMenuBook /> Blog
+          </LinkButton>
+        </div>
       </div>
     </div>
   );
