@@ -108,19 +108,25 @@ div.knickknack {
     flex-direction: column;
     gap: 10px;
 
+    height: 100%;
+
     h3 {
       margin-bottom: 0px;
     }
   }
 
   .right {
-    max-width: 42%;
-    min-width: 42%;
+    max-width: 32%;
+    min-width: 32%;
     height: fit-content;
 
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    height: 100%;
+
+    align-items: center;
 
     img {
       border-radius: 4px;
@@ -133,6 +139,12 @@ div.knickknack {
 
     span {
       opacity: 0.6;
+    }
+
+    a {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -162,4 +174,27 @@ div.knickknack {
       max-width: 220px;
     }
   }
+}
+
+/* TODO: move peeking container to its own component */
+.peeking-container-vert {
+  width: 80%;
+  min-height: 200px;
+  max-height: 200px;
+  margin-bottom: -12px;
+  padding: 8px;
+  padding-top: 22px;
+  padding-bottom: 0px;
+  overflow: hidden;
+  margin-top: auto;
+}
+div.showcase:hover div.peeking-container-vert img {
+    transform: translateY(-10px);
+}
+div.showcase:hover div.peeking-container-vert:hover img:hover {
+    transform: translateY(-14px);
+}
+div.peeking-container-vert img {
+    max-width: 100%;
+    transition: all 0.1s;
 }

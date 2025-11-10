@@ -40,20 +40,20 @@
 }
 
 /* Fancy roadmap tree/path climb */
-.pathclimb-container {
+.roadmap-tree {
     position: relative;
     overflow: hidden;
     height: fit-content;
     padding-bottom: 19px;
     margin-top: auto;
 }
-.pathclimb-container div.branch {
+.roadmap-tree div.branch {
     width: 100%;
     height: fit-content;
     position: relative;
     padding-bottom: 22px;
 }
-.pathclimb-container img.branchimg {
+.roadmap-tree img.branchimg {
     width: 50px;
     position: absolute;
     left: 0px;
@@ -63,7 +63,7 @@
     opacity: 0.6;
     mask-image: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%);
 }
-.pathclimb-container div.contents {
+.roadmap-tree div.contents {
     position: relative;
     left: 64px;
     top: 16px;
@@ -72,10 +72,10 @@
     gap: 8px;
     width: calc(100% - 64px);
 }
-.pathclimb-container span.head {
+.roadmap-tree span.head {
     font-weight: bold;
 }
-.pathclimb-container span.subhead {
+.roadmap-tree span.subhead {
     font-size: 13px;
     margin-left: 10px;
     opacity: 0.6;

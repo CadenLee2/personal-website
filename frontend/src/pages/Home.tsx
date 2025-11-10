@@ -2,6 +2,7 @@ import '../App.css';
 import './Home.css';
 import PageFrame from '../components/PageFrame';
 import Showcase, { RoadmapTree, ToolsList } from '../components/Showcase';
+import Marquee from '../components/Marquee';
 
 import TypescriptPlain from 'devicons-react/icons/TypescriptPlain';
 import ReactOriginal from 'devicons-react/icons/ReactOriginal';
@@ -11,12 +12,16 @@ import TrpcPlain from 'devicons-react/icons/TrpcPlain';
 import NextjsPlain from 'devicons-react/icons/NextjsPlain';
 import GithubOriginal from 'devicons-react/icons/GithubOriginal';
 import LinkedinOriginal from 'devicons-react/icons/LinkedinOriginal';
-import Marquee from '../components/Marquee';
+import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
+import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
+import PythonOriginal from 'devicons-react/icons/PythonOriginal';
 
 import { MdArrowOutward } from 'react-icons/md';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
+import KKGroup from '../assets/images/projects/KK_Group.jpg';
+import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 
 import { LinkButton } from '../components/Button';
 
@@ -88,7 +93,7 @@ function Home() {
           <div className="left">
             <h3>KnickKnack</h3>
             <span>
-              In the 2024-25 Product fellowship, I worked with product designers and managers to engineer a mobile figurine trading app, coming to the app store in Fall.
+              In the 2024-25 Product fellowship, I worked with product designers and managers to engineer a mobile figurine trading app, coming to the app store soon.
             </span>
             <div className="actions">
               <LinkButton href="https://knickknackapp.com/" variant="blue">
@@ -107,12 +112,21 @@ function Home() {
               { status: "Placed 1st in Demo Day Competition", date: "Spring 2025" },
               { status: "Met in UCI's Product Fellowship", date: "2024" },
             ]} />
+            <ToolsList>
+              <TypescriptPlain size={18} />
+              <ReactOriginal size={18} />
+              <FirebaseOriginal size={18} />
+              <TensorflowOriginal size={18} />
+              <PythonOriginal size={18} />
+            </ToolsList>
           </div>
           <div className="right">
-            <img src={PPCRoadmapDetail} />
-            <span>
-              TODO FIX
-            </span>
+            <img src={KKGroup} />
+            <div className="peeking-container-vert">
+              <a href="https://knickknackapp.com/">
+                <img src={KKDemoPhone} />
+              </a>
+            </div>
           </div>
         </Showcase>
       </div>

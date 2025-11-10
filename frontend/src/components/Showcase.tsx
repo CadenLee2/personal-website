@@ -10,7 +10,7 @@ type RoadmapTreeItem = {
 export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
   const { details } = props;
   return (
-    <div className="pathclimb-container">
+    <div className="roadmap-tree">
       {details.map(detail => (
         <div key={detail.status + '-' + detail.date} className="branch">
           <img className="branchimg" />
