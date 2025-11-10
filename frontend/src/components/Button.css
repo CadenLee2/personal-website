@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
   min-width: 100px;
   width: 200px;
   background-color: var(--sectionbg);
@@ -50,6 +52,20 @@ a.button {
 
 .button.action-blue {
   background-color: var(--darkb2);
-  color: white;
-  border-bottom: solid 3px var(--blue1);
+  color: var(--textlight);
+  border-bottom: solid 2px var(--blue1);
+  position: relative;
+  height: 28px;
+  width: 100%;
+  max-width: 220px;
+
+  &:hover {
+    border-bottom-width: 0px;
+    height: 26px;
+    margin-top: 2px;
+  }
+
+  &:active {
+    background-color: var(--darkb);
+  }
 }

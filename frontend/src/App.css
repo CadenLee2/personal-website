@@ -24,3 +24,9 @@ div.section-break {
   color: var(--textcolorlight);
   font-size: 14px;
 }
+
+.wicon {
+  > path, g {
+    fill: var(--sectionbg);
+  }
+}

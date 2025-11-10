@@ -26,11 +26,9 @@
 }
 .showcase .toolslist {
   text-align: left;
-  margin-top: 10px;
   font-size: 18px;
 
   svg {
-    width: 300px;
     margin: 4px;
     > path, g {
       fill: var(--sectionbg);

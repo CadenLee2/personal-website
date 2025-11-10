@@ -9,9 +9,13 @@ import PostgresqlPlain from 'devicons-react/icons/PostgresqlPlain';
 import SassOriginal from 'devicons-react/icons/SassOriginal';
 import TrpcPlain from 'devicons-react/icons/TrpcPlain';
 import NextjsPlain from 'devicons-react/icons/NextjsPlain';
+import GithubOriginal from 'devicons-react/icons/GithubOriginal';
 import Marquee from '../components/Marquee';
 
+import { MdArrowOutward } from 'react-icons/md';
+
 import BombayBoat from '../assets/images/BombayBoat.jpg';
+import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
 
 import { LinkButton } from '../components/Button';
 
@@ -51,10 +55,10 @@ function Home() {
               We're improving a course planning service used by thousands of students!
             </span>
             <LinkButton href="https://peterportal.org/" variant="action-blue">
-              Visit PeterPortal
+              <MdArrowOutward size={18} /> Visit PeterPortal
             </LinkButton>
             <LinkButton href="https://peterportal.org/" variant="action-blue">
-              Contribute on GitHub
+              <GithubOriginal className="wicon" size={18} /> <span>Contribute on GitHub</span>
             </LinkButton>
             <RoadmapTree details={[
               { status: "Project Co-Lead", date: "2025" },
@@ -70,8 +74,11 @@ function Home() {
             </ToolsList>
           </div>
           <div className="right">
-            <img src={BombayBoat} />
-            ^ TODO FIX
+            <img src={PPCRoadmapDetail} />
+            <span>
+              Plan quarterly schedules around major/minor requirements,
+              transfer your AP credits, check prerequisites, and rate courses!
+            </span>
           </div>
         </Showcase>
         <Showcase className="knickknack">

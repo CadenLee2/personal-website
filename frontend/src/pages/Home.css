@@ -64,10 +64,18 @@ div.peterportal {
     min-width: 50%;
     height: fit-content;
 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
     img {
       border-radius: 4px;
       display: block;
       width: 100%;
+    }
+
+    span {
+      opacity: 0.6;
     }
   }
 }
