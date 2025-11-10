@@ -28,8 +28,11 @@
   text-align: left;
   font-size: 18px;
 
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
   svg {
-    margin: 4px;
     > path, g {
       fill: var(--sectionbg);
     }

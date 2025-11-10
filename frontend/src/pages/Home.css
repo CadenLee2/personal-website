@@ -82,6 +82,15 @@ div.peterportal {
     }
   }
 
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    > .right {
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+
   .actions {
     display: flex;
     flex-direction: row;
