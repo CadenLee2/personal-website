@@ -50,9 +50,9 @@ a.button {
   }
 }
 
-.button.action-blue {
+.button.action-blue, .button.action-blue-small {
   background-color: var(--darkb2);
-  color: var(--textlight);
+  color: var(--sectionbg);
   border-bottom: solid 2px var(--blue1);
   position: relative;
   height: 28px;
@@ -68,4 +68,9 @@ a.button {
   &:active {
     background-color: var(--darkb);
   }
+}
+
+.button.action-blue-small {
+  width: fit-content;
+  min-width: 50px;
 }

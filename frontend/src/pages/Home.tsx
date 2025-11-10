@@ -10,6 +10,7 @@ import SassOriginal from 'devicons-react/icons/SassOriginal';
 import TrpcPlain from 'devicons-react/icons/TrpcPlain';
 import NextjsPlain from 'devicons-react/icons/NextjsPlain';
 import GithubOriginal from 'devicons-react/icons/GithubOriginal';
+import LinkedinOriginal from 'devicons-react/icons/LinkedinOriginal';
 import Marquee from '../components/Marquee';
 
 import { MdArrowOutward } from 'react-icons/md';
@@ -58,7 +59,7 @@ function Home() {
               <LinkButton href="https://peterportal.org/" variant="blue">
                 <MdArrowOutward size={18} /> Visit
               </LinkButton>
-              <LinkButton href="https://peterportal.org/" variant="action-blue">
+              <LinkButton href="https://github.com/icssc/peterportal-client/" variant="action-blue">
                 <GithubOriginal className="wicon" size={18} /> <span>Contribute on GitHub</span>
               </LinkButton>
             </div>
@@ -84,12 +85,35 @@ function Home() {
           </div>
         </Showcase>
         <Showcase className="knickknack">
-          KnickKnack
+          <div className="left">
+            <h3>KnickKnack</h3>
+            <span>
+              In the 2024-25 Product fellowship, I worked with product designers and managers to engineer a mobile figurine trading app, coming to the app store in Fall.
+            </span>
+            <div className="actions">
+              <LinkButton href="https://knickknackapp.com/" variant="blue">
+                <MdArrowOutward size={18} /> Check it out
+              </LinkButton>
+              <LinkButton
+                href="https://www.linkedin.com/posts/kyleshih_wow-what-an-incredible-12-weeks-it-has-been-activity-7316262735397195779-PMK6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMpkUoBj-OsZZHQm8VZqeqxE49ANrAKP_o"
+                variant="action-blue-small"
+                title="KnickKnack on LinkedIn"
+              >
+                <LinkedinOriginal className="wicon-link" size={18} />
+              </LinkButton>
+            </div>
             <RoadmapTree details={[
               { status: "Launching to Market!", date: "in 2025" },
               { status: "Placed 1st in Demo Day Competition", date: "Spring 2025" },
               { status: "Met in UCI's Product Fellowship", date: "2024" },
             ]} />
+          </div>
+          <div className="right">
+            <img src={PPCRoadmapDetail} />
+            <span>
+              TODO FIX
+            </span>
+          </div>
         </Showcase>
       </div>
       <div className="section">

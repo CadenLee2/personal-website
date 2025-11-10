@@ -90,24 +90,76 @@ div.peterportal {
       min-width: 100%;
     }
   }
+}
 
-  .actions {
+div.knickknack {
+  background-image: url('../assets/images/projects/KK_Blur.png');
+  object-fit:cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  gap: 12px;
+
+  .left {
+    flex-grow: 1;
+    height: fit-content;
+
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
     gap: 10px;
 
-    & > :first-child {
-      width: 0px;
+    h3 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .right {
+    max-width: 42%;
+    min-width: 42%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    img {
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+
+      min-height: 130px;
+      object-fit:cover;
     }
 
-    @media (max-width: 730px) {
-      flex-direction: column;
+    span {
+      opacity: 0.6;
+    }
+  }
+}
 
-      & > :first-child {
-        width: 100%;
-        max-width: 220px;
-      }
+.actions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+
+  .wicon-link {
+    > :first-child { fill: var(--sectionbg); }
+    > :nth-child(2) { fill: black; }
+  }
+
+  & > :first-child {
+    width: fit-content;
+    white-space: nowrap;
+    padding-inline: 20px;
+  }
+
+  @media (max-width: 730px) {
+    flex-direction: column;
+
+    & > :first-child {
+      width: 100%;
+      max-width: 220px;
     }
   }
 }
