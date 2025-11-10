@@ -54,12 +54,14 @@ function Home() {
               I'm leading the PeterPortal team at UCI's ICS Student Council.
               We're improving a course planning service used by thousands of students!
             </span>
-            <LinkButton href="https://peterportal.org/" variant="action-blue">
-              <MdArrowOutward size={18} /> Visit PeterPortal
-            </LinkButton>
-            <LinkButton href="https://peterportal.org/" variant="action-blue">
-              <GithubOriginal className="wicon" size={18} /> <span>Contribute on GitHub</span>
-            </LinkButton>
+            <div className="actions">
+              <LinkButton href="https://peterportal.org/" variant="blue">
+                <MdArrowOutward size={18} /> Visit
+              </LinkButton>
+              <LinkButton href="https://peterportal.org/" variant="action-blue">
+                <GithubOriginal className="wicon" size={18} /> <span>Contribute on GitHub</span>
+              </LinkButton>
+            </div>
             <RoadmapTree details={[
               { status: "Project Co-Lead", date: "2025" },
               { status: "Software Developer", date: "Fall 2024" },

@@ -60,8 +60,8 @@ div.peterportal {
   }
 
   .right {
-    max-width: 50%;
-    min-width: 50%;
+    max-width: 42%;
+    min-width: 42%;
     height: fit-content;
 
     display: flex;
@@ -72,10 +72,33 @@ div.peterportal {
       border-radius: 4px;
       display: block;
       width: 100%;
+
+      min-height: 130px;
+      object-fit:cover;
     }
 
     span {
       opacity: 0.6;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+
+    & > :first-child {
+      width: 0px;
+    }
+
+    @media (max-width: 730px) {
+      flex-direction: column;
+
+      & > :first-child {
+        width: 100%;
+        max-width: 220px;
+      }
     }
   }
 }
