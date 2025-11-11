@@ -116,8 +116,8 @@ div.knickknack {
   }
 
   .right {
-    max-width: 32%;
-    min-width: 32%;
+    max-width: 220px;
+    min-width: 40%;
     height: fit-content;
 
     display: flex;
@@ -145,6 +145,17 @@ div.knickknack {
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    .right {
+      flex-direction: row;
+      min-width: 100%;
+      max-width: 100%;
+      gap: 20px;
     }
   }
 }

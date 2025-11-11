@@ -84,7 +84,7 @@ function Home() {
             </ToolsList>
           </div>
           <div className="right">
-            <img src={PPCRoadmapDetail} />
+            <img src={PPCRoadmapDetail} title="PeterPortal's 4-year roadmap page" />
             <span>
               Plan quarterly schedules around major/minor requirements,
               transfer your AP credits, check prerequisites, and rate courses!
@@ -123,7 +123,7 @@ function Home() {
             </ToolsList>
           </div>
           <div className="right">
-            <img src={KKGroup} />
+            <img src={KKGroup} title="The Knick Knack team during our pitch competition" />
             <div className="peeking-container-vert">
               <a href="https://knickknackapp.com/">
                 <img src={KKDemoPhone} />
