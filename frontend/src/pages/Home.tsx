@@ -5,6 +5,7 @@ import Showcase, { RoadmapTree, ToolsList } from '../components/Showcase';
 import Marquee from '../components/Marquee';
 
 import TypescriptPlain from 'devicons-react/icons/TypescriptPlain';
+import JavascriptPlain from 'devicons-react/icons/JavascriptPlain';
 import ReactOriginal from 'devicons-react/icons/ReactOriginal';
 import PostgresqlPlain from 'devicons-react/icons/PostgresqlPlain';
 import SassOriginal from 'devicons-react/icons/SassOriginal';
@@ -14,7 +15,18 @@ import GithubOriginal from 'devicons-react/icons/GithubOriginal';
 import LinkedinOriginal from 'devicons-react/icons/LinkedinOriginal';
 import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
 import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
-import PythonOriginal from 'devicons-react/icons/PythonOriginal';
+import PythonPlain from 'devicons-react/icons/PythonPlain';
+import RustOriginal from 'devicons-react/icons/RustOriginal';
+import CplusplusPlain from 'devicons-react/icons/CplusplusPlain';
+import Html5Plain from 'devicons-react/icons/Html5Plain';
+import Css3Plain from 'devicons-react/icons/Css3Plain';
+import NodejsPlain from 'devicons-react/icons/NodejsPlain';
+import SocketioOriginal from 'devicons-react/icons/SocketioOriginal';
+import OpenglPlain from 'devicons-react/icons/OpenglPlain';
+import GitPlain from 'devicons-react/icons/GitPlain';
+import NeovimPlain from 'devicons-react/icons/NeovimPlain';
+import PowershellPlain from 'devicons-react/icons/PowershellPlain';
+import BashPlain from 'devicons-react/icons/BashPlain';
 
 import { MdArrowOutward } from 'react-icons/md';
 
@@ -119,7 +131,7 @@ function Home() {
               <ReactOriginal size={18} />
               <FirebaseOriginal size={18} />
               <TensorflowOriginal size={18} />
-              <PythonOriginal size={18} />
+              <PythonPlain size={18} />
             </ToolsList>
           </div>
           <div className="right">
@@ -133,6 +145,29 @@ function Home() {
         </Showcase>
       </div>
       <div className="section">
+        <h2>My Tools</h2>
+        <div className="my-tools">
+          <div>
+            <span title="Rust"><RustOriginal size={30} /></span>
+            <span title="C++"><CplusplusPlain size={30} /></span>
+            <span title="JavaScript"><JavascriptPlain size={30} /></span>
+            <span title="TypeScript"><TypescriptPlain size={30} /></span>
+            <span title="Python"><PythonPlain size={30} /></span>
+            <span title="HTML"><Html5Plain size={30} /></span>
+            <span title="CSS"><Css3Plain size={30} /></span>
+            <span title="React"><ReactOriginal size={30} /></span>
+          </div>
+          <div>
+            <span title="NodeJS"><NodejsPlain size={30} /></span>
+            <span title="Socket.IO"><SocketioOriginal size={30} /></span>
+            <span title="OpenGL (SFML)"><OpenglPlain size={30} /></span>
+            <span title="PostgreSQL"><PostgresqlPlain size={30} /></span>
+            <span title="Git"><GitPlain size={30} /></span>
+            <span title="Neovim/Vim"><NeovimPlain size={30} /></span>
+            <span title="Powershell"><PowershellPlain size={30} /></span>
+            <span title="Bash/Zsh"><BashPlain size={30} /></span>
+          </div>
+        </div>
         <Marquee duration={50}>
           {marqueeTextDemo}
         </Marquee>
