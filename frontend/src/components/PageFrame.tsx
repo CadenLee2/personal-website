@@ -17,15 +17,15 @@ function TopBar(props: { pageName?: PageName }) {
           <LinkButton href="/" disabled={props.pageName === "home"}>
             <MdHome /> Home
           </LinkButton>
-          <LinkButton href="/resume">
+          <LinkButton href="/resume" disabled={props.pageName === "resume"}>
             <MdDescription /> Resume
           </LinkButton>
         </div>
         <div>
-          <LinkButton href="/contact">
+          <LinkButton href="/contact" disabled={props.pageName === "contact"}>
             <MdEmail /> Contact
           </LinkButton>
-          <LinkButton href="/blog">
+          <LinkButton href="/blog" disabled={props.pageName === "blog"}>
             <MdMenuBook /> Blog
           </LinkButton>
         </div>
@@ -35,15 +35,14 @@ function TopBar(props: { pageName?: PageName }) {
 }
 
 function Footer() {
-  // TODO: link to repo to view the source code
   return (
     <div className="section">
       <span>© 2025 Caden Lee</span>
       <span className="small-text">
         Image credits: most images taken by me. For specific technology product icons, all their names, logos, and brands are property of their respective owners and are used here for identification purposes only.
       </span>
-      <span>
-        <a href="https://github.com/CadenLee2">Website source</a>
+      <span className="small-text">
+        <a href="https://github.com/CadenLee2/personal-website">Website source</a>
         {" "}•{" "}
         <NavLink to="/contact">Contact</NavLink>
       </span>
