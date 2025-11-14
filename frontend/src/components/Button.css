@@ -22,6 +22,10 @@
     cursor: pointer;
   }
 
+  &:active {
+    background-color: var(--sectionborder);
+  }
+
   &:disabled {
     background-color: transparent;
     color: var(--textcolor);
