@@ -38,6 +38,30 @@ div.top-showcase {
   }
 }
 
+.mini-contacts {
+  width: 100%;
+  display: inline-flex;
+  gap: 6px;
+  padding-top: 6px;
+
+  svg {
+    fill: var(--textcolor);
+    transition: opacity 0.1s;
+
+  }
+
+  .gh {
+    g, path {
+      fill: var(--textcolor);
+    }
+  }
+
+  .linkedin {
+    > :first-child { fill: var(--textcolor); }
+    > :nth-child(2) { fill: var(--sectionbg); }
+  }
+}
+
 /* Specific showcase sections */
 div.peterportal {
   background-image: url('../assets/images/projects/PPCRoadmap.png');
@@ -117,7 +141,6 @@ div.knickknack {
 
   .right {
     max-width: 220px;
-    min-width: 40%;
     height: fit-content;
 
     display: flex;

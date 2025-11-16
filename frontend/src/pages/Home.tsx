@@ -17,7 +17,7 @@ import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
 import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
 import PythonPlain from 'devicons-react/icons/PythonPlain';
 
-import { MdArrowOutward } from 'react-icons/md';
+import { MdArrowOutward, MdMoreHoriz } from 'react-icons/md';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
@@ -25,6 +25,7 @@ import KKGroup from '../assets/images/projects/KK_Group.jpg';
 import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 
 import { LinkButton } from '../components/Button';
+import { NavLink } from 'react-router-dom';
 
 function Home() {
   // TODO: make fastlinks section have relevant pictures & contents
@@ -42,9 +43,17 @@ function Home() {
       <div className="section-break top-showcase">
         <div>
           <h2>Computer Science @ UCI</h2>
-          Avid student and software engineer
-          <div>
-            [LN] [GH] [... (links to "Contact")]
+          Avid student & software engineer
+          <div className="mini-contacts">
+            <NavLink title="GitHub" to="https://github.com/CadenLee2">
+              <GithubOriginal className="gh" size={18} />
+            </NavLink>
+            <NavLink title="LinkedIn" to="https://www.linkedin.com/in/cadenlee2/">
+              <LinkedinOriginal className="linkedin" size={18} />
+            </NavLink>
+            <NavLink title="More contact info" to="/contact">
+              <MdMoreHoriz size={18} />
+            </NavLink>
           </div>
         </div>
         <div className="fastlinks">
