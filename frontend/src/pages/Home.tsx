@@ -1,5 +1,8 @@
 import '../App.css';
 import './Home.css';
+
+import { useRef } from 'react';
+
 import PageFrame from '../components/PageFrame';
 import Showcase, { RoadmapTree, ToolsList } from '../components/Showcase';
 import Marquee from '../components/Marquee';
@@ -17,45 +20,67 @@ import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
 import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
 import PythonPlain from 'devicons-react/icons/PythonPlain';
 
-import { MdArrowOutward } from 'react-icons/md';
+import { MdArrowOutward, MdArrowForward, MdMoreHoriz } from 'react-icons/md';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
+import GinkgoTree from '../assets/images/GinkgoTree.jpg';
+import CodeEditor from '../assets/images/CodeEditor.png';
 import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
 import KKGroup from '../assets/images/projects/KK_Group.jpg';
 import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 
 import { LinkButton } from '../components/Button';
+import { NavLink } from 'react-router-dom';
+
+import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '../constants';
 
 function Home() {
   // TODO: make fastlinks section have relevant pictures & contents
   // TODO: (team photos for team projects, code for projects, image for photos, music, etc.)
   // TODO: (title should be "Jump to [section]")
 
-  // TODO: make linkedin and github icons work
-
-  // TODO: make website source github link work
+  // TODO: image loading animation/onLoad
 
   const marqueeTextDemo = ".marquee { width: 200px; background-color: rgb(22, 31, 54); color: rgb(54, 179, 106); font-family: monospace; border-radius: 4px; white-space: nowrap; overflow: hidden; padding: 4px; } .marquee span { display: inline-block; padding-left: 100%; animation: marquee 90s linear infinite; } @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }";
+
+  const anchorTools = useRef<HTMLHeadingElement | null>(null);
+  const anchorProjects = useRef<HTMLHeadingElement | null>(null);
 
   return (
     <PageFrame pageName="home">
       <div className="section-break top-showcase">
         <div>
           <h2>Computer Science @ UCI</h2>
-          Avid student and software engineer
-          <div>
-            [LN] [GH] [... (links to "Contact")]
+          Avid student & software engineer
+          <div className="mini-contacts icon-colorize">
+            <NavLink title="GitHub" to={GITHUB_PROFESSIONAL_URL}>
+              <GithubOriginal className="gh" size={18} />
+            </NavLink>
+            <NavLink title="LinkedIn" to={LINKEDIN_URL}>
+              <LinkedinOriginal className="linkedin" size={18} />
+            </NavLink>
+            <NavLink title="More contact info" to="/contact">
+              <MdMoreHoriz size={18} />
+            </NavLink>
           </div>
         </div>
         <div className="fastlinks">
-          <img src={BombayBoat} />
-          <img src={BombayBoat} />
-          <img src={BombayBoat} />
-          <img src={BombayBoat} />
+          <button title="Projects" onClick={() => anchorProjects.current?.scrollIntoView({ behavior: 'smooth' })}>
+            <img src={GinkgoTree} />
+          </button>
+          <button title="Tools" onClick={() => anchorTools.current?.scrollIntoView({ behavior: 'smooth' })}>
+            <img src={CodeEditor} />
+          </button>
+          <button>
+            <img src={BombayBoat} />
+          </button>
+          <button>
+            <img src={BombayBoat} />
+          </button>
         </div>
       </div>
       <div className="section">
-        <h2>Building Valuable Projects</h2>
+        <h2 ref={anchorProjects}>Building Valuable Projects</h2>
         <Showcase className="peterportal">
           <div className="left">
             <h3>PeterPortal</h3>
@@ -134,11 +159,20 @@ function Home() {
         </Showcase>
       </div>
       <div className="section">
-        <h2>My Tools</h2>
+        <h2 ref={anchorTools}>My Tools</h2>
         <MyTools />
         <Marquee duration={50}>
           {marqueeTextDemo}
         </Marquee>
+      </div>
+      <div className="section get-in-touch">
+        <h2>Get in touch!</h2>
+        <LinkButton href="/contact" variant="blue">
+          <MdArrowForward size={18} /> Contact
+        </LinkButton>
+        <LinkButton href="/resume" variant="blue">
+          <MdArrowForward size={18} /> Resume
+        </LinkButton>
       </div>
     </PageFrame>
   );

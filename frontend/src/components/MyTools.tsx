@@ -178,8 +178,6 @@ function ToolIcon(props: { toolInfo: ToolInfo, onHover: () => void, onClick: () 
 function MyTools() {
   const topRowTools = tools.slice(0, tools.length / 2);
   const bottomRowTools = tools.slice(tools.length / 2, tools.length);
-  console.log(topRowTools);
-  console.log(bottomRowTools);
 
   const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
   const [clickedTitle, setClickedTitle] = useState<string | null>(null);
@@ -214,7 +212,7 @@ function MyTools() {
         <h3>{selectedTitle ?? <>&nbsp;</>}</h3>
         <div className="descr">
           {tools.map(t => (
-            <span style={{ visibility: t.title === selectedTitle ? 'visible' : 'hidden' }}>
+            <span key={`descr-${t.title}`} style={{ visibility: t.title === selectedTitle ? 'visible' : 'hidden' }}>
               {t.descr}
             </span>
           ))}
