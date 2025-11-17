@@ -22,18 +22,31 @@ div.top-showcase {
   flex-grow: 1;
   gap: 4px;
   height: 58px;
+  margin-top: 6px;
 
-  img {
-    /* TODO: don't hardcode heights */
+  button {
     height: 100%;
     flex-grow: 1;
     width: 10px;
+    padding: 0px;
+    border: none;
+
     transition: opacity 0.1s;
-    object-fit: cover;
+
+    &:focus-visible {
+      opacity: 0.8;
+    }
 
     &:hover {
       cursor: pointer;
       opacity: 0.7;
+    }
+
+	  img {
+	    height: 100%;
+	    flex-grow: 1;
+      width: 100%;
+	    object-fit: cover;
     }
   }
 }
