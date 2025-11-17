@@ -32,14 +32,14 @@ import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 import { LinkButton } from '../components/Button';
 import { NavLink } from 'react-router-dom';
 
+import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '../constants';
+
 function Home() {
   // TODO: make fastlinks section have relevant pictures & contents
   // TODO: (team photos for team projects, code for projects, image for photos, music, etc.)
   // TODO: (title should be "Jump to [section]")
 
-  // TODO: make linkedin and github icons work
-
-  // TODO: make website source github link work
+  // TODO: image loading animation/onLoad
 
   const marqueeTextDemo = ".marquee { width: 200px; background-color: rgb(22, 31, 54); color: rgb(54, 179, 106); font-family: monospace; border-radius: 4px; white-space: nowrap; overflow: hidden; padding: 4px; } .marquee span { display: inline-block; padding-left: 100%; animation: marquee 90s linear infinite; } @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }";
 
@@ -52,11 +52,11 @@ function Home() {
         <div>
           <h2>Computer Science @ UCI</h2>
           Avid student & software engineer
-          <div className="mini-contacts">
-            <NavLink title="GitHub" to="https://github.com/CadenLee2">
+          <div className="mini-contacts icon-colorize">
+            <NavLink title="GitHub" to={GITHUB_PROFESSIONAL_URL}>
               <GithubOriginal className="gh" size={18} />
             </NavLink>
-            <NavLink title="LinkedIn" to="https://www.linkedin.com/in/cadenlee2/">
+            <NavLink title="LinkedIn" to={LINKEDIN_URL}>
               <LinkedinOriginal className="linkedin" size={18} />
             </NavLink>
             <NavLink title="More contact info" to="/contact">

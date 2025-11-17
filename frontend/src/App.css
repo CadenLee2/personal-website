@@ -30,3 +30,21 @@ div.section-break {
     fill: var(--sectionbg);
   }
 }
+
+.icon-colorize {
+  svg {
+    fill: var(--textcolor);
+    transition: opacity 0.1s;
+  }
+
+  .gh {
+    g, path {
+      fill: var(--textcolor);
+    }
+  }
+
+  .linkedin {
+    > :first-child { fill: var(--textcolor); }
+    > :nth-child(2) { fill: var(--sectionbg); }
+  }
+}
