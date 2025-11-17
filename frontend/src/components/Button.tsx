@@ -36,3 +36,26 @@ export function LinkButton(props: {
     </NavLink>
   );
 }
+
+export function RawLinkButton(props: {
+  children: ReactNode, href: string, disabled?: boolean, variant?: Variant, title?: string
+}) {
+  if (props.disabled) {
+    return (
+      <Button disabled={true} variant={props.variant} title={props.title}>
+        {props.children}
+      </Button>
+    );
+  }
+
+  return (
+    <a
+      href={props.href}
+      onDragStart={(e) => e.preventDefault()}
+      className={`button ${props.variant ?? ''}`}
+      title={props.title}
+    >
+      {props.children}
+    </a>
+  );
+}

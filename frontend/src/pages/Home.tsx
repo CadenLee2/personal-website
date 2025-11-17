@@ -20,7 +20,7 @@ import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
 import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
 import PythonPlain from 'devicons-react/icons/PythonPlain';
 
-import { MdArrowOutward, MdMoreHoriz } from 'react-icons/md';
+import { MdArrowOutward, MdArrowForward, MdMoreHoriz } from 'react-icons/md';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 import GinkgoTree from '../assets/images/GinkgoTree.jpg';
@@ -164,6 +164,15 @@ function Home() {
         <Marquee duration={50}>
           {marqueeTextDemo}
         </Marquee>
+      </div>
+      <div className="section get-in-touch">
+        <h2>Get in touch!</h2>
+        <LinkButton href="/contact" variant="blue">
+          <MdArrowForward size={18} /> Contact
+        </LinkButton>
+        <LinkButton href="/resume" variant="blue">
+          <MdArrowForward size={18} /> Resume
+        </LinkButton>
       </div>
     </PageFrame>
   );

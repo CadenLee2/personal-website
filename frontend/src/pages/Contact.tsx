@@ -11,7 +11,7 @@ import { EMAIL, LINKEDIN_URL, GITHUB_PERSONAL_URL, GITHUB_PROFESSIONAL_URL } fro
 function Contact() {
   return (
     <PageFrame pageName='contact'>
-      <div className="section error">
+      <div className="section">
         <h2>Contact</h2>
         Feel free to reach out to me with ideas, questions, or opportunities!
         <br />I will respond to emails within 24 hours.
@@ -27,7 +27,7 @@ function Contact() {
             <LinkedinOriginal className="linkedin" size={22} />
             <div>
               <span>LinkedIn</span>
-              <a href={LINKEDIN_URL}>@CadenLee2</a>
+              <a href={LINKEDIN_URL}>/in/cadenlee2</a>
             </div>
           </div>
           <div>

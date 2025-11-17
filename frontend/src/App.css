@@ -48,3 +48,15 @@ div.section-break {
     > :nth-child(2) { fill: var(--sectionbg); }
   }
 }
+
+div.get-in-touch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 22px;
+  gap: 4px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+}
