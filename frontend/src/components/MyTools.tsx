@@ -133,7 +133,7 @@ const tools: ToolInfo[] = [
     title: "Git & GitHub",
     descr: (
       <span>
-        I've managed collaborative codebases in GitHub and BitBucket, including as a lead for PeterPortal (whose team at one point had 14 active members).
+        I've managed collaborative codebases in GitHub and BitBucket, including as a lead for PeterPortal (whose team at one point had 14 active developers).
       </span>
     ),
     icon: <GitPlain size={30} />

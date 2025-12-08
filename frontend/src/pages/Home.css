@@ -179,6 +179,27 @@ div.knickknack {
   }
 }
 
+div.rical, div.sheatfish, div.homepage-omni {
+  img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px var(--darkshadow);
+  }
+}
+
+div.rical {
+  background-image: url('../assets/images/projects/RicalTerminal_Blur.png');
+}
+
+div.sheatfish {
+  background-image: url('../assets/images/projects/Sheatfish_Blur.png');
+}
+
+div.homepage-omni {
+  background-image: url('../assets/images/projects/HomepageOmni_Blur.png');
+}
+
+/* Actions */
 .actions {
   display: flex;
   flex-direction: row;
@@ -227,4 +248,11 @@ div.showcase:hover div.peeking-container-vert:hover img:hover {
 div.peeking-container-vert img {
     max-width: 100%;
     transition: all 0.1s;
+}
+
+div.showcase-row {
+  display: flex;
+  gap: 10px;
+
+  /* TODO: responsive */
 }

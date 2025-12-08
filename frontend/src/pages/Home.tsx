@@ -9,6 +9,8 @@ import Marquee from '../components/Marquee';
 import MyTools from '../components/MyTools';
 
 import TypescriptPlain from 'devicons-react/icons/TypescriptPlain';
+import JavascriptPlain from 'devicons-react/icons/JavascriptPlain';
+import Html5Plain from 'devicons-react/icons/Html5Plain';
 import ReactOriginal from 'devicons-react/icons/ReactOriginal';
 import PostgresqlPlain from 'devicons-react/icons/PostgresqlPlain';
 import SassOriginal from 'devicons-react/icons/SassOriginal';
@@ -19,6 +21,7 @@ import LinkedinOriginal from 'devicons-react/icons/LinkedinOriginal';
 import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
 import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
 import PythonPlain from 'devicons-react/icons/PythonPlain';
+import RustOriginal from 'devicons-react/icons/RustOriginal';
 
 import { MdArrowOutward, MdArrowForward, MdMoreHoriz } from 'react-icons/md';
 
@@ -28,6 +31,8 @@ import CodeEditor from '../assets/images/CodeEditor.png';
 import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
 import KKGroup from '../assets/images/projects/KK_Group.jpg';
 import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
+import SheatfishDetail from '../assets/images/projects/Sheatfish_Detail.png';
+import RicalTerminalDetail from '../assets/images/projects/RicalTerminal_Detail.png';
 
 import { LinkButton } from '../components/Button';
 import { NavLink } from 'react-router-dom';
@@ -70,9 +75,6 @@ function Home() {
           </button>
           <button title="Tools" onClick={() => anchorTools.current?.scrollIntoView({ behavior: 'smooth' })}>
             <img src={CodeEditor} />
-          </button>
-          <button>
-            <img src={BombayBoat} />
           </button>
           <button>
             <img src={BombayBoat} />
@@ -164,6 +166,36 @@ function Home() {
         <Marquee duration={50}>
           {marqueeTextDemo}
         </Marquee>
+      </div>
+      <div className="section">
+        <h2>Making Life Easier</h2>
+        Here are some open-source tools I've made to improve the experience of using a computer.
+        <div className="showcase-row">
+          <Showcase className="rical">
+            <h3>Rical</h3>
+            <span>Cross-device calendar app for minimalists</span>
+            <img src={RicalTerminalDetail} />
+            <ToolsList>
+              <RustOriginal />
+            </ToolsList>
+          </Showcase>
+          <Showcase className="sheatfish">
+            <h3>Sheatfish</h3>
+            <span>Lightweight, efficient terminal spreadsheet editor</span>
+            <img src={SheatfishDetail} />
+            <ToolsList>
+              <RustOriginal />
+            </ToolsList>
+          </Showcase>
+          <Showcase className="homepage-omni">
+            <h3>HomepageOmni</h3>
+            <span>Configurable homepage for your browser with quick links, clocks, and shortcuts</span>
+            <ToolsList>
+              <Html5Plain />
+              <JavascriptPlain />
+            </ToolsList>
+          </Showcase>
+        </div>
       </div>
       <div className="section get-in-touch">
         <h2>Get in touch!</h2>
