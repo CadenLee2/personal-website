@@ -33,6 +33,7 @@ import KKGroup from '../assets/images/projects/KK_Group.jpg';
 import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 import SheatfishDetail from '../assets/images/projects/Sheatfish_Detail.png';
 import RicalTerminalDetail from '../assets/images/projects/RicalTerminal_Detail.png';
+import HomepageOmniDetail from '../assets/images/projects/HomepageOmni_Detail.jpg';
 
 import { LinkButton } from '../components/Button';
 import { NavLink } from 'react-router-dom';
@@ -189,7 +190,8 @@ function Home() {
           </Showcase>
           <Showcase className="homepage-omni">
             <h3>HomepageOmni</h3>
-            <span>Configurable homepage for your browser with quick links, clocks, and shortcuts</span>
+            <span>Configurable homepage for your browser</span>
+            <img src={HomepageOmniDetail} />
             <ToolsList>
               <Html5Plain />
               <JavascriptPlain />

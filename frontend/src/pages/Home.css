@@ -185,6 +185,14 @@ div.rical, div.sheatfish, div.homepage-omni {
     border-radius: 4px;
     box-shadow: 0px 2px 2px var(--darkshadow);
   }
+
+  .toolslist {
+    margin-top: auto;
+  }
+
+  > span, > img {
+    margin-bottom: 8px;
+  }
 }
 
 div.rical {
