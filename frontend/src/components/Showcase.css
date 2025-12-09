@@ -80,3 +80,12 @@
     margin-left: 10px;
     opacity: 0.6;
 }
+
+a.outer-a {
+  flex: 1;
+  position: relative;
+
+  > :first-child {
+    height: 100%;
+  }
+}

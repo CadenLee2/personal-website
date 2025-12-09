@@ -35,13 +35,24 @@ export function ToolsList(props: { children: ReactNode | ReactNode[] }) {
   );
 }
 
-function Showcase(props: { children: ReactNode, className?: string }) {
-  const { children, className } = props;
-  return (
-    <div className={`showcase ${className ?? ''}`}>
-      {children}
-    </div>
-  );
+function Showcase(props: { children: ReactNode, className?: string, href?: string }) {
+  const { children, className, href } = props;
+
+  if (href) {
+    return (
+      <a className="outer-a" href={href}>
+        <div className={`showcase ${className ?? ''}`}>
+          {children}
+        </div>
+      </a>
+    );
+  } else {
+    return (
+      <div className={`showcase ${className ?? ''}`}>
+        {children}
+      </div>
+    );
+  }
 }
 
 export default Showcase;

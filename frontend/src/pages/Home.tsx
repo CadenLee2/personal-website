@@ -172,7 +172,7 @@ function Home() {
         <h2>Making Life Easier</h2>
         Here are some open-source tools I've made to improve the experience of using a computer.
         <div className="showcase-row">
-          <Showcase className="rical">
+          <Showcase className="rical" href="https://github.com/Cadecraft/rical/">
             <h3>Rical</h3>
             <span>Cross-device calendar app for minimalists</span>
             <img src={RicalTerminalDetail} />
@@ -180,7 +180,7 @@ function Home() {
               <RustOriginal />
             </ToolsList>
           </Showcase>
-          <Showcase className="sheatfish">
+          <Showcase className="sheatfish" href="https://github.com/Cadecraft/sheatfish">
             <h3>Sheatfish</h3>
             <span>Lightweight, efficient terminal spreadsheet editor</span>
             <img src={SheatfishDetail} />
@@ -188,7 +188,7 @@ function Home() {
               <RustOriginal />
             </ToolsList>
           </Showcase>
-          <Showcase className="homepage-omni">
+          <Showcase className="homepage-omni" href="https://github.com/Cadecraft/HomepageOmni">
             <h3>HomepageOmni</h3>
             <span>Configurable homepage for your browser</span>
             <img src={HomepageOmniDetail} />
