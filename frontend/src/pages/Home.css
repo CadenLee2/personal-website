@@ -207,8 +207,30 @@ div.homepage-omni {
   background-image: url('../assets/images/projects/HomepageOmni_Blur.png');
 }
 
+div.landform-eclipse, div.speedstreets, div.platscifi {
+  > div:first-child {
+    display: flex;
+    gap: 10px;
+  }
+
+  img {
+    border-radius: 4px;
+  }
+}
+
 div.tetrome {
   background-image: url('../assets/images/projects/Tetrome_Blur.png');
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: auto;
+    margin-top: 10px;
+  }
 }
 
 div.landform-eclipse {
@@ -225,6 +247,10 @@ div.platscifi {
 
 div.regnatural {
   background-image: url('../assets/images/projects/Regnatural_Blur.png');
+
+  .toolslist {
+    margin-top: auto;
+  }
 }
 
 /* Actions */
@@ -253,6 +279,28 @@ div.regnatural {
       max-width: 220px;
     }
   }
+}
+
+/* Fancy peeking image */
+div.peeking-container {
+    min-width: 80px;
+    max-width: 200px;
+    width: 80vw;
+    min-height: 200px;
+    max-height: 200px;
+    margin-right: -12px;
+    padding: 8px;
+    padding-left: 22px;
+    padding-right: 0px;
+    overflow: hidden;
+}
+div.showcase:hover div.peeking-container img {
+    transform: translateX(-14px);
+}
+div.peeking-container img {
+    max-height: 100%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    transition: all 0.1s;
 }
 
 /* TODO: move peeking container to its own component */
@@ -295,7 +343,7 @@ div.showcase-row {
 
 div.games-grid {
   display: grid;
-  grid-template-columns: 1.3fr 2fr;
+  grid-template-columns: minmax(20%, 228px) 2fr;
   grid-template-rows: 1fr 1fr 1fr;
   width: 100%;
   gap: 10px;
@@ -308,7 +356,7 @@ div.games-grid {
     grid-row-end: 3;
   }
 
-  @media (max-width: 530px) {
+  @media (max-width: 580px) {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);

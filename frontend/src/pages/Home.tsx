@@ -40,6 +40,8 @@ import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 import SheatfishDetail from '../assets/images/projects/Sheatfish_Detail.png';
 import RicalTerminalDetail from '../assets/images/projects/RicalTerminal_Detail.png';
 import HomepageOmniDetail from '../assets/images/projects/HomepageOmni_Detail.jpg';
+import Landform from '../assets/images/projects/Landform.png';
+import PlatSciFi from '../assets/images/projects/Platscifi.png';
 
 import { LinkButton } from '../components/Button';
 import { NavLink } from 'react-router-dom';
@@ -210,6 +212,7 @@ function Home() {
           <Showcase className="tetrome" href="https://github.com/Cadecraft/tetrome-source">
             <h3>Tetrome</h3>
             <span>A full-featured stacker game. Add the extension to your browser!</span>
+            <img src="https://github.com/Cadecraft/tetrome-source/raw/master/repo_images/TetromeDemo.gif" />
             <ToolsList>
               <JavascriptPlain />
               <Html5Plain />
@@ -217,8 +220,15 @@ function Home() {
             </ToolsList>
           </Showcase>
           <Showcase className="landform-eclipse" href="https://github.com/Cadecraft/Cadecraft.github.io/tree/main/static/landform-eclipse">
-            <h3>Landform: Eclipse</h3>
-            <span>A 2d open-world exploration web game with procedural generation</span>
+            <div>
+              <div>
+                <h3>Landform: Eclipse</h3>
+                <span>A 2d open-world exploration web game with procedural generation</span>
+              </div>
+              <div className="peeking-container">
+                <img src={Landform} />
+              </div>
+            </div>
             <ToolsList>
               <JavascriptPlain />
               <Html5Plain />
@@ -226,8 +236,15 @@ function Home() {
             </ToolsList>
           </Showcase>
           <Showcase className="speedstreets" href="https://github.com/Big-Dyl/IrvineHacks2025">
-            <h3>SpeedStreets</h3>
-            <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
+            <div>
+              <div>
+                <h3>SpeedStreets</h3>
+                <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
+              </div>
+              <div className="peeking-container">
+                <img src="https://github.com/Big-Dyl/IrvineHacks2025/raw/main/screenshot/Screenshot_Game.png"  />
+              </div>
+            </div>
             <ToolsList>
               <TypescriptPlain />
               <ReactOriginal />
@@ -245,8 +262,15 @@ function Home() {
             </ToolsList>
           </Showcase>
           <Showcase className="platscifi" href="https://github.com/tivect/PlatScifi">
-            <h3>PlatSciFi</h3>
-            <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
+            <div>
+              <div>
+                <h3>PlatSciFi</h3>
+                <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
+              </div>
+              <div className="peeking-container">
+                <img src={PlatSciFi} />
+              </div>
+            </div>
             <ToolsList>
               <CplusplusPlain />
               <OpenglPlain />
