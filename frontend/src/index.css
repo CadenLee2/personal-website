@@ -23,7 +23,7 @@
   --darkb3: rgba(0, 0, 0, 0.8);
   --darkshadow: rgba(0, 0, 0, 0.2);
 
-  --focus-blue: rgb(98, 159, 212, 0.5);
+  --focus-blue: rgb(98, 159, 212, 0.6);
 
   background-color: var(--pagebg);
 }
@@ -97,5 +97,9 @@ a {
 
   &:hover {
     color: var(--blue1light);
+  }
+
+  &:focus-visible {
+    outline: solid 3px var(--focus-blue);
   }
 }

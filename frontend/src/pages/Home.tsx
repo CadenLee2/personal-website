@@ -51,6 +51,7 @@ function Home() {
 
   const anchorTools = useRef<HTMLHeadingElement | null>(null);
   const anchorProjects = useRef<HTMLHeadingElement | null>(null);
+  const anchorOtherInterests = useRef<HTMLHeadingElement | null>(null);
 
   return (
     <PageFrame pageName="home">
@@ -71,13 +72,13 @@ function Home() {
           </div>
         </div>
         <div className="fastlinks">
-          <button title="Projects" onClick={() => anchorProjects.current?.scrollIntoView({ behavior: 'smooth' })}>
+          <button title="Jump to projects" onClick={() => anchorProjects.current?.scrollIntoView({ behavior: 'smooth' })}>
             <img src={GinkgoTree} />
           </button>
-          <button title="Tools" onClick={() => anchorTools.current?.scrollIntoView({ behavior: 'smooth' })}>
+          <button title="Jump to tools" onClick={() => anchorTools.current?.scrollIntoView({ behavior: 'smooth' })}>
             <img src={CodeEditor} />
           </button>
-          <button>
+          <button title="Jump to other interests" onClick={() => anchorOtherInterests.current?.scrollIntoView({ behavior: 'smooth' })}>
             <img src={BombayBoat} />
           </button>
         </div>
@@ -198,6 +199,54 @@ function Home() {
             </ToolsList>
           </Showcase>
         </div>
+      </div>
+      <div className="section">
+        <h2>Games I've Built</h2>
+        <div className="games-grid">
+          <Showcase className="tetrome" href="https://github.com/Cadecraft/tetrome-source">
+            <h3>Tetrome</h3>
+            <span>A full-featured stacker game. Add the extension to your browser!</span>
+            <ToolsList>
+              <Html5Plain />
+              <JavascriptPlain />
+            </ToolsList>
+          </Showcase>
+          <Showcase className="landform-eclipse" href="https://github.com/Cadecraft/Cadecraft.github.io/tree/main/static/landform-eclipse">
+            <h3>Landform: Eclipse</h3>
+            <span>A 2d open-world exploration web game with procedural generation</span>
+            <ToolsList>
+              <Html5Plain />
+              <JavascriptPlain />
+            </ToolsList>
+          </Showcase>
+          <Showcase className="speedstreets" href="https://github.com/Big-Dyl/IrvineHacks2025">
+            <h3>SpeedStreets</h3>
+            <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
+            <ToolsList>
+              <Html5Plain />
+              <JavascriptPlain />
+            </ToolsList>
+          </Showcase>
+          <Showcase className="regnatural">
+            <h3>Re:Gnatural</h3>
+            <span>Comign soon: a time/physics-based simulation game inspired by falling sand</span>
+            <ToolsList>
+              <Html5Plain />
+              <JavascriptPlain />
+            </ToolsList>
+          </Showcase>
+          <Showcase className="platscifi" href="https://github.com/tivect/PlatScifi">
+            <h3>PlatSciFi</h3>
+            <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
+            <ToolsList>
+              <Html5Plain />
+              <JavascriptPlain />
+            </ToolsList>
+          </Showcase>
+        </div>
+      </div>
+      <div className="section">
+        <h2 ref={anchorOtherInterests}>Other Interests</h2>
       </div>
       <div className="section get-in-touch">
         <h2>Get in touch!</h2>

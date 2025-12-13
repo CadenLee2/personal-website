@@ -182,6 +182,11 @@ function MyTools() {
   const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
   const [clickedTitle, setClickedTitle] = useState<string | null>(null);
 
+  const handleClickTitle = (newTitle: string) => {
+    if (clickedTitle == newTitle) setClickedTitle(null);
+    else setClickedTitle(newTitle);
+  }
+
   const selectedTitle = clickedTitle ?? hoveredTitle;
 
   return (
@@ -191,7 +196,7 @@ function MyTools() {
           {topRowTools.map(t => (
             <ToolIcon
               onHover={() => setHoveredTitle(t.title)}
-              onClick={() => setClickedTitle(t.title)}
+              onClick={() => handleClickTitle(t.title)}
               key={t.title}
               toolInfo={t}
               selected={t.title === clickedTitle} />
@@ -201,7 +206,7 @@ function MyTools() {
           {bottomRowTools.map(t => (
             <ToolIcon
               onHover={() => setHoveredTitle(t.title)}
-              onClick={() => setClickedTitle(t.title)}
+              onClick={() => handleClickTitle(t.title)}
               key={t.title}
               toolInfo={t}
               selected={t.title === clickedTitle} />

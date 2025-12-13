@@ -84,6 +84,7 @@
 a.outer-a {
   flex: 1;
   position: relative;
+  border-radius: 8px;
 
   > :first-child {
     height: 100%;
