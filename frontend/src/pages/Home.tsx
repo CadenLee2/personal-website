@@ -22,6 +22,12 @@ import FirebaseOriginal from 'devicons-react/icons/FirebaseOriginal';
 import TensorflowOriginal from 'devicons-react/icons/TensorflowOriginal';
 import PythonPlain from 'devicons-react/icons/PythonPlain';
 import RustOriginal from 'devicons-react/icons/RustOriginal';
+import Css3Plain from 'devicons-react/icons/Css3Plain';
+import TailwindcssOriginal from 'devicons-react/icons/TailwindcssOriginal';
+import VitejsPlain from 'devicons-react/icons/VitejsPlain';
+import SocketioOriginal from 'devicons-react/icons/SocketioOriginal';
+import CplusplusPlain from 'devicons-react/icons/CplusplusPlain';
+import OpenglPlain from 'devicons-react/icons/OpenglPlain';
 
 import { MdArrowOutward, MdArrowForward, MdMoreHoriz } from 'react-icons/md';
 
@@ -41,9 +47,7 @@ import { NavLink } from 'react-router-dom';
 import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '../constants';
 
 function Home() {
-  // TODO: make fastlinks section have relevant pictures & contents
   // TODO: (team photos for team projects, code for projects, image for photos, music, etc.)
-  // TODO: (title should be "Jump to [section]")
 
   // TODO: image loading animation/onLoad
 
@@ -207,40 +211,45 @@ function Home() {
             <h3>Tetrome</h3>
             <span>A full-featured stacker game. Add the extension to your browser!</span>
             <ToolsList>
-              <Html5Plain />
               <JavascriptPlain />
+              <Html5Plain />
+              <Css3Plain />
             </ToolsList>
           </Showcase>
           <Showcase className="landform-eclipse" href="https://github.com/Cadecraft/Cadecraft.github.io/tree/main/static/landform-eclipse">
             <h3>Landform: Eclipse</h3>
             <span>A 2d open-world exploration web game with procedural generation</span>
             <ToolsList>
-              <Html5Plain />
               <JavascriptPlain />
+              <Html5Plain />
+              <Css3Plain />
             </ToolsList>
           </Showcase>
           <Showcase className="speedstreets" href="https://github.com/Big-Dyl/IrvineHacks2025">
             <h3>SpeedStreets</h3>
             <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
             <ToolsList>
-              <Html5Plain />
-              <JavascriptPlain />
+              <TypescriptPlain />
+              <ReactOriginal />
+              <VitejsPlain />
+              <TailwindcssOriginal />
+              <SocketioOriginal />
             </ToolsList>
           </Showcase>
           <Showcase className="regnatural">
             <h3>Re:Gnatural</h3>
-            <span>Comign soon: a time/physics-based simulation game inspired by falling sand</span>
+            <span>Coming soon: a time/physics-based simulation game inspired by falling sand</span>
             <ToolsList>
-              <Html5Plain />
-              <JavascriptPlain />
+              <CplusplusPlain />
+              <OpenglPlain />
             </ToolsList>
           </Showcase>
           <Showcase className="platscifi" href="https://github.com/tivect/PlatScifi">
             <h3>PlatSciFi</h3>
             <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
             <ToolsList>
-              <Html5Plain />
-              <JavascriptPlain />
+              <CplusplusPlain />
+              <OpenglPlain />
             </ToolsList>
           </Showcase>
         </div>
