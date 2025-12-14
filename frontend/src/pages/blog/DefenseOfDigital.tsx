@@ -6,7 +6,7 @@ function Post() {
   const POST_ID = "defense_of_digital";
 
   return (
-    <PageFrame pageName='blog'>
+    <PageFrame pageName='blog' hideDefaultMeta>
       <BlogHeaderBox postId={POST_ID} />
       <div className="section">
         <h2 id="intro">Introduction</h2>
