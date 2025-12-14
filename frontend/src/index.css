@@ -102,3 +102,8 @@ a {
     outline: solid 3px var(--focus-blue);
   }
 }
+
+p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}

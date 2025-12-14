@@ -1,6 +1,7 @@
 import '../App.css';
 import './Showcase.css';
 import type { ReactNode } from 'react';
+import { NavLink } from 'react-router-dom';
 
 type RoadmapTreeItem = {
   status: string,
@@ -27,28 +28,39 @@ export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
 }
 
 export function ToolsList(props: { children: ReactNode | ReactNode[] }) {
-  const { children } = props;
-  return (
-    <div className="toolslist">
-      {children}
-    </div>
-  );
+  return <div className="toolslist">{props.children}</div>;
 }
 
-function Showcase(props: { children: ReactNode, className?: string, href?: string }) {
-  const { children, className, href } = props;
+export function PeekingContainer(props: { children: ReactNode }) {
+  return <div className="peeking-container">{props.children}</div>;
+}
+
+export function PeekingContainerVert(props: { children: ReactNode }) {
+  return <div className="peeking-container-vert">{props.children}</div>;
+}
+
+function Showcase(props: {
+  children: ReactNode,
+  className?: string,
+  href?: string,
+  backgroundImageUrl?: string
+}) {
+  const { children, className, href, backgroundImageUrl } = props;
+
+  const classNames = `showcase ${className ?? ''}`;
+  const style = backgroundImageUrl ? { backgroundImage: `url('${backgroundImageUrl}')` } : {};
 
   if (href) {
     return (
-      <a className="outer-a" href={href}>
-        <div className={`showcase ${className ?? ''}`}>
+      <NavLink className="outer-a" to={href}>
+        <div className={classNames} style={style}>
           {children}
         </div>
-      </a>
+      </NavLink>
     );
   } else {
     return (
-      <div className={`showcase ${className ?? ''}`}>
+      <div className={classNames} style={style}>
         {children}
       </div>
     );
