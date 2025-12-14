@@ -179,6 +179,94 @@ div.knickknack {
   }
 }
 
+div.rical, div.sheatfish, div.homepage-omni {
+  img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px var(--darkshadow);
+  }
+
+  .toolslist {
+    margin-top: auto;
+  }
+
+  > span, > img {
+    margin-bottom: 8px;
+  }
+}
+
+div.rical {
+  background-image: url('../assets/images/projects/RicalTerminal_Blur.png');
+}
+
+div.sheatfish {
+  background-image: url('../assets/images/projects/Sheatfish_Blur.png');
+}
+
+div.homepage-omni {
+  background-image: url('../assets/images/projects/HomepageOmni_Blur.png');
+}
+
+div.landform-eclipse, div.speedstreets, div.platscifi {
+  > div:first-child {
+    display: flex;
+    gap: 10px;
+  }
+
+  img {
+    border-radius: 4px;
+  }
+}
+
+div.tetrome {
+  background-image: url('../assets/images/projects/Tetrome_Blur.png');
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: auto;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 580px) {
+    > div:first-child {
+      display: flex;
+      img {
+        max-height: 200px;
+      }
+    }
+  }
+}
+
+div.landform-eclipse {
+  background-image: url('../assets/images/projects/Landform_Blur.png');
+}
+
+div.speedstreets {
+  background-image: url('../assets/images/projects/Speedstreets_Blur.png');
+}
+
+div.platscifi {
+  background-image: url('../assets/images/projects/Platscifi_Blur.png');
+}
+
+div.regnatural {
+  background-image: url('../assets/images/projects/Regnatural_Blur.png');
+
+  span {
+    margin-bottom: 10px;
+  }
+
+  .toolslist {
+    margin-top: auto;
+  }
+}
+
+/* Actions */
 .actions {
   display: flex;
   flex-direction: row;
@@ -206,6 +294,28 @@ div.knickknack {
   }
 }
 
+/* Fancy peeking image */
+div.peeking-container {
+    min-width: 80px;
+    max-width: 200px;
+    width: 80vw;
+    min-height: 200px;
+    max-height: 200px;
+    margin-right: -12px;
+    padding: 8px;
+    padding-left: 22px;
+    padding-right: 0px;
+    overflow: hidden;
+}
+div.showcase:hover div.peeking-container img {
+    transform: translateX(-14px);
+}
+div.peeking-container img {
+    max-height: 100%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    transition: all 0.1s;
+}
+
 /* TODO: move peeking container to its own component */
 .peeking-container-vert {
   width: 80%;
@@ -227,4 +337,137 @@ div.showcase:hover div.peeking-container-vert:hover img:hover {
 div.peeking-container-vert img {
     max-width: 100%;
     transition: all 0.1s;
+}
+
+div.showcase-row {
+  display: flex;
+  gap: 10px;
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    img {
+      width: 70%;
+      max-width: 320px;
+      min-width: 200px;
+    }
+  }
+}
+
+div.games-grid {
+  display: grid;
+  grid-template-columns: minmax(20%, 228px) 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  height: 762px;
+
+  > :first-child {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 2;
+    grid-row-end: 3;
+  }
+
+  @media (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+/* Fancy album cover */
+div.album-container {
+  min-width: 140px;
+  max-width: 140px;
+  min-height: 140px;
+  max-height: 140px;
+  position: relative;
+}
+div.album-cover, a.album-cover {
+  background-size: 100%;
+  min-height: 130px;
+  max-height: 130px;
+  width: 130px;
+  position: absolute;
+}
+a.album-cover-top {
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  background-image: url('../assets/images/SkylineCover.png');
+
+  &, &:hover {
+    color: var(--sectionbg);
+  }
+}
+div.album-cover-bottom {
+  left: 10px;
+  top: 10px;
+  background-image: url('../assets/images/DewdropsCover.png');
+}
+
+div.interests-section {
+  display: flex;
+  gap: 16px;
+
+  .music-descr {
+    width: 0px;
+    flex-grow: 1;
+
+    .yt-link {
+      margin-top: 10px;
+
+      a {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+div.photography {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 300px;
+  gap: 10px;
+
+  img {
+    max-width: auto;
+    max-height: auto;
+    min-height: 0px;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+  }
+
+  > :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  > :nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  > :nth-child(3) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
 }
