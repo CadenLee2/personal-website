@@ -1,0 +1,31 @@
+# Based on Railway's React guide <https://docs.railway.com/guides/react>
+
+{
+  admin off # there's no need for the admin api in railway's environment
+  persist_config off # storage isn't persistent anyway
+  auto_https off # railway handles https for us, this would cause issues if left enabled
+  log {
+    format json
+  }
+
+  servers {
+    trusted_proxies static private_ranges 100.0.0.0/8 # trust railway's proxy
+  }
+}
+
+:{$PORT:3000} {
+  log {
+    format json
+  }
+
+  rewrite /health /*
+
+  root * dist
+
+  encode gzip
+
+  file_server
+
+  # if path doesn't exist, redirect it to 'index.html' for client side routing
+  try_files {path} /index.html
+}
