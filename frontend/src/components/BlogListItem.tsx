@@ -1,13 +1,9 @@
 import Showcase from './Showcase';
 
-function BlogList(props: {
-  date: string,
-  title: string,
-  descr: string,
-  href: string,
-  backgroundImageUrl: string,
-}) {
-  const { date, title, descr, href, backgroundImageUrl } = props;
+import type { BlogMetadata } from '../blogIndex';
+
+function BlogList(props: { metadata: BlogMetadata }) {
+  const { date, title, descr, href, backgroundImageUrl } = props.metadata;
 
   return (
     <Showcase backgroundImageUrl={backgroundImageUrl} href={href}>
