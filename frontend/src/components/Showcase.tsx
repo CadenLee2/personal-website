@@ -35,20 +35,28 @@ export function ToolsList(props: { children: ReactNode | ReactNode[] }) {
   );
 }
 
-function Showcase(props: { children: ReactNode, className?: string, href?: string }) {
-  const { children, className, href } = props;
+function Showcase(props: {
+  children: ReactNode,
+  className?: string,
+  href?: string,
+  backgroundImageUrl?: string
+}) {
+  const { children, className, href, backgroundImageUrl } = props;
+
+  const classNames = `showcase ${className ?? ''}`;
+  const style = backgroundImageUrl ? { backgroundImage: `url('${backgroundImageUrl}')` } : {};
 
   if (href) {
     return (
       <a className="outer-a" href={href}>
-        <div className={`showcase ${className ?? ''}`}>
+        <div className={classNames} style={style}>
           {children}
         </div>
       </a>
     );
   } else {
     return (
-      <div className={`showcase ${className ?? ''}`}>
+      <div className={classNames} style={style}>
         {children}
       </div>
     );
