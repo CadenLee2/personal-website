@@ -15,7 +15,7 @@ import Blog from './pages/Blog';
 
 import { blogIndex } from './blogIndex';
 
-// TODO: lazy load blog routes
+// TODO: lazy load blog routes?
 
 const router = createBrowserRouter(
   createRoutesFromElements(

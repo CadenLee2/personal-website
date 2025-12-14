@@ -4,7 +4,7 @@ import './Home.css';
 import { useRef } from 'react';
 
 import PageFrame from '../components/PageFrame';
-import Showcase, { RoadmapTree, ToolsList } from '../components/Showcase';
+import Showcase, { RoadmapTree, ToolsList, PeekingContainer, PeekingContainerVert } from '../components/Showcase';
 import Marquee from '../components/Marquee';
 import MyTools from '../components/MyTools';
 
@@ -51,8 +51,6 @@ import { NavLink } from 'react-router-dom';
 import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '../constants';
 
 function Home() {
-  // TODO: (team photos for team projects, code for projects, image for photos, music, etc.)
-
   // TODO: image loading animation/onLoad
 
   const marqueeTextDemo = ".marquee { width: 200px; background-color: rgb(22, 31, 54); color: rgb(54, 179, 106); font-family: monospace; border-radius: 4px; white-space: nowrap; overflow: hidden; padding: 4px; } .marquee span { display: inline-block; padding-left: 100%; animation: marquee 90s linear infinite; } @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }";
@@ -162,11 +160,11 @@ function Home() {
           </div>
           <div className="right">
             <img src={KKGroup} title="The Knick Knack team during our pitch competition" />
-            <div className="peeking-container-vert">
+            <PeekingContainerVert>
               <a href="https://knickknackapp.com/">
                 <img src={KKDemoPhone} />
               </a>
-            </div>
+            </PeekingContainerVert>
           </div>
         </Showcase>
       </div>
@@ -231,9 +229,9 @@ function Home() {
                 <h3>Landform: Eclipse</h3>
                 <span>A 2d open-world exploration web game with procedural generation</span>
               </div>
-              <div className="peeking-container">
+              <PeekingContainer>
                 <img src={Landform} />
-              </div>
+              </PeekingContainer>
             </div>
             <ToolsList>
               <JavascriptPlain />
@@ -247,9 +245,9 @@ function Home() {
                 <h3>SpeedStreets</h3>
                 <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
               </div>
-              <div className="peeking-container">
+              <PeekingContainer>
                 <img src="https://github.com/Big-Dyl/IrvineHacks2025/raw/main/screenshot/Screenshot_Game.png"  />
-              </div>
+              </PeekingContainer>
             </div>
             <ToolsList>
               <TypescriptPlain />
@@ -273,9 +271,9 @@ function Home() {
                 <h3>PlatSciFi</h3>
                 <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
               </div>
-              <div className="peeking-container">
+              <PeekingContainer>
                 <img src={PlatSciFi} />
-              </div>
+              </PeekingContainer>
             </div>
             <ToolsList>
               <CplusplusPlain />

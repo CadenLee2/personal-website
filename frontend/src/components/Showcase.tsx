@@ -28,12 +28,15 @@ export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
 }
 
 export function ToolsList(props: { children: ReactNode | ReactNode[] }) {
-  const { children } = props;
-  return (
-    <div className="toolslist">
-      {children}
-    </div>
-  );
+  return <div className="toolslist">{props.children}</div>;
+}
+
+export function PeekingContainer(props: { children: ReactNode }) {
+  return <div className="peeking-container">{props.children}</div>;
+}
+
+export function PeekingContainerVert(props: { children: ReactNode }) {
+  return <div className="peeking-container-vert">{props.children}</div>;
 }
 
 function Showcase(props: {

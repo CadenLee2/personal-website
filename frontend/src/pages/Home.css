@@ -294,51 +294,6 @@ div.regnatural {
   }
 }
 
-/* Fancy peeking image */
-div.peeking-container {
-    min-width: 80px;
-    max-width: 200px;
-    width: 80vw;
-    min-height: 200px;
-    max-height: 200px;
-    margin-right: -12px;
-    padding: 8px;
-    padding-left: 22px;
-    padding-right: 0px;
-    overflow: hidden;
-}
-div.showcase:hover div.peeking-container img {
-    transform: translateX(-14px);
-}
-div.peeking-container img {
-    max-height: 100%;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
-    transition: all 0.1s;
-}
-
-/* TODO: move peeking container to its own component */
-.peeking-container-vert {
-  width: 80%;
-  min-height: 200px;
-  max-height: 200px;
-  margin-bottom: -12px;
-  padding: 8px;
-  padding-top: 22px;
-  padding-bottom: 0px;
-  overflow: hidden;
-  margin-top: auto;
-}
-div.showcase:hover div.peeking-container-vert img {
-    transform: translateY(-10px);
-}
-div.showcase:hover div.peeking-container-vert:hover img:hover {
-    transform: translateY(-14px);
-}
-div.peeking-container-vert img {
-    max-width: 100%;
-    transition: all 0.1s;
-}
-
 div.showcase-row {
   display: flex;
   gap: 10px;
