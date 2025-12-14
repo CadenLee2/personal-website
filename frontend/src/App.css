@@ -60,3 +60,9 @@ div.get-in-touch {
     margin-bottom: 10px;
   }
 }
+
+table {
+  border: solid 1px var(--hrborder);
+  width: 100%;
+  text-align: left;
+}

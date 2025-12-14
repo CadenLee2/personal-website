@@ -1,6 +1,6 @@
 import Showcase from './Showcase';
 
-import type { BlogMetadata } from '../blogIndex';
+import type { BlogMetadata } from '../types';
 
 function BlogList(props: { metadata: BlogMetadata }) {
   const { date, title, descr, href, backgroundImageUrl } = props.metadata;
