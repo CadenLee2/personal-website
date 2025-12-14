@@ -54,6 +54,18 @@ a.button {
   }
 }
 
+.button.gray-mid {
+  background-color: var(--sectionbgmid);
+
+  &:hover {
+    background-color: var(--sectionborder);
+  }
+
+  &:active {
+    background-color: var(--darkb);
+  }
+}
+
 .button.action-blue, .button.action-blue-small {
   background-color: var(--darkb2);
   color: var(--sectionbg);

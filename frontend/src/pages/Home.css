@@ -231,6 +231,15 @@ div.tetrome {
     margin-bottom: auto;
     margin-top: 10px;
   }
+
+  @media (max-width: 580px) {
+    > div:first-child {
+      display: flex;
+      img {
+        max-height: 200px;
+      }
+    }
+  }
 }
 
 div.landform-eclipse {
@@ -247,6 +256,10 @@ div.platscifi {
 
 div.regnatural {
   background-image: url('../assets/images/projects/Regnatural_Blur.png');
+
+  span {
+    margin-bottom: 10px;
+  }
 
   .toolslist {
     margin-top: auto;
@@ -357,12 +370,104 @@ div.games-grid {
   }
 
   @media (max-width: 580px) {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+}
 
-    > :first-child {
-      grid-row-end: 2;
+/* Fancy album cover */
+div.album-container {
+  min-width: 140px;
+  max-width: 140px;
+  min-height: 140px;
+  max-height: 140px;
+  position: relative;
+}
+div.album-cover, a.album-cover {
+  background-size: 100%;
+  min-height: 130px;
+  max-height: 130px;
+  width: 130px;
+  position: absolute;
+}
+a.album-cover-top {
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  background-image: url('../assets/images/SkylineCover.png');
+
+  &, &:hover {
+    color: var(--sectionbg);
+  }
+}
+div.album-cover-bottom {
+  left: 10px;
+  top: 10px;
+  background-image: url('../assets/images/DewdropsCover.png');
+}
+
+div.interests-section {
+  display: flex;
+  gap: 16px;
+
+  .music-descr {
+    width: 0px;
+    flex-grow: 1;
+
+    .yt-link {
+      margin-top: 10px;
+
+      a {
+        max-width: 100%;
+      }
     }
+  }
+}
+
+div.photography {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 300px;
+  gap: 10px;
+
+  img {
+    max-width: auto;
+    max-height: auto;
+    min-height: 0px;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+  }
+
+  > :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  > :nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  > :nth-child(3) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
   }
 }

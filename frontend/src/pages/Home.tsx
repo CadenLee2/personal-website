@@ -29,9 +29,11 @@ import SocketioOriginal from 'devicons-react/icons/SocketioOriginal';
 import CplusplusPlain from 'devicons-react/icons/CplusplusPlain';
 import OpenglPlain from 'devicons-react/icons/OpenglPlain';
 
-import { MdArrowOutward, MdArrowForward, MdMoreHoriz } from 'react-icons/md';
+import { MdArrowOutward, MdArrowForward, MdMoreHoriz, MdPlayArrow, MdMusicNote } from 'react-icons/md';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
+import HermosaPier from '../assets/images/HermosaPier.jpg';
+import ICSTrees from '../assets/images/ICSTrees.jpg';
 import GinkgoTree from '../assets/images/GinkgoTree.jpg';
 import CodeEditor from '../assets/images/CodeEditor.png';
 import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
@@ -210,9 +212,13 @@ function Home() {
         <h2>Games I've Built</h2>
         <div className="games-grid">
           <Showcase className="tetrome" href="https://github.com/Cadecraft/tetrome-source">
-            <h3>Tetrome</h3>
-            <span>A full-featured stacker game. Add the extension to your browser!</span>
-            <img src="https://github.com/Cadecraft/tetrome-source/raw/master/repo_images/TetromeDemo.gif" />
+            <div>
+              <div>
+                <h3>Tetrome</h3>
+                <span>A full-featured stacker game. Add the extension to your browser!</span>
+              </div>
+              <img src="https://github.com/Cadecraft/tetrome-source/raw/master/repo_images/TetromeDemo.gif" />
+            </div>
             <ToolsList>
               <JavascriptPlain />
               <Html5Plain />
@@ -280,6 +286,36 @@ function Home() {
       </div>
       <div className="section">
         <h2 ref={anchorOtherInterests}>Other Interests</h2>
+        <div className="interests-section">
+          <div className="album-container">
+            <a
+              className="showcase album-cover album-cover-top clickable"
+              href="https://youtu.be/QRya2g7BbXs?si=Sqa9VzWz5GmYPFXq"
+              title="Listen to Skyline by Cadecraft on YouTube"
+            >
+              <MdPlayArrow />
+            </a>
+            <div
+              className="showcase album-cover album-cover-bottom"
+            >
+            </div>
+          </div>
+          <div className="music-descr">
+            <span>In my free time, I make trance, synthwave, and other electronic music. I also enjoy photography, science fiction books, and cooking.</span>
+            <br />
+            <div className="yt-link">
+              <LinkButton variant="gray-mid" href="https://www.youtube.com/playlist?list=PLbN2H2xs0W6tlWWImF9bK6xp-U0PCpN7a&si=za9rSy9WBiHHEivw">
+                <MdMusicNote />
+                Listen on YouTube
+              </LinkButton>
+            </div>
+          </div>
+        </div>
+        <div className="photography">
+          <img title="UCI's Engineering Tower" src={ICSTrees} />
+          <img title="The Hermosa Beach pier" src={HermosaPier} />
+          <img title="Bombay Beach by the Salton Sea" src={BombayBoat} />
+        </div>
       </div>
       <div className="section get-in-touch">
         <h2>Get in touch!</h2>

@@ -22,7 +22,6 @@
   --darkb2: rgba(0, 0, 0, 0.5);
   --darkb3: rgba(0, 0, 0, 0.8);
   --darkshadow: rgba(0, 0, 0, 0.2);
-
   --focus-blue: rgb(98, 159, 212, 0.6);
 
   background-color: var(--pagebg);
