@@ -32,54 +32,58 @@ function Post() {
           The key difference between paper and digital writing is that paper takes up a sizeable amount of space in your house (think about your bookshelf) and many actions must be done by hand (or via printers, if you're really that serious about it). But text files on a computer, in the grand scheme of things, are like grains of sand on a beach, nothing compared to the big whales of video files and photo archives and gigabyte-sized games. For all intents and purposes, text takes no resources at all, and can move and shift independent of the medium that hosts it.
         </p>
         <table>
-          <tr>
-            <th>Resource usage</th>
-            <th>Handwritten</th>
-            <th>Digital</th>
-          </tr>
-          <tr>
-            <td>Time to write</td>
-            <td><span className="codesmall">O(n)</span></td>
-            <td><span className="codesmall">O(n)</span></td>
-          </tr>
-          <tr>
-            <td>Time to copy <span className="codesmall">k</span> times</td>
-            <td><span className="codesmall">O(n·k)</span></td>
-            <td><span className="codesmall">O(1)</span></td>
-          </tr>
-          <tr>
-            <td>Time to send to <span className="codesmall">k</span> people</td>
-            <td><span className="codesmall">O(k)</span></td>
-            <td><span className="codesmall">O(1)</span></td>
-          </tr>
-          <tr>
-            <td>Time to erase/mass-edit a page <span className="codesmall">k</span> lines long</td>
-            <td><span className="codesmall">O(k)</span></td>
-            <td><span className="codesmall">O(1)</span></td>
-          </tr>
-          <tr>
-            <td>
-              Time to search for a specific date/subject
-              <br />(if you're well-organized)
-            </td>
-            <td><span className="codesmall">O(lg(n))</span></td>
-            <td><span className="codesmall">O(1)</span></td>
-          </tr>
-          <tr>
-            <td>Space taken up</td>
-            <td><span className="codesmall">O(n)</span></td>
-            <td><span className="codesmall">O(1)</span>*</td>
-          </tr>
-          <tr>
-            <td>Lead/ink/pencils/pens needed</td>
-            <td><span className="codesmall">O(n)</span></td>
-            <td><span className="codesmall">O(1)</span></td>
-          </tr>
-          <tr>
-            <td>Trees killed</td>
-            <td><span className="codesmall">O(n)</span></td>
-            <td><span className="codesmall">O(1)</span></td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Resource usage</th>
+              <th>Handwritten</th>
+              <th>Digital</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Time to write</td>
+              <td><span className="codesmall">O(n)</span></td>
+              <td><span className="codesmall">O(n)</span></td>
+            </tr>
+            <tr>
+              <td>Time to copy <span className="codesmall">k</span> times</td>
+              <td><span className="codesmall">O(n·k)</span></td>
+              <td><span className="codesmall">O(1)</span></td>
+            </tr>
+            <tr>
+              <td>Time to send to <span className="codesmall">k</span> people</td>
+              <td><span className="codesmall">O(k)</span></td>
+              <td><span className="codesmall">O(1)</span></td>
+            </tr>
+            <tr>
+              <td>Time to erase/mass-edit a page <span className="codesmall">k</span> lines long</td>
+              <td><span className="codesmall">O(k)</span></td>
+              <td><span className="codesmall">O(1)</span></td>
+            </tr>
+            <tr>
+              <td>
+                Time to search for a specific date/subject
+                <br />(if you're well-organized)
+              </td>
+              <td><span className="codesmall">O(lg(n))</span></td>
+              <td><span className="codesmall">O(1)</span></td>
+            </tr>
+            <tr>
+              <td>Space taken up</td>
+              <td><span className="codesmall">O(n)</span></td>
+              <td><span className="codesmall">O(1)</span>*</td>
+            </tr>
+            <tr>
+              <td>Lead/ink/pencils/pens needed</td>
+              <td><span className="codesmall">O(n)</span></td>
+              <td><span className="codesmall">O(1)</span></td>
+            </tr>
+            <tr>
+              <td>Trees killed</td>
+              <td><span className="codesmall">O(n)</span></td>
+              <td><span className="codesmall">O(1)</span></td>
+            </tr>
+          </tbody>
         </table>
         <i>* See the sand analogy above</i>
         <p>
@@ -118,13 +122,15 @@ function Post() {
         <h2 id="takeaways">Takeaways</h2>
         <p>
           What does it mean for there to be a justification and ideal behind digital notetaking? In a practical sense, it means that when you take full advantage of your computer's capabilities, you're stepping into a potentially more satisfying experience. Personally, I recommend:
-          <ul>
-            <li>Using a reliable and simple text editor, like <a href="https://www.vim.org/">Vim</a></li>
-            <li>Organizing your files well (to achieve that essentially-<span className="codesmall">O(1)</span> lookup time)</li>
-            <li>Using a standard language like <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> to enrich your notes (e.g. with headings, italics, and links)</li>
-            <li>Avoiding distraction by keeping as few tabs and windows open as possible</li>
-            <li>And sharing your notes with those who might find them helpful</li>
-          </ul>
+        </p>
+        <ul>
+          <li>Using a reliable and simple text editor, like <a href="https://www.vim.org/">Vim</a></li>
+          <li>Organizing your files well (to achieve that essentially-<span className="codesmall">O(1)</span> lookup time)</li>
+          <li>Using a standard language like <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> to enrich your notes (e.g. with headings, italics, and links)</li>
+          <li>Avoiding distraction by keeping as few tabs and windows open as possible</li>
+          <li>And sharing your notes with those who might find them helpful</li>
+        </ul>
+        <p>
           Of course, it's hard to achieve these ideals, and some of us still prefer paper because of the texture, the sensation of writing, or the nuance we can produce through our penmanship, but that's okay. Paper isn't going anywhere--we haven't actually <i>lost</i> anything with the invention of computers. Rather, it's important to recognize that innovation continues to bring new possibilities that we could use to improve our lives if we're open to change.
         </p>
       </div>
