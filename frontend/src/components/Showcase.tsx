@@ -1,6 +1,7 @@
 import '../App.css';
 import './Showcase.css';
 import type { ReactNode } from 'react';
+import { NavLink } from 'react-router-dom';
 
 type RoadmapTreeItem = {
   status: string,
@@ -48,11 +49,11 @@ function Showcase(props: {
 
   if (href) {
     return (
-      <a className="outer-a" href={href}>
+      <NavLink className="outer-a" to={href}>
         <div className={classNames} style={style}>
           {children}
         </div>
-      </a>
+      </NavLink>
     );
   } else {
     return (

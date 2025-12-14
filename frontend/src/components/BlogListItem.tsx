@@ -6,7 +6,7 @@ function BlogList(props: { metadata: BlogMetadata }) {
   const { date, title, descr, href, backgroundImageUrl } = props.metadata;
 
   return (
-    <Showcase backgroundImageUrl={backgroundImageUrl} href={href}>
+    <Showcase backgroundImageUrl={backgroundImageUrl} href={`/blog/${href}`}>
       <h3>{date} • {title}</h3>
       {descr}
     </Showcase>
