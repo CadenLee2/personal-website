@@ -7,7 +7,7 @@ import { blogIndex } from '../blogIndex';
 
 function Blog() {
   return (
-    <PageFrame pageName='blog' hideDefaultMeta>
+    <PageFrame pageName='blog'>
       <meta name="title" content="Caden Lee's blog" />
       <meta name="description" content="A collection of ideas on software, life, and the world" />
       <meta name="author" content="Caden Lee" />
