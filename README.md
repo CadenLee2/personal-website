@@ -1,11 +1,12 @@
 # Personal Website
 
-This is the latest version of my personal website.
-![A screenshot of the homepage](./homepage.png)
+This is the latest version of my personal website, hosted at <https://cadenlee.dev>.
+
+<img src="./homepage.png" alt="A screenshot of the homepage" width="550">
 
 ## Development
 Running the frontend is simple:
-```
+```sh
 cd frontend
 npm install
 npm run dev
