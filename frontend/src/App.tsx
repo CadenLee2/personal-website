@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import Cuisine from './pages/Cuisine';
 
 import { blogIndex } from './blogIndex';
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/resume" element={<Resume />} errorElement={<Error />} />
       <Route path="/contact" element={<Contact />} errorElement={<Error />} />
       <Route path="/blog" element={<Blog />} errorElement={<Error />} />
+      <Route path="/cuisine" element={<Cuisine />} errorElement={<Error />} />
       {
         blogIndex.map((blogItem) => (
           <Route
