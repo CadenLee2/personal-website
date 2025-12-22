@@ -12,7 +12,7 @@ import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
-import Cuisine from './pages/Cuisine';
+import Cuisine from './pages/cuisine/Cuisine';
 
 import { blogIndex } from './blogIndex';
 

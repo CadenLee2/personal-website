@@ -1,0 +1,91 @@
+.main {
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  background-color: var(--sectionbg);
+  width: 100%;
+  border-radius: 4px;
+  padding: 4px 8px;
+  border: solid 1px var(--sectionborder);
+
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      color: var(--textcolorlight);
+      font-size: 14px;
+    }
+  }
+
+  .explanation {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--textcolorlight);
+    font-style: italic;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    h3 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: fit-content;
+}
+
+.sidebar {
+  max-width: 350px;
+  height: 100%;
+  padding: 4px;
+  border-right: solid 1px var(--sectionborder);
+}
+
+.categories {
+  display: flex;
+  justify-content: stretch;
+
+  button {
+    width: 0px;
+    flex-grow: 1;
+
+    border: none;
+    background-color: var(--sectionbg);
+    color: inherit;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 600;
+    height: 30px;
+    border-inline: solid 1px var(--sectionborder);
+
+    text-transform: capitalize;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      background-color: var(--blue1mid);
+      border: solid 1px transparent;
+      color: white;
+    }
+  }
+}
