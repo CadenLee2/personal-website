@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import type {
+  SimpleEntry,
   CuisineEntry,
   CuisineMap,
   CuisineFilters,
@@ -107,6 +108,46 @@ function LocationMark(props: {entry: CuisineEntry}) {
   }
 }
 
+function MiniCard(props: { id?: string, title: string, rating: number }) {
+  const { id, title, rating } = props;
+
+  // TODO: refactor into hook
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const navigateToId = (newId: string) => {
+    const s = searchParams;
+    s.set('id', newId);
+    setSearchParams(s);
+  }
+
+  return (
+    <div className="mini-card">
+      <div>
+        {id ? <button onClick={() => navigateToId(id)}>{title}</button> : title}
+      </div>
+      <RatingDisp rating={rating} />
+    </div>
+  );
+}
+
+function MiniList(props: { cuisineData: CuisineMap, flat?: SimpleEntry[], ids?: string[], title: string }) {
+  const { cuisineData, flat, ids, title } = props;
+
+  return (
+    <>
+      <h3>{title}</h3>
+      <div className="mini-list">
+        {flat && flat.map(
+          f => <MiniCard title={f.title} rating={f.rating} />
+        )}
+        {ids && ids.map(
+          i => i in cuisineData && <MiniCard id={i} title={cuisineData[i].title} rating={cuisineData[i].rating} />
+        )}
+      </div>
+    </>
+  );
+}
+
 function Details(props: {cuisineData: CuisineMap, entryId: string}) {
   const { cuisineData, entryId } = props;
 
@@ -133,6 +174,12 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
         {entry.explanation ?? <i>No details provided</i>}
       </div>
       <div className="section-divider"><hr /></div>
+      {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
+        <MiniList title="Groceries" cuisineData={cuisineData} flat={entry.groceriesFlat} ids={entry.groceryIds} />
+      )}
+      {entry.type === 'restaurant' && (entry.dishesFlat || entry.dishIds) && (
+        <MiniList title="Dishes" cuisineData={cuisineData} flat={entry.dishesFlat} ids={entry.dishIds} />
+      )}
       <span className="disclaimer">
         Disclaimer: views expressed are purely the personal opinions of the author
         and should not be taken as advice
@@ -167,6 +214,9 @@ export default function Cuisine() {
   }, [filters, cuisineData]);
 
   // TODO: refactor some JSX
+  // TODO: way to close a details pane
+  // TODO: move the "for the price" rating out of the identifier
+  // TODO: responsive view
 
   const pageTitle = (selectedId && selectedId in cuisineData)
     ? (`${cuisineData[selectedId].title} - Cuisine`)
@@ -181,7 +231,7 @@ export default function Cuisine() {
         <div className="sidebar-header">
           <h1>Cuisine</h1>
           <Marquee duration={30}>
-            See recipes, dishes, groceries, restaurants, and grocery stores, in one place. Only first-hand, authentic reports are included.
+            See recipes, dishes, groceries, restaurants, and grocery stores in one place. You can trust that only first-hand reports are included.
           </Marquee>
         </div>
         <SearchAndFilter filters={filters} setFilters={setFilters} />

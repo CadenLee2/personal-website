@@ -209,3 +209,40 @@
     background-color: #24af7f;
   }
 }
+
+.mini-list {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+.mini-card {
+  border: solid 1px var(--sectionborder);
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  font-size: 14px;
+
+  .chip {
+    font-size: 12px;
+  }
+
+  button {
+    color: inherit;
+    font-size: inherit;
+    height: 17px;
+
+    background-color: transparent;
+    padding: 0px;
+    text-decoration: underline;
+    border: none;
+
+    &:hover {
+      color: var(--textcolorlight);
+      cursor: pointer;
+    }
+  }
+}

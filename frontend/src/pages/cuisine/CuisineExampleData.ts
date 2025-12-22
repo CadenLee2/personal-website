@@ -15,19 +15,36 @@ const EXAMPLE_DATA: CuisineMap = {
     longitude: 33.64564363107272,
     dishIds: ['obrien_potatoes', 'chicken_katsu_curry', 'brandy_burger'],
   },
+  "obrien_potatoes": {
+    type: "dish",
+    title: "O'Brien Potatoes",
+    rating: 2,
+    dateReviewed: "2025/11/10",
+    explanation: "This is a scary dish. They serve it at the dining hall for breakfast each day (see Brandywine), and each day it becomes less edible. Though one does get sustenance, it is a mean sustenance, the kind of thing that makes one long for even the taste of uncooked potatoes."
+  },
   "albertsons": {
     type: 'grocery-store',
     title: "UCI Albertson's",
-    rating: 10,
+    rating: 9,
     dateReviewed: '2025/12/20',
-    explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 Fridays are excellent",
+    explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 Fridays are excellent. Their Asian aisle is a bit concerning.",
     city: 'Irvine',
     mapsLink: "https://maps.app.goo.gl/9cPPQdbKz1w3zDRf6",
     latitude: -117.83132202957539,
     longitude: 33.65008079698865,
-    groceryIds: ['albertsons_chicken', 'waterfront_shrimp', 'scallion_pancakes'],
+    groceryIds: ['waterfront_shrimp'],
+    groceriesFlat: [
+      {
+        title: "Scallion Pancakes",
+        rating: 8
+      },
+      {
+        title: "Bulk Chicken",
+        rating: 6
+      },
+    ]
   },
-  "frozen_shrimp": {
+  "waterfront_shrimp": {
     type: "grocery",
     title: "Waterfront Bistro Frozen Shrimp",
     rating: 9,
