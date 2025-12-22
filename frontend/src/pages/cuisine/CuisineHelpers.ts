@@ -18,7 +18,7 @@ function matchesFilters(entry: CuisineEntry, filters: CuisineFilters) {
   if (filters.keywords) {
     const searchFor = filters.keywords;
     const containsKeywords = Object.values(entry).some(v => (
-      typeof v === 'string' && v.includes(searchFor)
+      typeof v === 'string' && v.toLowerCase().includes(searchFor.toLowerCase())
     ))
     if (!containsKeywords) return false;
   }

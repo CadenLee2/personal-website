@@ -75,7 +75,7 @@ const EXAMPLE_DATA: CuisineMap = {
         rating: 10,
       },
       {
-        title: "Dragon Rol",
+        title: "Dragon Roll",
         rating: 10,
       },
     ]

@@ -53,17 +53,30 @@ function SearchAndFilter(props: {
     })
   }
 
-  const categoryOptions: CuisineCategory[] = ['locations', 'foods', 'all'];
+  const setKeywords = (newKeywords: string) => {
+    setFilters({
+      ...filters,
+      keywords: newKeywords === '' ? undefined : newKeywords
+    })
+  }
+
+  const categoryOptions: CuisineCategory[] = ['all', 'locations', 'foods'];
 
   return (
-    <div>
-      <input placeholder="Search for keywords..." />
+    <div className="filters">
       <div className="categories">
         {categoryOptions.map(option => (
-          <button onClick={() => setCategory(option)} disabled={filters.category === option}>
+          <button key={option} onClick={() => setCategory(option)} disabled={filters.category === option}>
             {option}
           </button>
         ))}
+      </div>
+      <div className="search">
+        <input
+          value={filters.keywords ?? ''}
+          onChange={(e) => setKeywords(e.target.value)}
+          placeholder="Search for keywords..."
+        />
       </div>
     </div>
   );
@@ -73,24 +86,26 @@ export default function Cuisine() {
   const [cuisineData, setCuisineData] = useState<CuisineMap>({});
   const [filtered, setFiltered] = useState<CuisineMap>({});
   const [filters, setFilters] = useState<CuisineFilters>({
-    category: 'locations'
+    category: 'all'
   });
 
   useEffect(() => {
     fetchAllCuisineData().then(res => setCuisineData(res));
-  }, []);
+  }, [setCuisineData]);
 
   useEffect(() => {
     setFiltered(filterCuisine(cuisineData, filters));
-  }, [filters, filtered, cuisineData]);
+  }, [filters, cuisineData]);
 
   return (
     <div className="main">
       <div className="sidebar">
-        <h1>Cuisine</h1>
-        <Marquee duration={30}>
-          See recipes, dishes, groceries, restaurants, and grocery stores, in one place. Only first-hand, authentic reports are included.
-        </Marquee>
+        <div className="sidebar-header">
+          <h1>Cuisine</h1>
+          <Marquee duration={30}>
+            See recipes, dishes, groceries, restaurants, and grocery stores, in one place. Only first-hand, authentic reports are included.
+          </Marquee>
+        </div>
         <SearchAndFilter filters={filters} setFilters={setFilters} />
         <div className="main-list">
           {Object.entries(filtered).map(([key, val]) => <EntryCard key={key} entry={val} />)}
