@@ -20,7 +20,7 @@ const EXAMPLE_DATA: CuisineMap = {
     title: "UCI Albertson's",
     rating: 10,
     dateReviewed: '2025/12/20',
-    explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 fridays are excellent",
+    explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 Fridays are excellent",
     city: 'Irvine',
     mapsLink: "https://maps.app.goo.gl/9cPPQdbKz1w3zDRf6",
     latitude: -117.83132202957539,
