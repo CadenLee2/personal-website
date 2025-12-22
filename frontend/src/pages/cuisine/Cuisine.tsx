@@ -122,10 +122,8 @@ function MiniCard(props: { id?: string, title: string, rating: number }) {
 
   return (
     <div className="mini-card">
-      <div>
-        {id ? <button onClick={() => navigateToId(id)}>{title}</button> : title}
-      </div>
       <RatingDisp rating={rating} />
+      <span>{id ? <button onClick={() => navigateToId(id)}>{title}</button> : title}</span>
     </div>
   );
 }
@@ -137,11 +135,11 @@ function MiniList(props: { cuisineData: CuisineMap, flat?: SimpleEntry[], ids?: 
     <>
       <h3>{title}</h3>
       <div className="mini-list">
-        {flat && flat.map(
-          f => <MiniCard title={f.title} rating={f.rating} />
-        )}
         {ids && ids.map(
-          i => i in cuisineData && <MiniCard id={i} title={cuisineData[i].title} rating={cuisineData[i].rating} />
+          i => i in cuisineData && <MiniCard key={cuisineData[i].title} id={i} title={cuisineData[i].title} rating={cuisineData[i].rating} />
+        )}
+        {flat && flat.map(
+          f => <MiniCard key={f.title} title={f.title} rating={f.rating} />
         )}
       </div>
     </>

@@ -13,7 +13,33 @@ const EXAMPLE_DATA: CuisineMap = {
     mapsLink: "https://maps.app.goo.gl/9cPPQdbKz1w3zDRf6",
     latitude: -117.8390312593668,
     longitude: 33.64564363107272,
-    dishIds: ['obrien_potatoes', 'chicken_katsu_curry', 'brandy_burger'],
+    dishIds: ['obrien_potatoes'],
+    dishesFlat: [
+      {
+        title: "Chicken Katsu Curry",
+        rating: 7
+      },
+      {
+        title: "Chicken Katsu Curry (late night variety)",
+        rating: 3
+      },
+      {
+        title: "Burger",
+        rating: 8
+      },
+      {
+        title: "Crispy Chicken Sandwich",
+        rating: 8
+      },
+      {
+        title: "\"Korean Fried Chicken\"",
+        rating: 3
+      },
+      {
+        title: "California Sushi Rice Bowl",
+        rating: 5
+      }
+    ]
   },
   "obrien_potatoes": {
     type: "dish",
@@ -27,7 +53,7 @@ const EXAMPLE_DATA: CuisineMap = {
     title: "UCI Albertson's",
     rating: 9,
     dateReviewed: '2025/12/20',
-    explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 Fridays are excellent. Their Asian aisle is a bit concerning.",
+    explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 Fridays are excellent. Their Asian aisle is a bit disappointing.",
     city: 'Irvine',
     mapsLink: "https://maps.app.goo.gl/9cPPQdbKz1w3zDRf6",
     latitude: -117.83132202957539,
@@ -40,7 +66,27 @@ const EXAMPLE_DATA: CuisineMap = {
       },
       {
         title: "Bulk Chicken",
+        rating: 7
+      },
+      {
+        title: "Tilapia Fish",
         rating: 6
+      },
+      {
+        title: "Swai Fish",
+        rating: 3
+      },
+      {
+        title: "Pork Miscellaneous Value Pack",
+        rating: 9
+      },
+      {
+        title: "Bok Choy",
+        rating: 10
+      },
+      {
+        title: "Napa Cabbage",
+        rating: 9
       },
     ]
   },
@@ -49,7 +95,7 @@ const EXAMPLE_DATA: CuisineMap = {
     title: "Waterfront Bistro Frozen Shrimp",
     rating: 9,
     dateReviewed: "2025/12/20",
-    explanation: "Get this one when it's on sale.",
+    explanation: "Get this one when it's on sale for $5/lb.",
     priceEfficiencyRating: 10,
   },
   "tokyo_central": {
@@ -62,14 +108,20 @@ const EXAMPLE_DATA: CuisineMap = {
     mapsLink: "https://maps.app.goo.gl/M7JWAKbNCmuTeejB6",
     latitude: 33.87216276093707,
     longitude: -118.3076329780358,
-    groceryIds: ['cororo']
+    groceryIds: ['cororo'],
+    groceriesFlat: [
+      {
+        title: "Hondashi",
+        rating: 10
+      }
+    ]
   },
   "waka_sakura": {
     type: 'restaurant',
     title: "Waka Sakura",
     rating: 9,
     dateReviewed: '2025/12/21',
-    explanation: "A conveyor belt sushi restaurant with great quality, variety, and atmosphere, along with efficient service. UI/UX of the ordering menu app could use improvement, as there were a number of small styling and usability issues (i.e. the arrow buttons were too small and confirmation modals were not up to date).",
+    explanation: "A conveyor belt sushi restaurant with great quality, variety, and atmosphere, along with efficient service. UI/UX of the ordering screen could use improvement, as there were a number of small styling and usability issues (i.e. the arrow buttons were too small and confirmation modals appeared inconsistently).",
     city: 'Gardena',
     mapsLink: "https://maps.app.goo.gl/VDRBgzewYL2hU4kR8",
     latitude: 33.872081435337215,

@@ -221,8 +221,11 @@
 
 .mini-card {
   border: solid 1px var(--sectionborder);
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-radius: 4px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
 
   font-size: 14px;
 
