@@ -181,6 +181,15 @@
     border: solid 1px var(--sectionborder);
     border-radius: 4px;
     padding: 2px 8px;
+
+    &:hover {
+      background-color: var(--pagebg);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: var(--sectionborder);
+    }
   }
 }
 

@@ -11,8 +11,8 @@ const EXAMPLE_DATA: CuisineMap = {
     city: 'Irvine',
     imageUrl: "https://cdn3.emoji.gg/emojis/71338-iphone-skull.png",
     mapsLink: "https://maps.app.goo.gl/9cPPQdbKz1w3zDRf6",
-    latitude: -117.8390312593668,
-    longitude: 33.64564363107272,
+    latitude: 33.64564363107272,
+    longitude: -117.8390312593668,
     dishIds: ['obrien_potatoes'],
     dishesFlat: [
       {
@@ -56,8 +56,8 @@ const EXAMPLE_DATA: CuisineMap = {
     explanation: "Expensive until you get the app (saved ~30% on every purchase since then). $5 Fridays are excellent. Their Asian aisle is a bit disappointing.",
     city: 'Irvine',
     mapsLink: "https://maps.app.goo.gl/9cPPQdbKz1w3zDRf6",
-    latitude: -117.83132202957539,
-    longitude: 33.65008079698865,
+    latitude: 33.65008079698865,
+    longitude: -117.83132202957539,
     groceryIds: ['waterfront_shrimp'],
     groceriesFlat: [
       {
