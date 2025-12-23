@@ -1,6 +1,6 @@
 import './Cuisine.css';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 import { useSearchParams } from 'react-router-dom';
 
@@ -17,6 +17,9 @@ import { fetchAllCuisineData, filterCuisine } from './CuisineHelpers';
 import Marquee from '../../components/Marquee';
 
 import { MdLocationPin } from 'react-icons/md';
+
+import 'leaflet/dist/leaflet.css'
+import { MapContainer, TileLayer } from 'react-leaflet'
 
 function EntryIdentifier(props: {entry: CuisineEntry}) {
   const { entry } = props;
@@ -156,33 +159,54 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
     </div>
   );
 
+  // TODO: escape button functionality on click
+
   return (
-    <div className="details">
-      <div className="header">
-        <h2>{entry.title}</h2>
-        <span title="Date reviewed">{entry.dateReviewed}</span>
+    <div className="details-wrapper" onClick={(e) => e.stopPropagation()}>
+      <button className="escape-hotkey">[ESC]</button>
+      <div className="details">
+        <div className="header">
+          <h2>{entry.title}</h2>
+          <span title="Date reviewed">{entry.dateReviewed}</span>
+        </div>
+        <EntryIdentifier entry={entry} />
+        <div className="misc-info">
+          <RatingDisp rating={entry.rating} />
+          <LocationMark entry={entry} />
+        </div>
+        <div className="section-divider"><hr /></div>
+        <div className="body">
+          {entry.explanation ?? <i>No details provided</i>}
+        </div>
+        <div className="section-divider"><hr /></div>
+        {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
+          <MiniList title="Groceries" cuisineData={cuisineData} flat={entry.groceriesFlat} ids={entry.groceryIds} />
+        )}
+        {entry.type === 'restaurant' && (entry.dishesFlat || entry.dishIds) && (
+          <MiniList title="Dishes" cuisineData={cuisineData} flat={entry.dishesFlat} ids={entry.dishIds} />
+        )}
+        <span className="disclaimer">
+          Disclaimer: views expressed are purely the personal opinions of the author
+          and should not be taken as advice
+        </span>
       </div>
-      <EntryIdentifier entry={entry} />
-      <div className="misc-info">
-        <RatingDisp rating={entry.rating} />
-        <LocationMark entry={entry} />
-      </div>
-      <div className="section-divider"><hr /></div>
-      <div className="body">
-        {entry.explanation ?? <i>No details provided</i>}
-      </div>
-      <div className="section-divider"><hr /></div>
-      {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
-        <MiniList title="Groceries" cuisineData={cuisineData} flat={entry.groceriesFlat} ids={entry.groceryIds} />
-      )}
-      {entry.type === 'restaurant' && (entry.dishesFlat || entry.dishIds) && (
-        <MiniList title="Dishes" cuisineData={cuisineData} flat={entry.dishesFlat} ids={entry.dishIds} />
-      )}
-      <span className="disclaimer">
-        Disclaimer: views expressed are purely the personal opinions of the author
-        and should not be taken as advice
-      </span>
     </div>
+  );
+}
+
+function CuisineMap() {
+  return (
+    <>
+      <MapContainer
+        center={[33.8, -118]} zoom={10} scrollWheelZoom={false}
+        className="map-container"
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+      </MapContainer>
+    </>
   );
 }
 
@@ -197,11 +221,15 @@ export default function Cuisine() {
 
   const selectedId = searchParams.get('id');
 
-  const navigateToId = (newId: string) => {
+  const navigateToId = useCallback((newId: string | undefined) => {
     const s = searchParams;
-    s.set('id', newId);
+    if (newId) {
+      s.set('id', newId);
+    } else {
+      s.delete('id');
+    }
     setSearchParams(s);
-  }
+  }, [setSearchParams, searchParams]);
 
   useEffect(() => {
     fetchAllCuisineData().then(res => setCuisineData(res));
@@ -219,6 +247,20 @@ export default function Cuisine() {
   const pageTitle = (selectedId && selectedId in cuisineData)
     ? (`${cuisineData[selectedId].title} - Cuisine`)
     : "Cuisine";
+
+  useEffect(() => {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        navigateToId(undefined);
+      }
+    }
+
+    window.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    }
+  }, [navigateToId]);
 
   return (
     <div className="main">
@@ -240,11 +282,14 @@ export default function Cuisine() {
         </div>
       </div>
       <div className="right">
-        {selectedId ? <Details cuisineData={cuisineData} entryId={selectedId} /> : (
-          <span>
-            <i>Select an entry to see details</i>
-          </span>
-        )}
+        <CuisineMap />
+        <div className={`right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
+          {selectedId ? <Details cuisineData={cuisineData} entryId={selectedId} /> : (
+            <span>
+              <i>Select an entry to see details</i>
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
