@@ -375,10 +375,11 @@ div.interests-section {
     width: 0px;
     flex-grow: 1;
 
-    .yt-link {
+    .interests-links {
       margin-top: 10px;
 
       a {
+        margin-top: 6px;
         max-width: 100%;
       }
     }

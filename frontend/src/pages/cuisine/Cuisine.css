@@ -1,0 +1,271 @@
+.main {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    color: var(--textcolorlight);
+    font-size: 14px;
+  }
+}
+
+.card {
+  background-color: var(--sectionbg);
+  width: 100%;
+  border-radius: 4px;
+  padding: 4px 8px;
+  border: solid 1px var(--sectionborder);
+
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+
+  .explanation {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--textcolorlight);
+    font-style: italic;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    h3 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  padding-bottom: 24px;
+  padding-top: 0px;
+  overflow: scroll;
+  height: 0;
+  flex-grow: 1;
+}
+
+.sidebar {
+  max-width: 360px;
+  height: 100vh;
+  border-right: solid 1px var(--sectionborder);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  .sidebar-header {
+    padding: 8px;
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        color: inherit;
+        font-size: 16px;
+        width: 24px;
+        background-color: transparent;
+        text-align: right;
+        padding-top: 2px;
+
+        &:hover {
+          cursor: pointer;
+          color: var(--textcolorlight);
+        }
+      }
+    }
+  }
+}
+
+.filters {
+  .categories {
+    display: flex;
+    justify-content: stretch;
+
+    button {
+      width: 0px;
+      flex-grow: 1;
+
+      border: none;
+      background-color: var(--sectionbg);
+      color: inherit;
+      font-size: 14px;
+      font-family: inherit;
+      font-weight: 600;
+      height: 30px;
+      border-inline: solid 1px var(--sectionborder);
+
+      text-transform: capitalize;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:disabled {
+        background-color: var(--blue1mid);
+        border: solid 1px transparent;
+        color: white;
+      }
+    }
+  }
+
+  .search {
+    padding: 8px;
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: solid 1px var(--sectionborder);
+      border-radius: 4px;
+      padding: 4px 8px;
+
+      font-family: inherit;
+      color: inherit;
+      font-size: 14px;
+
+      &:focus, &:focus-visible {
+        outline: solid 3px var(--focus-blue);
+      }
+    }
+  }
+}
+
+.right {
+  width: 0px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.right-over {
+  position: absolute;
+
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background-color: transparent;
+
+  transition: background-color 0.1s;
+
+  /* To go above the leaflet map and its UI */
+  z-index: 1001;
+}
+
+.right-over.selected {
+  pointer-events: all;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.map-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.chip {
+  color: var(--sectionbg);
+  width: fit-content;
+  padding: 0px 4px;
+  font-size: 14px;
+  border-radius: 4px;
+
+  &.r0, &.r1, &.r2, &.r3, &.r4, &.r5 {
+    background-color: #8e001c;
+  }
+
+  &.r6 {
+    background-color: #d17834;
+  }
+
+  &.r7 {
+    background-color: #d19f34;
+  }
+
+  &.r8 {
+    background-color: #b8c435;
+  }
+
+  &.r9 {
+    background-color: #8cb52f;
+  }
+
+  &.r10 {
+    background-color: #24af7f;
+  }
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+  }
+
+  .right-over.selected {
+    align-items: flex-end;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .mobile-map {
+    flex-grow: 1;
+
+    .map-container {
+      height: 100%;
+    }
+  }
+}
+
+.screen-selector {
+  width: 100%;
+
+  display: flex;
+
+  button {
+    color: inherit;
+    background-color: var(--sectionbg);
+    border: none;
+    flex-grow: 1;
+    height: 44px;
+    font-size: 22px;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--textcolorlight);
+    }
+
+    &:disabled {
+      cursor: auto;
+      color: var(--blue1mid);
+      border-bottom: solid 3px var(--blue1mid);
+      padding-top: 4px;
+    }
+  }
+}
