@@ -22,6 +22,8 @@ import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet'
 import type { LeafletKeyboardEventHandlerFn } from 'leaflet';
 
+import { useIsMobile } from '../../hooks';
+
 function useIdNav() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -299,6 +301,8 @@ export default function Cuisine() {
     }
   }, [navigateToId]);
 
+  const isMobile = useIsMobile();
+
   return (
     <div className="main">
       <title>{pageTitle}</title>
@@ -318,12 +322,19 @@ export default function Cuisine() {
           ))}
         </div>
       </div>
-      <div className="right">
-        <CuisineMap cuisineData={filtered} />
+      {!isMobile && (
+        <div className="right">
+          <CuisineMap cuisineData={filtered} />
+          <div className={`right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
+            {selectedId && <Details cuisineData={cuisineData} entryId={selectedId} />}
+          </div>
+        </div>
+      )}
+      {isMobile && (
         <div className={`right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
           {selectedId && <Details cuisineData={cuisineData} entryId={selectedId} />}
         </div>
-      </div>
+      )}
     </div>
   );
 }
