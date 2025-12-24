@@ -60,3 +60,25 @@ export type CuisineFilters = {
   keywords?: string;
   category: CuisineCategory;
 };
+
+// Example entry using the cuisine type
+/*
+  "tokyo_central": {
+    type: 'grocery-store',
+    title: "Tokyo Central",
+    rating: 10,
+    dateReviewed: '2025/12/21',
+    explanation: "Excellent selection and pricing, especially their fresh seafood and meat; the only problem is that you'll want to purchase everything. Sushi restaurant upstairs is also great.",
+    city: 'Gardena',
+    mapsLink: "https://maps.app.goo.gl/M7JWAKbNCmuTeejB6",
+    latitude: 33.87216276093707,
+    longitude: -118.3076329780358,
+    groceryIds: ['cororo'],
+    groceriesFlat: [
+      {
+        title: "Hondashi",
+        rating: 10
+      }
+    ]
+  }
+*/

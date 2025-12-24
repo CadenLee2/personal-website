@@ -1,13 +1,12 @@
 import type { CuisineMap, CuisineEntry, CuisineFilters } from './CuisineTypes';
-import EXAMPLE_DATA from './CuisineExampleData';
+
+const CUISINE_URL = "https://cuisine-production.up.railway.app/data?key=cuisine";
 
 export async function fetchAllCuisineData(): Promise<CuisineMap> {
-  // TODO: replace with actual data
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(EXAMPLE_DATA);
-    }, 200);
-  });
+  const res = await fetch(CUISINE_URL, { method: "GET" });
+  const text = await res.text();
+  const parsed = JSON.parse(text) as CuisineMap;
+  return parsed;
 }
 
 function isLocation(entry: CuisineEntry) {
