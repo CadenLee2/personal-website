@@ -344,4 +344,43 @@
       right: 6px;
     }
   }
+
+  .hidden {
+    display: none;
+  }
+
+  .mobile-map {
+    flex-grow: 1;
+
+    .map-container {
+      height: 100%;
+    }
+  }
+}
+
+.screen-selector {
+  width: 100%;
+
+  display: flex;
+
+  button {
+    color: inherit;
+    background-color: var(--sectionbg);
+    border: none;
+    flex-grow: 1;
+    height: 44px;
+    font-size: 22px;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--textcolorlight);
+    }
+
+    &:disabled {
+      cursor: auto;
+      color: var(--blue1mid);
+      border-bottom: solid 3px var(--blue1mid);
+      padding-top: 4px;
+    }
+  }
 }

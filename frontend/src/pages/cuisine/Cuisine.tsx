@@ -16,7 +16,7 @@ import { fetchAllCuisineData, filterCuisine } from './CuisineHelpers';
 
 import Marquee from '../../components/Marquee';
 
-import { MdLocationPin } from 'react-icons/md';
+import { MdLocationPin, MdMap, MdSearch } from 'react-icons/md';
 
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet'
@@ -262,12 +262,39 @@ function CuisineMap(props: { cuisineData: CuisineMap }) {
   );
 }
 
+type MobileScreen = 'list' | 'map';
+
+function ScreenSelector(props: { screen: MobileScreen, setScreen: (s: MobileScreen) => void}) {
+  const { screen, setScreen } = props;
+
+  return (
+    <div className="screen-selector">
+      <button disabled={screen === 'list'} onClick={() => setScreen('list')}>
+        <MdSearch />
+      </button>
+      <button disabled={screen === 'map'} onClick={() => setScreen('map')}>
+        <MdMap />
+      </button>
+    </div>
+  );
+}
+
 export default function Cuisine() {
   const [cuisineData, setCuisineData] = useState<CuisineMap>({});
   const [filtered, setFiltered] = useState<CuisineMap>({});
   const [filters, setFilters] = useState<CuisineFilters>({
     category: 'all'
   });
+
+  const isMobile = useIsMobile();
+
+  const [mobileScreen, setMobileScreen] = useState<MobileScreen>('list');
+  const [seenMap, setSeenMap] = useState(false);
+
+  // Avoid Leaflet issues with size not updating properly
+  useEffect(() => {
+    if (mobileScreen === 'map') setSeenMap(true);
+  }, [mobileScreen, setSeenMap]);
 
   const { selectedId, navigateToId } = useIdNav();
 
@@ -281,7 +308,6 @@ export default function Cuisine() {
 
   // TODO: refactor some JSX
   // TODO: move the "for the price" rating out of the identifier
-  // TODO: responsive view
 
   const pageTitle = (selectedId && selectedId in cuisineData)
     ? (`${cuisineData[selectedId].title} - Cuisine`)
@@ -301,8 +327,6 @@ export default function Cuisine() {
     }
   }, [navigateToId]);
 
-  const isMobile = useIsMobile();
-
   return (
     <div className="main">
       <title>{pageTitle}</title>
@@ -315,12 +339,22 @@ export default function Cuisine() {
             See recipes, dishes, groceries, restaurants, and grocery stores in one place. You can trust that only first-hand reports are included.
           </Marquee>
         </div>
-        <SearchAndFilter filters={filters} setFilters={setFilters} />
-        <div className="main-list">
-          {Object.entries(filtered).map(([key, val]) => (
-            <EntryCard key={key} entry={val} onClick={() => navigateToId(key)} />
-          ))}
-        </div>
+        {(!isMobile || mobileScreen === 'list') && (
+          <>
+            <SearchAndFilter filters={filters} setFilters={setFilters} />
+            <div className="main-list">
+              {Object.entries(filtered).map(([key, val]) => (
+                <EntryCard key={key} entry={val} onClick={() => navigateToId(key)} />
+              ))}
+            </div>
+          </>
+        )}
+        {isMobile && seenMap && (
+          <div className={mobileScreen === 'map' ? 'mobile-map' : 'hidden'}>
+            <CuisineMap cuisineData={filtered} />
+          </div>
+        )}
+        {isMobile && <ScreenSelector screen={mobileScreen} setScreen={setMobileScreen} />}
       </div>
       {!isMobile && (
         <div className="right">
