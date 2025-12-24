@@ -16,7 +16,7 @@ function Blog() {
       <div className="section">
         <h2>Blog</h2>
         I started this blog in Summer 2025 to share my ideas on software, life, and the world. All my articles will show up here (once I write them).
-        <div>
+        <div className="gapcol">
           {blogIndex.map((blogItem) => (
             <BlogListItem key={blogItem.meta.href} metadata={blogItem.meta} />
           ))}

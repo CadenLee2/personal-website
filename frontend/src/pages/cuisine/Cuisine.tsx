@@ -16,10 +16,12 @@ import DetailsOverlay from './DetailsOverlay';
 import { EntryIdentifier, RatingDisp } from './shared';
 import Marquee from '../../components/Marquee';
 
-import { MdMap, MdSearch } from 'react-icons/md';
+import { MdMap, MdSearch, MdInfoOutline } from 'react-icons/md';
 
 import { useIsMobile } from '../../hooks';
 import { useIdNav } from './hooks';
+
+import { NavLink } from 'react-router-dom';
 
 function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
   const { entry, onClick } = props;
@@ -151,7 +153,12 @@ export default function Cuisine() {
       <meta name="description" content="Food ratings" />
       <div className="sidebar">
         <div className="sidebar-header">
-          <h1>Cuisine</h1>
+          <div className="top-header">
+            <h1>Cuisine</h1>
+            <NavLink to="/blog/building_for_yourself">
+              <MdInfoOutline />
+            </NavLink>
+          </div>
           <Marquee duration={30}>
             See recipes, dishes, groceries, restaurants, and grocery stores in one place. You can trust that only first-hand reports are included.
           </Marquee>

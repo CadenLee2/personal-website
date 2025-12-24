@@ -29,7 +29,7 @@ import SocketioOriginal from 'devicons-react/icons/SocketioOriginal';
 import CplusplusPlain from 'devicons-react/icons/CplusplusPlain';
 import OpenglPlain from 'devicons-react/icons/OpenglPlain';
 
-import { MdArrowOutward, MdArrowForward, MdMoreHoriz, MdPlayArrow, MdMusicNote } from 'react-icons/md';
+import { MdArrowOutward, MdArrowForward, MdMoreHoriz, MdPlayArrow, MdMusicNote, MdRestaurant } from 'react-icons/md';
 
 import BombayBoat from '../assets/images/BombayBoat.jpg';
 import HermosaPier from '../assets/images/HermosaPier.jpg';
@@ -301,10 +301,14 @@ function Home() {
           <div className="music-descr">
             <span>In my free time, I make trance, synthwave, and other electronic music. I also enjoy photography, science fiction books, and cooking.</span>
             <br />
-            <div className="yt-link">
+            <div className="interests-links">
               <LinkButton variant="gray-mid" href="https://www.youtube.com/playlist?list=PLbN2H2xs0W6tlWWImF9bK6xp-U0PCpN7a&si=za9rSy9WBiHHEivw">
                 <MdMusicNote />
                 Listen on YouTube
+              </LinkButton>
+              <LinkButton variant="gray-mid" href="/cuisine">
+                <MdRestaurant />
+                See my favorite foods
               </LinkButton>
             </div>
           </div>
