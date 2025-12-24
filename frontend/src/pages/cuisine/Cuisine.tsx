@@ -124,7 +124,8 @@ export default function Cuisine() {
     setFiltered(filterCuisine(cuisineData, filters));
   }, [filters, cuisineData]);
 
-  // TODO: move the "for the price" rating out of the identifier
+  // TODO: simple loading spinner
+  // TODO: "copy link" option?
 
   useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {

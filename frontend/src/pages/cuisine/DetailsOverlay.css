@@ -1,0 +1,135 @@
+.details {
+  border: solid 1px var(--sectionborder);
+  background-color: var(--sectionbg);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: scroll;
+
+  height: 100%;
+  width: 100%;
+
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+
+  .section-divider {
+    padding-block: 6px;
+    hr {
+      border: solid 1px var(--sectionborder);
+    }
+  }
+
+  .misc-info {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    gap: 6px;
+
+    a {
+      font-size: 18px;
+      height: 18px;
+      color: inherit;
+
+      &:hover {
+        color: var(--textcolorlight);
+      }
+    }
+  }
+
+  .disclaimer {
+    font-style: italic;
+    margin-top: auto;
+    color: var(--textcolorlight);
+    font-size: 14px;
+  }
+}
+
+.mini-list {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+.mini-card {
+  border: solid 1px var(--sectionborder);
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  font-size: 14px;
+
+  .chip {
+    font-size: 12px;
+  }
+
+  button {
+    color: inherit;
+    font-size: inherit;
+    height: 17px;
+
+    background-color: transparent;
+    padding: 0px;
+    text-decoration: underline;
+    border: none;
+    text-align: left;
+
+    &:hover {
+      color: var(--textcolorlight);
+      cursor: pointer;
+    }
+  }
+}
+
+.details-wrapper {
+  width: 80%;
+  max-width: 600px;
+  height: 80%;
+  position: relative;
+
+  button.escape-hotkey {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    font-family: inherit;
+    font-size: 12px;
+    color: inherit;
+    background-color: var(--sectionbg);
+    border: solid 1px var(--sectionborder);
+    border-radius: 4px;
+    padding: 2px 8px;
+
+    &:hover {
+      background-color: var(--pagebg);
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: var(--sectionborder);
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .details-wrapper {
+    width: 100%;
+    max-height: 90vh;
+    height: fit-content;
+
+    .details {
+      border-inline: none;
+      border-bottom: none;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    button.escape-hotkey {
+      right: 6px;
+    }
+  }
+}

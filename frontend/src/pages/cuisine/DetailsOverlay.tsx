@@ -1,3 +1,6 @@
+import './Cuisine.css';
+import './DetailsOverlay.css';
+
 import type { CuisineMap, CuisineEntry, SimpleEntry } from './CuisineTypes';
 import { useIdNav } from './hooks';
 import { EntryIdentifier, RatingDisp } from './shared';
@@ -9,7 +12,7 @@ function LocationMark(props: {entry: CuisineEntry}) {
   if (entry.type === 'grocery-store' || entry.type === 'restaurant') {
     if (entry.mapsLink) {
       return (
-        <a title="View on maps" href={entry.mapsLink}><MdLocationPin /></a>
+        <a target="_blank" title="View on maps" href={entry.mapsLink}><MdLocationPin /></a>
       );
     }
   } else {
@@ -53,16 +56,20 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
 
   const { navigateToId } = useIdNav();
 
-  const entry = entryId in cuisineData ? cuisineData[entryId] : null;
-  if (!entry) return (
-    <div className="details">
-      <i>Loading...</i>
-    </div>
-  );
-
   const escape = () => {
     navigateToId(undefined);
   }
+
+  const entry = entryId in cuisineData ? cuisineData[entryId] : null;
+
+  if (!entry) return (
+    <div className="details-wrapper" onClick={(e) => e.stopPropagation()}>
+      <button onClick={escape} className="escape-hotkey">[ESC]</button>
+      <div className="details">
+        <i>Loading...</i>
+      </div>
+    </div>
+  );
 
   return (
     <div className="details-wrapper" onClick={(e) => e.stopPropagation()}>
@@ -76,9 +83,16 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
         <div className="misc-info">
           <RatingDisp rating={entry.rating} />
           <LocationMark entry={entry} />
+          {entry.type === 'grocery' && (
+            <>
+              <span>(For the price:</span>
+              <RatingDisp rating={entry.priceEfficiencyRating} />
+              <span>)</span>
+            </>
+          )}
         </div>
         <div className="section-divider"><hr /></div>
-        <div className="body">
+        <div>
           {entry.explanation ?? <i>No details provided</i>}
         </div>
         <div className="section-divider"><hr /></div>
