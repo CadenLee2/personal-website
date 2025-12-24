@@ -10,6 +10,7 @@ import { useIdNav } from './hooks';
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet'
 import type { LeafletKeyboardEventHandlerFn } from 'leaflet';
+import { divIcon } from 'leaflet';
 
 function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
   const { id, entry } = props;
@@ -26,10 +27,23 @@ function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
     }
   }
 
+  const numericRating = parseInt('' + entry.rating);
+
+  const icon = divIcon({
+    html: `<div class="r${numericRating}">${numericRating}/10</div>`,
+    iconSize: [44, 44],
+    iconAnchor: [22, 22],
+    className: `map-icon`
+  });
+
   if ('latitude' in entry && 'longitude' in entry && entry['latitude'] && entry['longitude']) {
     return (
-      <Marker eventHandlers={{ click: handleClick, keydown: handleKeydown }} position={[entry.latitude, entry.longitude]}>;
-        <Tooltip direction="top" offset={[-15, 0]}>
+      <Marker
+        eventHandlers={{ click: handleClick, keydown: handleKeydown }}
+        position={[entry.latitude, entry.longitude]}
+        icon={icon}
+      >;
+        <Tooltip direction="top" offset={[0, -11]}>
           {entry.title}
         </Tooltip>
       </Marker>

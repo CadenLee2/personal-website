@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
 
@@ -63,7 +63,7 @@
 
 .sidebar {
   max-width: 360px;
-  height: 100vh;
+  height: 100%;
   border-right: solid 1px var(--sectionborder);
   overflow: hidden;
 
@@ -183,7 +183,18 @@
 
 .map-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+}
+
+.map-icon {
+  > div {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 11px;
+  }
 }
 
 .chip {
@@ -192,30 +203,30 @@
   padding: 0px 4px;
   font-size: 14px;
   border-radius: 4px;
+}
 
-  &.r0, &.r1, &.r2, &.r3, &.r4, &.r5 {
-    background-color: #8e001c;
-  }
+.r0, .r1, .r2, .r3, .r4, .r5 {
+  background-color: #8e001c;
+}
 
-  &.r6 {
-    background-color: #d17834;
-  }
+.r6 {
+  background-color: #d17834;
+}
 
-  &.r7 {
-    background-color: #d19f34;
-  }
+.r7 {
+  background-color: #d19f34;
+}
 
-  &.r8 {
-    background-color: #b8c435;
-  }
+.r8 {
+  background-color: #b8c435;
+}
 
-  &.r9 {
-    background-color: #8cb52f;
-  }
+.r9 {
+  background-color: #8cb52f;
+}
 
-  &.r10 {
-    background-color: #24af7f;
-  }
+.r10 {
+  background-color: #24af7f;
 }
 
 /* Mobile */
@@ -236,10 +247,6 @@
 
   .mobile-map {
     flex-grow: 1;
-
-    .map-container {
-      height: 100%;
-    }
   }
 }
 
