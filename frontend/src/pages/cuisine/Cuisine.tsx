@@ -204,7 +204,7 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
         )}
         <span className="disclaimer">
           Disclaimer: views expressed are purely the personal opinions of the author
-          and should not be taken as advice
+          and should not be taken as advice. The author is not affiliated with any listed establishments.
         </span>
       </div>
     </div>
@@ -245,7 +245,9 @@ function CuisineMap(props: { cuisineData: CuisineMap }) {
   return (
     <>
       <MapContainer
-        center={[33.8, -118]} zoom={10} scrollWheelZoom={false}
+        center={[33.8, -118]}
+        zoom={10}
+        scrollWheelZoom={true}
         className="map-container"
       >
         {Object.entries(cuisineData).map(([key, val]) => <CuisineMarker id={key} key={key} entry={val} />)}
@@ -276,7 +278,6 @@ export default function Cuisine() {
   }, [filters, cuisineData]);
 
   // TODO: refactor some JSX
-  // TODO: way to close a details pane
   // TODO: move the "for the price" rating out of the identifier
   // TODO: responsive view
 
@@ -320,11 +321,7 @@ export default function Cuisine() {
       <div className="right">
         <CuisineMap cuisineData={filtered} />
         <div className={`right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
-          {selectedId ? <Details cuisineData={cuisineData} entryId={selectedId} /> : (
-            <span>
-              <i>Select an entry to see details</i>
-            </span>
-          )}
+          {selectedId && <Details cuisineData={cuisineData} entryId={selectedId} />}
         </div>
       </div>
     </div>
