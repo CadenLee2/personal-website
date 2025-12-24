@@ -187,12 +187,14 @@
 }
 
 .map-icon {
-  background-color: var(--blue1mid);
-  color: white;
-  text-align: center;
-  font-size: 12px;
-  border-radius: 4px;
-  font-weight: 600;
+  > div {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 11px;
+  }
 }
 
 .chip {

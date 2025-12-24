@@ -27,11 +27,13 @@ function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
     }
   }
 
+  const numericRating = parseInt('' + entry.rating);
+
   const icon = divIcon({
-    html: `<div>${entry.rating}/10</div>`,
-    iconSize: [36, 20],
-    iconAnchor: [18, 0],
-    className: `map-icon r${entry.rating}`
+    html: `<div class="r${numericRating}">${numericRating}/10</div>`,
+    iconSize: [44, 44],
+    iconAnchor: [22, 22],
+    className: `map-icon`
   });
 
   if ('latitude' in entry && 'longitude' in entry && entry['latitude'] && entry['longitude']) {
@@ -41,7 +43,7 @@ function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
         position={[entry.latitude, entry.longitude]}
         icon={icon}
       >;
-        <Tooltip direction="top" offset={[0, 0]}>
+        <Tooltip direction="top" offset={[0, -11]}>
           {entry.title}
         </Tooltip>
       </Marker>
