@@ -14,15 +14,20 @@
 
   h2 {
     color: var(--sectionbg);
+    text-align: center;
+    padding-inline: 50px;
   }
 
   span {
     color: var(--sectionbgmid);
   }
 
-  .blog-icon-back, .blog-icon-share {
+  --blog-icon-pad-inline: 12px;
+  --blog-icon-pad-block: 10px;
+
+  .blog-icon-back, .blog-icon-share, .blog-icon-rss {
     position: absolute;
-    top: 14px;
+    top: var(--blog-icon-pad-block);
 
     background-color: transparent;
     border: none;
@@ -51,24 +56,16 @@
   }
 
   .blog-icon-back {
-    left: 16px;
+    left: var(--blog-icon-pad-inline);
   }
 
   .blog-icon-share {
-    right: 16px;
+    right: var(--blog-icon-pad-inline);
   }
 
-  .copied-check {
-    display: inline;
-    font-size: 14px;
-    position: relative;
-    top: 10px;
-    right: 12px;
-    text-align: right;
-    width: fit-content;
-
-    svg {
-      font-size: 18px;
-    }
+  .blog-icon-rss {
+    right: var(--blog-icon-pad-inline);
+    top: unset;
+    bottom: var(--blog-icon-pad-block);
   }
 }

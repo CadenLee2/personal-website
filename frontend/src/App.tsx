@@ -14,7 +14,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Cuisine from './pages/cuisine/Cuisine';
 
-import { blogIndex } from './blogIndex';
+import { blogIds, blogPages } from './blogIndex';
 
 // TODO: lazy load blog routes?
 
@@ -27,13 +27,12 @@ const router = createBrowserRouter(
       <Route path="/blog" element={<Blog />} errorElement={<Error />} />
       <Route path="/cuisine" element={<Cuisine />} errorElement={<Error />} />
       {
-        blogIndex.map((blogItem) => (
-          <Route
-            key={`blog-${blogItem.meta.href}`}
-            path={`/blog/${blogItem.meta.href}`}
-            element={blogItem.page()}
-            errorElement={<Error />} />
-        ))
+        blogIds.map((id) => <Route
+          key={`blog-${id}`}
+          path={`/blog/${id}`}
+          element={blogPages[id]()}
+          errorElement={<Error />} />
+        )
       }
     </>
   )

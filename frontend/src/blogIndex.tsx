@@ -1,17 +1,15 @@
-import type { BlogData } from './types';
-import blogMetadata from './blogMetadata';
+import type { ReactNode } from 'react';
 
 // Blog page imports
 import DefenseOfDigital from './pages/blog/DefenseOfDigital';
 import BuildingForYourself from './pages/blog/BuildingForYourself';
 
-export const blogIndex: BlogData[] = [
-  {
-    meta: blogMetadata['building_for_yourself'],
-    page: BuildingForYourself
-  },
-  {
-    meta: blogMetadata['defense_of_digital'],
-    page: DefenseOfDigital
-  }
+export const blogPages: Record<string, () => ReactNode> = {
+  "building_for_yourself": BuildingForYourself,
+  "defense_of_digital": DefenseOfDigital,
+};
+
+export const blogIds = [
+  "building_for_yourself",
+  "defense_of_digital",
 ];
