@@ -28,7 +28,7 @@ function generateRSS() {
           guid: fullBlogLink(id),
           description: meta.descr,
           pubDate: toPubDate(meta.date),
-          author: 'Caden Lee'
+          category: meta.categories,
         }))
       }
     }
