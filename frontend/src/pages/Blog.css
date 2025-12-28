@@ -1,0 +1,21 @@
+.blog {
+  position: relative;
+}
+
+.rss {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: 12px;
+  top: 12px;
+
+  color: var(--textcolor);
+
+  &:hover {
+    color: var(--textcolorlight);
+  }
+}

@@ -1,7 +1,7 @@
 import './BlogHeaderBox.css';
 import blogMetadata from '../blogMetadata';
 import blogImages from '../blogImages';
-import { MdLink, MdArrowBack, MdCheck } from 'react-icons/md';
+import { MdLink, MdArrowBack, MdCheck, MdRssFeed } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -29,9 +29,16 @@ function BlogHeaderBox(props: { postId: string }) {
         <NavLink className="blog-icon-back" to="/blog">
           <MdArrowBack />
         </NavLink>
-        <button onClick={copyLink} title="Copy link" className="blog-icon-share">
-          {copiedLink ? <span className="copied-check"><MdCheck /> Copied</span> : <MdLink />}
+        <button
+          className="blog-icon-share"
+          onClick={copyLink}
+          title={copiedLink ? "Link copied" : "Copy link"}
+        >
+          {copiedLink ? <MdCheck /> : <MdLink />}
         </button>
+        <a className="blog-icon-rss" href="/rss.xml" title="RSS Feed">
+          <MdRssFeed />
+        </a>
       </div>
     </>
   );
