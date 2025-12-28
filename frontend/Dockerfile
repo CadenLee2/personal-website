@@ -12,6 +12,9 @@ RUN npm ci
 # Copy local code to the container
 COPY . ./
 
+# Generate RSS feed
+RUN npm run --silent gen-rss > ./public/rss.xml
+# Build
 RUN npm run build
 
 # Use the Caddy image
