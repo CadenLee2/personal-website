@@ -22,12 +22,12 @@ function Post() {
         </div>
         <p>
           When planning the project structure, I had a few requirements in mind:
-          <ul>
-            <li>I can update my food ratings without pushing code changes</li>
-            <li>I can send my friends a link to a specific restaurant once I've rated it</li>
-            <li>The page works naturally on mobile</li>
-          </ul>
         </p>
+        <ul>
+          <li>I can update my food ratings without pushing code changes</li>
+          <li>I can send my friends a link to a specific restaurant once I've rated it</li>
+          <li>The page works naturally on mobile</li>
+        </ul>
         <p>
           Since I need to update the data occasionally from my computer,
           the frontend fetches the data from a basic key-value store

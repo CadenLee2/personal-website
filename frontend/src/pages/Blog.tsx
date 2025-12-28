@@ -1,9 +1,9 @@
-import '../App.css'
+import '../App.css';
 import PageFrame from '../components/PageFrame';
 
 import BlogListItem from '../components/BlogListItem';
 
-import { blogIndex } from '../blogIndex';
+import { blogIds } from '../blogIndex';
 
 function Blog() {
   return (
@@ -17,9 +17,7 @@ function Blog() {
         <h2>Blog</h2>
         I started this blog in Summer 2025 to share my ideas on software, life, and the world. All my articles will show up here (once I write them).
         <div className="gapcol">
-          {blogIndex.map((blogItem) => (
-            <BlogListItem key={blogItem.meta.href} metadata={blogItem.meta} />
-          ))}
+          {blogIds.map((id) => <BlogListItem key={id} postId={id} />)}
         </div>
       </div>
     </PageFrame>
