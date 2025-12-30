@@ -24,15 +24,38 @@
     align-items: center;
     margin-top: 4px;
     gap: 6px;
+    min-height: 22px;
+    flex-wrap: wrap;
 
-    a {
+    svg, .map-icon {
       font-size: 18px;
       height: 18px;
+    }
+
+    a {
       color: inherit;
 
       &:hover {
         color: var(--textcolorlight);
       }
+    }
+  }
+
+  .subspan {
+    font-size: 14px;
+  }
+
+  .tried-with {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .friend:not(:last-child)::after {
+      content: ", "
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 

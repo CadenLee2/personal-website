@@ -1,18 +1,20 @@
 import './Cuisine.css';
 import './DetailsOverlay.css';
 
-import type { CuisineMap, CuisineEntry, SimpleEntry } from './CuisineTypes';
+import type { CuisineMap, CuisineEntry, SimpleEntry, Friend } from './CuisineTypes';
 import { useIdNav } from './hooks';
 import { EntryIdentifier, RatingDisp } from './shared';
 
-import { MdLocationPin } from 'react-icons/md';
+import { MdLocationPin, MdPeopleAlt } from 'react-icons/md';
 
 function LocationMark(props: {entry: CuisineEntry}) {
   const { entry } = props;
   if (entry.type === 'grocery-store' || entry.type === 'restaurant') {
     if (entry.mapsLink) {
       return (
-        <a target="_blank" title="View on maps" href={entry.mapsLink}><MdLocationPin /></a>
+        <a target="_blank" title="View on maps" href={entry.mapsLink} className="map-icon">
+          <MdLocationPin />
+        </a>
       );
     }
   } else {
@@ -51,6 +53,24 @@ function MiniList(props: { cuisineData: CuisineMap, flat?: SimpleEntry[], ids?: 
   );
 }
 
+function TriedWith(props: {friends: Friend[]}) {
+  const { friends } = props;
+
+  return (
+    <span className="tried-with subspan">
+      <MdPeopleAlt />
+      <span>
+        Tried with:
+      </span>
+      {friends.map(friend => friend.siteUrl ? (
+        <a className="friend" href={friend.siteUrl}>{friend.name}</a>
+      ) : (
+        <span className="friend">{friend.name}</span>
+      ))}
+    </span>
+  );
+}
+
 function Details(props: {cuisineData: CuisineMap, entryId: string}) {
   const { cuisineData, entryId } = props;
 
@@ -85,11 +105,12 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
           <LocationMark entry={entry} />
           {entry.type === 'grocery' && (
             <>
-              <span>(For the price:</span>
+              <span className="subspan">(For the price:</span>
               <RatingDisp rating={entry.priceEfficiencyRating} />
-              <span>)</span>
+              <span className="subspan">)</span>
             </>
           )}
+          {entry.triedWith && <TriedWith friends={entry.triedWith} />}
         </div>
         <div className="section-divider"><hr /></div>
         <div>
