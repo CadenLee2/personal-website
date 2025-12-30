@@ -1,6 +1,6 @@
 export type Friend = {
   name: string;
-  siteUrl: string;
+  siteUrl?: string;
 }
 
 export type Dish = {
