@@ -37,7 +37,7 @@ function TopBar(props: { pageName?: PageName }) {
 function Footer() {
   return (
     <div className="section">
-      <span>© 2025 Caden Lee</span>
+      <span>© 2025-26 Caden Lee</span>
       <span className="small-text">
         Image credits: most images taken by me. For specific technology product icons, all their names, logos, and brands are property of their respective owners and are used here for identification purposes only.
       </span>
