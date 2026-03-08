@@ -63,7 +63,7 @@ function TriedWith(props: {friends: Friend[]}) {
         Tried with:
       </span>
       {friends.map(friend => friend.siteUrl ? (
-        <a className="friend" href={friend.siteUrl}>{friend.name}</a>
+        <a className="friend" target="_blank" href={friend.siteUrl}>{friend.name}</a>
       ) : (
         <span className="friend">{friend.name}</span>
       ))}

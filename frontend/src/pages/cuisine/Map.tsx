@@ -8,9 +8,10 @@ import type {
 import { useIdNav } from './hooks';
 
 import 'leaflet/dist/leaflet.css'
-import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet'
 import type { LeafletKeyboardEventHandlerFn } from 'leaflet';
 import { divIcon } from 'leaflet';
+import { useEffect } from 'react';
 
 function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
   const { id, entry } = props;
@@ -53,8 +54,24 @@ function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
   }
 }
 
-export default function CuisineMapContainer(props: { cuisineData: CuisineMap }) {
-  const { cuisineData } = props;
+function AutoRecenter(props: { latitude: number, longitude: number }) {
+  const leafletMap = useMap();
+
+  useEffect(() => {
+    leafletMap.panTo([props.latitude, props.longitude])
+  }, [props.latitude, props.longitude, leafletMap]);
+
+  return null;
+}
+
+export default function CuisineMapContainer(props: {
+  cuisineData: CuisineMap,
+  selected: CuisineEntry | null
+}) {
+  const { cuisineData, selected } = props;
+
+  const targets = (selected && 'latitude' in selected && 'longitude' in selected && selected['latitude'] && selected['longitude'])
+    ? [selected.latitude, selected.longitude] : null;
 
   return (
     <>
@@ -70,6 +87,7 @@ export default function CuisineMapContainer(props: { cuisineData: CuisineMap }) 
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        {targets && <AutoRecenter latitude={targets[0]} longitude={targets[1]} />}
       </MapContainer>
     </>
   );
