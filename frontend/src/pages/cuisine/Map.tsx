@@ -63,6 +63,7 @@ export default function CuisineMapContainer(props: { cuisineData: CuisineMap }) 
         zoom={10}
         scrollWheelZoom={true}
         className="map-container"
+        worldCopyJump={true}
       >
         {Object.entries(cuisineData).map(([key, val]) => <CuisineMarker id={key} key={key} entry={val} />)}
         <TileLayer
