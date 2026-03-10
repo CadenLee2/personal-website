@@ -144,7 +144,7 @@ function Post() {
         <h3>As a lead</h3>
         <ul>
           <li>
-            Lead by example. No one's done this better than my incredible PeterPortal predecesor and co-lead <a href="https://awesome-e.dev/experience/ics-student-council.html">Ethan</a>.
+            Lead by example. No one's done this better than my incredible PeterPortal predecessor and co-lead <a href="https://awesome-e.dev/experience/ics-student-council.html">Ethan</a>.
           </li>
           <li>
             Build community (see "get to know your teammates" above). When done naturally and genuinely, things like team socials and a strong team culture really can make a difference.
