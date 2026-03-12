@@ -15,13 +15,13 @@ function Post() {
           When you walk into a library or bookstore, the room around you is quiet, the shelves unmoving. Out of the entire shelf, you flip through one book at a time; perhaps you choose to buy it and bring it home. Buying a physical book, a CD, a piece of art, or even a magazine is a commitment of money and time. You'll consume it carefully, think about it, treasure it if you really like it.
         </p>
         <p>
-          The Internet today is nothing like a quiet bookstore: instead, flashing colors, ads, reels, promotions, products, comments, and suggestions are thrown in our faces. In fact, many companies <a href="https://www.youtube.com/premium)">require us to pay to see *less*</a>! Like most of my peers, I don't consider this kind of content consumption to be intellectually valuable. Doomscrolling is near-universally considered 'brainrot', a feedback loop that tires us out and wastes our time.
+          The Internet today is nothing like a quiet bookstore: instead, flashing colors, ads, reels, promotions, products, comments, and suggestions are thrown in our faces. In fact, many companies <a href="https://www.youtube.com/premium)">require us to pay to see <i>less</i></a>! Like most of my peers, I don't consider this kind of content consumption to be intellectually valuable. Doomscrolling is near-universally considered 'brainrot', a feedback loop that tires us out and wastes our time.
         </p>
         <p>
           Fundamentally, this short-form world is only possible because <a href="https://cadenlee.dev/blog/defense_of_digital">the cost of copying data has reached zero</a>, allowing us to obtain any information at any time. But if information is more accessible than ever before, then why does life in the 21st century feel like <a href="https://knowyourmeme.com/memes/our-brains-are-shrinking">"our brains are shrinking"</a>?
         </p>
         <p>
-          I argue that using the Internet today feels like losing braincells because of how we engage with media. I'll explain the concept of *forced minimalism* formerly imposed by scarcity, and *forced maximalism* imposed by major Internet companies today. I will then suggest that the zero-cost nature of the Internet offers a newer and in fact superior way to interact with media, but one that takes self-control: *minimalism by choice*.
+          I argue that using the Internet today feels like losing braincells because of how we engage with media. I'll explain the concept of <i>forced minimalism</i> formerly imposed by scarcity, and <i>forced maximalism</i> imposed by major Internet companies today. I will then suggest that the zero-cost nature of the Internet offers a newer and in fact superior way to interact with media, but one that takes self-control: <i>minimalism by choice</i>.
         </p>
       </div>
       <div className="section">
@@ -30,20 +30,20 @@ function Post() {
           In the past, information was not readily accessible at the touch of a finger. Returning to the library example, we can easily see several barriers to obtaining information that existed until a few decades ago:
         </p>
         <ul>
-          <li>Acquiring items like books takes time, money, and *intentional choice*</li>
-          <li>Reading books takes *thought*</li>
-          <li>Books that you own need to be stored and *take up space in the home or the office*</li>
+          <li>Acquiring items like books takes time, money, and <i>intentional choice</i></li>
+          <li>Reading books takes <i>thought</i></li>
+          <li>Books that you own need to be stored and <i>take up space in the home or the office</i></li>
         </ul>
         <p>
           Each of these barriers has its downsides, but also has consequences that lend the books value:
         </p>
         <ul>
-          <li>When forced to choose books, we will choose ones that we are intrinsically motivated to study and enjoy, and will *care about them*</li>
-          <li>When forced to think critically, we will *make connections and form knowledge*</li>
-          <li>When forced to store books, we will *cultivate a personal sense of aesthetics*</li>
+          <li>When forced to choose books, we will choose ones that we are intrinsically motivated to study and enjoy, and will <i>care about them</i></li>
+          <li>When forced to think critically, we will <i>make connections and form knowledge</i></li>
+          <li>When forced to store books, we will <i>cultivate a personal sense of aesthetics</i></li>
         </ul>
         <p>
-          This is *forced minimalism*: we are limited in what actions we can take, but these limitations make every action we *do* take more meaningful. In this way, choosing, reading, and collecting books are valuable activities.
+          This is <i>forced minimalism</i>: we are limited in what actions we can take, but these limitations make every action we <i>do</i> take more meaningful. In this way, choosing, reading, and collecting books are valuable activities.
         </p>
       </div>
       <div className="section">
@@ -52,15 +52,15 @@ function Post() {
           Unlike reading books, being active on the Internet brings to mind declining attention spans, trolls and ragebait, misinformation, intrusive advertising, AI slop, and dangerous echo chambers. The Internet is a place where everyone (influencers, bots, and companies) wants to extract value from you via your engagement. Fundamentally, the rules of the game insist that profit is maximized when:
         </p>
         <ul>
-          <li>Users don't have to make intentional choices, and are instead *fed content by an algorithm*</li>
-          <li>Consuming the content takes *as little thought as possible*</li>
-          <li>The amount of content that can be consumed is limitless and consuming a piece of content is *inconsequential*</li>
+          <li>Users don't have to make intentional choices, and are instead <i>fed content by an algorithm</i></li>
+          <li>Consuming the content takes <i>as little thought as possible</i></li>
+          <li>The amount of content that can be consumed is limitless and consuming a piece of content is <i>inconsequential</i></li>
         </ul>
         <p>
           For that last bullet point, think about the most recent piece of short-form content you watched. Do you even remember what it was about? Many people don't.
         </p>
         <p>
-          This is *forced maximalism*: we are coerced into taking many actions at once (e.g. consuming as much content as possible), and thus every action we take is meaningless. We expend energy and time without getting value for ourselves, hence feeling drained and at a loss.
+          This is <i>forced maximalism</i>: we are coerced into taking many actions at once (e.g. consuming as much content as possible), and thus every action we take is meaningless. We expend energy and time without getting value for ourselves, hence feeling drained and at a loss.
         </p>
       </div>
       <div className="section">
@@ -69,7 +69,7 @@ function Post() {
           So is the Internet evil? Would we be better off going back to paper books and physical mail and landlines? I unequivocally say no, because unlike any other time in history, the 21st century affords us the unique ability of choice.
         </p>
         <p>
-          We are no longer limited by the contents of local libraries and news stands: we can access news from any year, software for any task, music by any artist, and directions to any city with all of humanity as an open book. In this unlimited world, the value we get out of the Internet now depends on how we limit *ourselves*. You can choose to:
+          We are no longer limited by the contents of local libraries and news stands: we can access news from any year, software for any task, music by any artist, and directions to any city with all of humanity as an open book. In this unlimited world, the value we get out of the Internet now depends on how we limit <i>ourselves</i>. You can choose to:
         </p>
         <ol>
           <li>Not limit how you use the Internet, opening its floodgates and drowning in maximalism as described above</li>
@@ -83,7 +83,7 @@ function Post() {
           </li>
         </ol>
         <p>
-          The latter option is *minimalism by choice*, in which we understand that "more is not always better". Unlike forced minimalism, we suffer no cost to acquire or share media, and can extend our intentions into whatever diverse and interesting fields we may be interested in. And unlike forced maximalism, we can curate what we love, care about it, research it, actually remember the last post we read or last video we watched without it being washed away into the polluted sea.
+          The latter option is <i>minimalism by choice</i>, in which we understand that "more is not always better". Unlike forced minimalism, we suffer no cost to acquire or share media, and can extend our intentions into whatever diverse and interesting fields we may be interested in. And unlike forced maximalism, we can curate what we love, care about it, research it, actually remember the last post we read or last video we watched without it being washed away into the polluted sea.
         </p>
       </div>
       <div className="section">
@@ -119,7 +119,7 @@ function Post() {
           </li>
         </ul>
         <p>
-          As an interesting philosophical counterpoint, I specifically avoid imposing *forced* minimalism on myself. Many blog posts like this one advocate setting screen time limits, uninstalling social media apps, or deleting accounts. Though this may be effective in curbing bad habits, it does not agree with the *choice* part of minimalism by choice because it has costs (e.g. it's harder to communicate). To truly embrace the ideal of zero cost, we should give ourselves access to social media, group chats with friends, and all of the Internet whenever we *want* without restriction. Rather than limiting our potential, we should limit our choices through self-control. It's hard, but it gives us the responsibility and the agency of deciding exactly how we want to spend our time.
+          As an interesting philosophical counterpoint, I specifically avoid imposing <i>forced</i> minimalism on myself. Many blog posts like this one advocate setting screen time limits, uninstalling social media apps, or deleting accounts. Though this may be effective in curbing bad habits, it does not agree with the <i>choice</i> part of minimalism by choice because it has costs (e.g. it's harder to communicate). To truly embrace the ideal of zero cost, we should give ourselves access to social media, group chats with friends, and all of the Internet whenever we <i>want</i> without restriction. Rather than limiting our potential, we should limit our choices through self-control. It's hard, but it gives us the responsibility and the agency of deciding exactly how we want to spend our time.
         </p>
       </div>
       <div className="section">
