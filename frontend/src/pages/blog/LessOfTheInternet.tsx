@@ -1,6 +1,7 @@
 import '../../App.css'
 import PageFrame from '../../components/PageFrame';
 import BlogHeaderBox from '../../components/BlogHeaderBox';
+import { FootnoteContent, FootnoteRef } from '../../components/BlogFootnote';
 
 function Post() {
   const POST_ID = "less_of_the_internet";
@@ -97,8 +98,8 @@ function Post() {
           <li>Ignore ads (use <a href="https://ublockorigin.com/">an adblocker</a>)</li>
           <li>Ignore ragebait or clickbait</li>
           <li>Ignore your recommendations, feed, or for-you page unless you specifically have the goal of discovering new content in mind (i.e. no doomscrolling)</li>
-          <li>Don't spend longer watching/reading about an activity you enjoy (e.g. cooking, working out, or programming) than you actually spend doing it. This is something many people struggle with, and is the folly of self-improvement books<sup><a id="footnote-1-ref" href="#footnote-1">1</a></sup></li>
-          <li>Don't participate in <a href="https://en.wikipedia.org/wiki/Snack_culture">snack culture</a>, or simply going on the Internet to kill time. There are much better things you could be doing<sup><a id="footnote-2-ref" href="#footnote-2">2</a></sup></li>
+          <li>Don't spend longer watching/reading about an activity you enjoy (e.g. cooking, working out, or programming) than you actually spend doing it. This is something many people struggle with, and is the folly of self-improvement books<FootnoteRef num={1} /></li>
+          <li>Don't participate in <a href="https://en.wikipedia.org/wiki/Snack_culture">snack culture</a>, or simply going on the Internet to kill time. There are much better things you could be doing<FootnoteRef num={2} /></li>
           <li>Don't multitask while watching videos as background noise, because you won't get as much value out of either activity. Remember that more is not always better</li>
           <li>
             Have a list of favorite artists, authors, and accounts; intentionally look out for new content from them
@@ -132,14 +133,12 @@ function Post() {
       </div>
       <div className="section">
         <h2 id="footnotes">Footnotes</h2>
-        <p id="footnote-1">
-          1. I.e. the longer you spend reading about self-improvement, the less time you can spend improving your life{' '}
-          <a href="#footnote-1-ref">^</a>
-        </p>
-        <p id="footnote-2">
-          2. "Such as?" Talking to people, observing the scenery, thinking, stretching.{' '}
-          <a href="#footnote-2-ref">^</a>
-        </p>
+        <FootnoteContent num={1}>
+          I.e. the longer you spend reading about self-improvement, the less time you can spend improving your life
+        </FootnoteContent>
+        <FootnoteContent num={2}>
+          "Such as?" Talking to people, observing the scenery, thinking, stretching.
+        </FootnoteContent>
       </div>
     </PageFrame>
   );
