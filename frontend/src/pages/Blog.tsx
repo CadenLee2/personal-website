@@ -3,7 +3,7 @@ import './Blog.css';
 import PageFrame from '../components/PageFrame';
 import BlogListItem from '../components/BlogListItem';
 
-import { blogIds } from '../blogIndex';
+import { blogPages } from '../blogIndex';
 
 import { MdRssFeed } from 'react-icons/md';
 
@@ -22,7 +22,7 @@ function Blog() {
         </a>
         I started this blog in Summer 2025 to share my ideas on software, life, and the world. All my articles will show up here (once I write them).
         <div className="gapcol">
-          {blogIds.map((id) => <BlogListItem key={id} postId={id} />)}
+          {Object.keys(blogPages).map((id) => <BlogListItem key={id} postId={id} />)}
         </div>
       </div>
     </PageFrame>
