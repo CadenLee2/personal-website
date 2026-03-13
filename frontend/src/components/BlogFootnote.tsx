@@ -6,7 +6,7 @@ export function FootnoteContent(props: PropsWithChildren<{ num: number }>) {
   return (
     <p id={`footnote-${num}`}>
       {num}. {children}{' '}
-      <a href={`#footnote-${num}-ref`}>^</a>
+      <a href={`#footnote-${num}-ref`}>↩</a>
     </p>
   );
 }
