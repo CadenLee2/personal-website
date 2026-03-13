@@ -61,7 +61,7 @@ const tools: ToolInfo[] = [
     title: "TypeScript",
     descr: (
       <span>
-        I use TypeScript for my larger-scale projects, including KnickKnack and AA Planner (above), where a clean and organized codebase is essential for collaboration. I also used it for this website!
+        I use TypeScript for my larger-scale projects, including KnickKnack and AntAlmanac Planner (above), where a clean and organized codebase is essential for collaboration. I also used it for this website!
       </span>
     ),
     icon: <TypescriptPlain size={30} />
@@ -88,7 +88,7 @@ const tools: ToolInfo[] = [
     title: "CSS",
     descr: (
       <span>
-        I've used CSS in all of my web projects. Check out my styling across this website or anything else I've built! I also have experience with SCSS from AA Planner (above).
+        I've used CSS in all of my web projects. Check out my styling across this website or anything else I've built! I also have experience with SCSS from AntAlmanac Planner (above).
       </span>
     ),
     icon: <Css3Plain size={30} />
@@ -124,7 +124,7 @@ const tools: ToolInfo[] = [
     title: "PostgreSQL",
     descr: (
       <span>
-        I became more confident with PostgreSQL after creating an <a target="_blank" href="https://github.com/icssc/peterportal-client/pull/666/files">ETL pipeline</a> to categorize thousands of rows of user data for AA Planner. I also use it to store data for my calendar app <a target="_blank" href="https://github.com/Cadecraft/rical">Rical</a>. 
+        I became more confident with PostgreSQL after creating an <a target="_blank" href="https://github.com/icssc/peterportal-client/pull/666/files">ETL pipeline</a> to categorize thousands of rows of user data for AntAlmanac Planner. I also use it to store data for my calendar app <a target="_blank" href="https://github.com/Cadecraft/rical">Rical</a>.
       </span>
     ),
     icon: <PostgresqlPlain size={30} />
@@ -133,7 +133,7 @@ const tools: ToolInfo[] = [
     title: "Git & GitHub",
     descr: (
       <span>
-        I've managed collaborative codebases in GitHub and BitBucket, including as a lead for AA Planner (a team of 14 active developers). Our favorite PRs include{' '}
+        I've managed collaborative codebases in GitHub and BitBucket, including as a lead for AntAlmanac Planner (a team of 14 active developers). Our favorite PRs include{' '}
         <a href="https://github.com/icssc/peterportal-client/pull/653">#653</a>{' '}
         and <a href="https://github.com/icssc/peterportal-client/pull/879">#879</a>
       </span>
