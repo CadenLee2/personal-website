@@ -100,11 +100,11 @@ span.codesmall {
 }
 
 a {
-  color: var(--blue1);
+  color: var(--blue1mid);
   text-decoration: inherit;
 
   &:hover {
-    color: var(--blue1light);
+    color: var(--blue1);
   }
 
   &:focus-visible {
