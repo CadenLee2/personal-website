@@ -28,7 +28,7 @@ function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
 
   return (
     <button className="card" onClick={onClick}>
-      <div className="header">
+      <div className="cuisine-header">
         <h3>{entry.title}</h3>
         <span>{entry.dateReviewed}</span>
       </div>
@@ -147,7 +147,7 @@ export default function Cuisine() {
   const pageTitle = selectedEntry ? (`${selectedEntry.title} - Cuisine`) : "Cuisine";
 
   return (
-    <div className="main">
+    <div className="cuisine-main">
       <title>{pageTitle}</title>
       <meta name="title" content={pageTitle} />
       <meta name="description" content="Food ratings" />
@@ -181,7 +181,7 @@ export default function Cuisine() {
         {isMobile && <ScreenSelector screen={mobileScreen} setScreen={setMobileScreen} />}
       </div>
       {isMobile ? <DetailsOverlay cuisineData={cuisineData} /> : (
-        <div className="right">
+        <div className="cuisine-right">
           <CuisineMapContainer cuisineData={filtered} selected={selectedEntry} />
           <DetailsOverlay cuisineData={cuisineData} />
         </div>
