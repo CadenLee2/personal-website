@@ -89,7 +89,7 @@ function Post() {
         </p>
         <ul>
           <li>
-            Fulfilling a societal or institutional need. My <a href="https://peterportal.org/">PeterPortal</a> team at UCI's ICS Student Council maintains a much-needed course planning service that's relied on by thousands of UCI students, and the other teams in the same organization must meet similar demands.
+            Fulfilling a societal or institutional need. My <a href="https://antalmanac.org/planner">AntAlmanac Planner</a> (formerly PeterPortal) team at UCI's ICS Student Council maintains a much-needed course planning service that's relied on by thousands of UCI students, and the other teams in the same organization must meet similar demands.
           </li>
           <li>
             Improving the skills of team members. Hackathon projects, like my team's <a href="https://github.com/Big-Dyl/IrvineHacks2025">IrvineHacks 2025 submission</a>, help people experiment with new technologies and get better at collaboration. The same applies to larger student teams like PeterPortal.

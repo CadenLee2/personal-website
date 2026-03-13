@@ -15,7 +15,7 @@ export function Button(props: {
 }
 
 export function LinkButton(props: {
-  children: ReactNode, href: string, disabled?: boolean, variant?: Variant, title?: string
+  children: ReactNode, href: string, disabled?: boolean, variant?: Variant, title?: string, newTabLink?: true
 }) {
   if (props.disabled) {
     return (
@@ -31,6 +31,7 @@ export function LinkButton(props: {
       onDragStart={(e) => e.preventDefault()}
       className={`button ${props.variant ?? ''}`}
       title={props.title}
+      target={props.newTabLink ? "_blank" : undefined}
     >
       {props.children}
     </NavLink>
