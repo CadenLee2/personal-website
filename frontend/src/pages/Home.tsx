@@ -36,7 +36,7 @@ import HermosaPier from '../assets/images/HermosaPier.jpg';
 import ICSTrees from '../assets/images/ICSTrees.jpg';
 import GinkgoTree from '../assets/images/GinkgoTree.jpg';
 import CodeEditor from '../assets/images/CodeEditor.png';
-import PPCRoadmapDetail from '../assets/images/projects/PPCRoadmap_Detail.png';
+import AAPDetail from '../assets/images/projects/AAP_Detail.png';
 import KKGroup from '../assets/images/projects/KK_Group.jpg';
 import KKDemoPhone from '../assets/images/projects/KK_DemoPhone.png';
 import SheatfishDetail from '../assets/images/projects/Sheatfish_Detail.png';
@@ -91,23 +91,23 @@ function Home() {
       </div>
       <div className="section">
         <h2 ref={anchorProjects}>Building Valuable Projects</h2>
-        <Showcase className="peterportal">
+        <Showcase className="aa-planner">
           <div className="left">
-            <h3>PeterPortal</h3>
+            <h3>AntAlmanac Planner</h3>
             <span>
-              I'm leading the PeterPortal team at UCI's ICS Student Council.
+              I'm leading the AA Planner team at UCI's ICS Student Council.
               We're improving a course planning service used by thousands of students!
             </span>
             <div className="actions">
-              <LinkButton href="https://peterportal.org/" variant="blue">
+              <LinkButton newTabLink href="https://antalmanac.com/planner" variant="blue">
                 <MdArrowOutward size={18} /> Visit
               </LinkButton>
-              <LinkButton href="https://github.com/icssc/peterportal-client/" variant="action-blue">
+              <LinkButton newTabLink href="https://github.com/icssc/peterportal-client/" variant="action-blue">
                 <GithubOriginal className="wicon" size={18} /> <span>Contribute on GitHub</span>
               </LinkButton>
             </div>
             <RoadmapTree details={[
-              { status: "Project Co-Lead", date: "2025" },
+              { status: "Project Lead", date: "2025-26" },
               { status: "Software Developer", date: "Fall 2024" },
             ]} />
             <ToolsList>
@@ -120,7 +120,7 @@ function Home() {
             </ToolsList>
           </div>
           <div className="right">
-            <img src={PPCRoadmapDetail} title="PeterPortal's 4-year roadmap page" />
+            <img src={AAPDetail} title="AntAlmanac Planner's 4-year roadmap page" />
             <span>
               Plan quarterly schedules around major/minor requirements,
               transfer your AP credits, check prerequisites, and rate courses!
@@ -134,10 +134,11 @@ function Home() {
               In the 2024-25 Product fellowship, I worked with product designers and managers to engineer a mobile figurine trading app, coming to the app store soon.
             </span>
             <div className="actions">
-              <LinkButton href="https://knickknackapp.com/" variant="blue">
+              <LinkButton newTabLink href="https://knickknackapp.com/" variant="blue">
                 <MdArrowOutward size={18} /> Check it out
               </LinkButton>
               <LinkButton
+                newTabLink
                 href="https://www.linkedin.com/posts/kyleshih_wow-what-an-incredible-12-weeks-it-has-been-activity-7316262735397195779-PMK6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMpkUoBj-OsZZHQm8VZqeqxE49ANrAKP_o"
                 variant="action-blue-small"
                 title="KnickKnack on LinkedIn"
@@ -146,7 +147,7 @@ function Home() {
               </LinkButton>
             </div>
             <RoadmapTree details={[
-              { status: "Launching to Market!", date: "in 2025" },
+              { status: "Launching to Market!", date: "in 2026" },
               { status: "Placed 1st in Demo Day Competition", date: "Spring 2025" },
               { status: "Met in UCI's Product Fellowship", date: "2024" },
             ]} />

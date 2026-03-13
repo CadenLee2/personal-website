@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { LinkButton } from '../components/Button';
 import { NavLink } from 'react-router-dom';
 
-import { MdHome, MdDescription, MdEmail, MdMenuBook } from 'react-icons/md';
+import { MdHome, MdEmail, MdMenuBook } from 'react-icons/md';
 
 type PageName = 'home' | 'resume' | 'contact' | 'blog';
 
@@ -17,11 +17,6 @@ function TopBar(props: { pageName?: PageName }) {
           <LinkButton href="/" disabled={props.pageName === "home"}>
             <MdHome /> Home
           </LinkButton>
-          <LinkButton href="/resume" disabled={props.pageName === "resume"}>
-            <MdDescription /> Resume
-          </LinkButton>
-        </div>
-        <div>
           <LinkButton href="/contact" disabled={props.pageName === "contact"}>
             <MdEmail /> Contact
           </LinkButton>

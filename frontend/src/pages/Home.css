@@ -59,8 +59,8 @@ div.top-showcase {
 }
 
 /* Specific showcase sections */
-div.peterportal {
-  background-image: url('../assets/images/projects/PPCRoadmap.png');
+div.aa-planner {
+  background-image: url('../assets/images/projects/AAP_Blur.png');
   display: flex;
   flex-direction: row;
   justify-content: stretch;

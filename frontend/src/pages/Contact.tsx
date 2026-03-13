@@ -5,6 +5,7 @@ import PageFrame from '../components/PageFrame';
 import GithubOriginal from 'devicons-react/icons/GithubOriginal';
 import LinkedinOriginal from 'devicons-react/icons/LinkedinOriginal';
 import { MdEmail } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 import { EMAIL, LINKEDIN_URL, GITHUB_PERSONAL_URL, GITHUB_PROFESSIONAL_URL } from '../constants';
 
@@ -45,6 +46,9 @@ function Contact() {
             </div>
           </div>
         </div>
+        <p>
+          Curious about my experience? Check out my <NavLink to="/resume">resume</NavLink>.
+        </p>
       </div>
     </PageFrame>
   );

@@ -28,7 +28,7 @@ function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
 
   return (
     <button className="card" onClick={onClick}>
-      <div className="header">
+      <div className="cuisine-header">
         <h3>{entry.title}</h3>
         <span>{entry.dateReviewed}</span>
       </div>
@@ -142,12 +142,12 @@ export default function Cuisine() {
     }
   }, [navigateToId]);
 
-  const pageTitle = (selectedId && selectedId in cuisineData)
-    ? (`${cuisineData[selectedId].title} - Cuisine`)
-    : "Cuisine";
+  const selectedEntry = (selectedId && selectedId in cuisineData) ? cuisineData[selectedId] : null;
+
+  const pageTitle = selectedEntry ? (`${selectedEntry.title} - Cuisine`) : "Cuisine";
 
   return (
-    <div className="main">
+    <div className="cuisine-main">
       <title>{pageTitle}</title>
       <meta name="title" content={pageTitle} />
       <meta name="description" content="Food ratings" />
@@ -175,14 +175,14 @@ export default function Cuisine() {
         )}
         {isMobile && seenMap && (
           <div className={mobileScreen === 'map' ? 'mobile-map' : 'hidden'}>
-            <CuisineMapContainer cuisineData={filtered} />
+            <CuisineMapContainer cuisineData={filtered} selected={selectedEntry} />
           </div>
         )}
         {isMobile && <ScreenSelector screen={mobileScreen} setScreen={setMobileScreen} />}
       </div>
       {isMobile ? <DetailsOverlay cuisineData={cuisineData} /> : (
-        <div className="right">
-          <CuisineMapContainer cuisineData={filtered} />
+        <div className="cuisine-right">
+          <CuisineMapContainer cuisineData={filtered} selected={selectedEntry} />
           <DetailsOverlay cuisineData={cuisineData} />
         </div>
       )}

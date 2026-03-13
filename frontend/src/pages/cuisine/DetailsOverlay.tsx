@@ -63,7 +63,7 @@ function TriedWith(props: {friends: Friend[]}) {
         Tried with:
       </span>
       {friends.map(friend => friend.siteUrl ? (
-        <a className="friend" href={friend.siteUrl}>{friend.name}</a>
+        <a className="friend" target="_blank" href={friend.siteUrl}>{friend.name}</a>
       ) : (
         <span className="friend">{friend.name}</span>
       ))}
@@ -95,7 +95,7 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
     <div className="details-wrapper" onClick={(e) => e.stopPropagation()}>
       <button onClick={escape} className="escape-hotkey">[ESC]</button>
       <div className="details">
-        <div className="header">
+        <div className="cuisine-header">
           <h2>{entry.title}</h2>
           <span title="Date reviewed">{entry.dateReviewed}</span>
         </div>
@@ -140,7 +140,7 @@ export default function DetailsOverlay(props: {
   const { selectedId, navigateToId } = useIdNav();
 
   return (
-    <div className={`right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
+    <div className={`cuisine-right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
       {selectedId && <Details cuisineData={cuisineData} entryId={selectedId} />}
     </div>
   );

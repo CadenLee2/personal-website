@@ -6,6 +6,12 @@ type BlogMetadata = {
 };
 
 const blogMetadata: Record<string, BlogMetadata> = {
+  "less_of_the_internet": {
+    date: "2026/03/12",
+    title: "Less of the Internet",
+    descr: "Making the most of the Information Age",
+    categories: ["habits"]
+  },
   "building_for_yourself": {
     date: "2026/01/03",
     title: "Building for yourself",
@@ -16,8 +22,8 @@ const blogMetadata: Record<string, BlogMetadata> = {
     date: "2025/06/14",
     title: "A philosophical defense of digital notetaking",
     descr: "and of technology in general (when it's used right)",
-    categories: ["software", "editing"],
-  }
+    categories: ["software", "editing", "habits"],
+  },
 }
 
 export default blogMetadata;
