@@ -45,11 +45,11 @@ function Footer() {
   );
 }
 
-export default function PageFrame(props: { children: ReactNode, pageName?: PageName }) {
+export default function PageFrame(props: { children: ReactNode, pageName?: PageName, hideTopBar?: true }) {
   return (
     <div className="outer-wrapper">
       <div className="inner-wrapper">
-        <TopBar pageName={props.pageName} />
+        {!props.hideTopBar && <TopBar pageName={props.pageName} />}
         {props.children}
         <Footer />
       </div>

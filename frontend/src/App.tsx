@@ -13,6 +13,7 @@ import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Cuisine from './pages/cuisine/Cuisine';
+import ShowcasePage from './pages/ShowcasePage';
 
 import { blogPages } from './blogIndex';
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<Contact />} errorElement={<Error />} />
       <Route path="/blog" element={<Blog />} errorElement={<Error />} />
       <Route path="/cuisine" element={<Cuisine />} errorElement={<Error />} />
+      <Route path="/cadecraft" element={<ShowcasePage />} errorElement={<Error />} />
       {
         Object.entries(blogPages).map(([id, elem]) => <Route
           key={`blog-${id}`}

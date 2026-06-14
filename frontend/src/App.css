@@ -27,7 +27,7 @@ div.section-break {
 
 .wicon {
   > path, g {
-    fill: var(--sectionbg);
+    fill: var(--textcolorwhite);
   }
 }
 
