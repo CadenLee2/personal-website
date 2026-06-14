@@ -135,7 +135,7 @@ function ShowcasePage() {
             <h2>About Me</h2>
           </div>
           <p>
-            I'm a developer and hobbyist music producer. I started out with Scratch games and <a className="textlink" href="https://jummb.us">JummBox</a> songs, then moved on to Unreal Engine games and <a className="textlink" href="https://www.audiotool.com/user/cadecraft">Audiotool</a> before settling into mainly making web games, web tools, and music. I've also experimented to varying degrees with writing, 3d modeling, and pixel art.
+            I'm a developer and hobbyist music producer. I started out in 2017 with Scratch games and <a className="textlink" href="https://jummb.us">JummBox</a> songs, then moved on to Unreal Engine games and <a className="textlink" href="https://www.audiotool.com/user/cadecraft">Audiotool</a> before settling into mainly making web games, web tools, and music. I've also experimented to varying degrees with writing, 3d modeling, and pixel art.
           </p>
           <p>
             I enjoy reading science fiction, using open-source software, and playing a few games (you can <a className="textlink" href="https://ch.tetr.io/u/cadecraft">find me on Tetr.io</a>).
