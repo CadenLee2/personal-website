@@ -3,6 +3,7 @@
   --pagebg: rgb(204, 212, 219);
   --sectionbg: rgb(218, 226, 232);
   --sectionbgmid: rgb(199, 209, 217);
+  --sectionbgdark: rgb(176, 186, 194);
   --sectionbglight: rgb(223, 230, 235);
   --whitesectionbg: rgb(225, 233, 240);
   --whitesectionbglight: rgb(233, 238, 242);
@@ -14,6 +15,7 @@
   --headercolor: rgb(29, 33, 41);
   --textcolor: rgb(70, 78, 94);
   --textcolorlight: rgb(93, 102, 120);
+  --textcolorwhite: rgb(218, 226, 232);
   --blue1light: rgb(106, 183, 212);
   --blue1: rgb(75, 173, 209);
   --blue1mid: rgb(58, 140, 181);

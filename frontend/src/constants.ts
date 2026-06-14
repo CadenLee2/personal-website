@@ -4,3 +4,4 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/cadenlee2/";
 export const GITHUB_PERSONAL_URL = "https://github.com/Cadecraft";
 export const GITHUB_PROFESSIONAL_URL = "https://github.com/CadenLee2";
 export const RESUME_PATH = "/Resume_v10_Public.pdf";
+export const YOUTUBE_URL = "https://www.youtube.com/@AwesomeCadecraft";
