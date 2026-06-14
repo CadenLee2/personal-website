@@ -142,7 +142,6 @@ function ShowcasePage() {
           </p>
           <p>
             I'm now an undergraduate and have been involved in several teams at my university, so I've been quite busy recently. If you'd like to see more about my professional side, feel free to check out my <NavLink className="textlink" to="/">main website</NavLink> (watch out for light mode!)
-
           </p>
         </div>
       </PageFrame>
