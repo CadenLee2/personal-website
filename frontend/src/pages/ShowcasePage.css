@@ -1,0 +1,28 @@
+:root:has(.showcase-page) {
+  /* Dark theme colors */
+	--pagebg: rgb(21, 23, 28);
+	--sectionbg: rgb(32, 34, 39);
+	--sectionbgmid: rgb(57, 60, 67);
+	--sectionbgdark: rgb(70, 75, 84);
+	--sectionbglight: rgb(36, 39, 45);
+	--whitesectionbg: rgb(225, 233, 240);
+	--whitesectionbglight: rgb(233, 238, 242);
+	--sectionborder: rgb(54, 56, 58);
+	--sectionbordershadow: rgba(21, 22, 32, 0.5);
+	--sectionborderdark: rgb(165, 175, 184);
+	--hrborder: rgb(176, 186, 194);
+	--hrborderdark: rgb(156, 166, 173);
+	--headercolor: rgb(223, 229, 233);
+	--textcolor: rgb(177, 182, 186);
+	--textcolorlight: rgb(75, 240, 0);
+	--textcolorwhite: rgb(218, 226, 232);
+	--blue1light: rgb(82, 147, 194);
+	--blue1: rgb(62, 129, 188);
+	--blue1mid: rgb(42, 101, 164);
+	--blue1dark: rgb(46, 90, 158);
+	--darkb: rgba(0, 0, 0, 0.3);
+	--darkb2: rgba(0, 0, 0, 0.5);
+	--darkb3: rgba(0, 0, 0, 0.8);
+	--darkshadow: rgba(0, 0, 0, 0.2);
+	--focus-blue: rgb(98, 159, 212, 0.6);
+}

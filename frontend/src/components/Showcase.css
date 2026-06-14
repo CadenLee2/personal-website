@@ -1,6 +1,6 @@
 .showcase {
   background-color: var(--darkb);
-  color: var(--sectionbg);
+  color: var(--textcolorwhite);
   padding: 12px;
   border-radius: 8px;
   border: none;
@@ -34,7 +34,7 @@
 
   svg {
     > path, g {
-      fill: var(--sectionbg);
+      fill: var(--textcolorwhite);
     }
   }
 }

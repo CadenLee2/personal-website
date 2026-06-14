@@ -274,7 +274,7 @@ div.regnatural {
   gap: 10px;
 
   .wicon-link {
-    > :first-child { fill: var(--sectionbg); }
+    > :first-child { fill: var(--textcolorwhite); }
     > :nth-child(2) { fill: black; }
   }
 
@@ -358,7 +358,7 @@ a.album-cover-top {
   background-image: url('../assets/images/SkylineCover.png');
 
   &, &:hover {
-    color: var(--sectionbg);
+    color: var(--textcolorwhite);
   }
 }
 div.album-cover-bottom {

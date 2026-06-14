@@ -23,7 +23,7 @@
   }
 
   &:active {
-    background-color: var(--sectionborder);
+    background-color: var(--sectionbgdark);
   }
 
   &:disabled {
@@ -43,7 +43,7 @@ a.button {
 
 .button.blue {
   background-color: var(--blue1);
-  color: var(--sectionbg);
+  color: var(--textcolorwhite);
 
   &:hover {
     background-color: var(--blue1light);
@@ -58,7 +58,7 @@ a.button {
   background-color: var(--sectionbgmid);
 
   &:hover {
-    background-color: var(--sectionborder);
+    background-color: var(--sectionbgdark);
   }
 
   &:active {
@@ -68,7 +68,7 @@ a.button {
 
 .button.action-blue, .button.action-blue-small {
   background-color: var(--darkb2);
-  color: var(--sectionbg);
+  color: var(--textcolorwhite);
   border-bottom: solid 2px var(--blue1);
   position: relative;
   height: 28px;
