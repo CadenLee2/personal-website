@@ -24,8 +24,7 @@ function ShowcasePage() {
       <PageFrame hideTopBar>
         <title>Cadecraft</title>
         <div className="section-break top-showcase-cadecraft">
-          <div>
-            <h2>Cadecraft</h2>
+            <h1>Cadecraft</h1>
             <img src={CadecraftStrip} alt="Cadecraft logo" />
             <span className="cadecraft-subtitle">
               <span className="mini-contacts icon-colorize">
@@ -36,9 +35,10 @@ function ShowcasePage() {
                   <MdPlayArrow size={18} />
                 </NavLink>
               </span>
-              <i>I make games, software, and music</i>
             </span>
-          </div>
+        </div>
+        <div className="open-section">
+          <i>Making games, software, and music since 2017</i>
         </div>
         <div className="section">
           <div className="highlight">
@@ -59,7 +59,7 @@ function ShowcasePage() {
               </div>
             </div>
             <div className="music-descr">
-              <span>I produce trance, synthwave, and other electronic music.</span>
+              <span>Trance, synthwave, and other electronic music.</span>
               <br />
               <div className="interests-links">
                 <LinkButton variant="blue" href="https://www.youtube.com/playlist?list=PLbN2H2xs0W6tlWWImF9bK6xp-U0PCpN7a&si=za9rSy9WBiHHEivw">
