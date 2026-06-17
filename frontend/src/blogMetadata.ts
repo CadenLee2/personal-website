@@ -7,7 +7,7 @@ type BlogMetadata = {
 
 const blogMetadata: Record<string, BlogMetadata> = {
   "learn_to_cook": {
-    date: "2026/06/16",
+    date: "2026/06/17",
     title: "Learn to cook",
     descr: "It's worth it!",
     categories: ["habits", "interests"]
