@@ -71,6 +71,18 @@ function TriedWith(props: {friends: Friend[]}) {
   );
 }
 
+function ExplanationParagraphs(props: {explanation: string | undefined}) {
+  const explanation = props.explanation;
+  if (!explanation) {
+    return <i>No details provided</i>;
+  }
+  return (
+    <>
+      {explanation.split('\n').map(s => s.length > 0 ? <p>{s}</p> : null)}
+    </>
+  )
+}
+
 function Details(props: {cuisineData: CuisineMap, entryId: string}) {
   const { cuisineData, entryId } = props;
 
@@ -113,8 +125,8 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
           {entry.triedWith && <TriedWith friends={entry.triedWith} />}
         </div>
         <div className="section-divider"><hr /></div>
-        <div>
-          {entry.explanation ?? <i>No details provided</i>}
+        <div className="explanation">
+          <ExplanationParagraphs explanation={entry.explanation} />
         </div>
         <div className="section-divider"><hr /></div>
         {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
