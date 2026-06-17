@@ -20,7 +20,7 @@ npm run dev
 - ~~Restaurant rating map~~ ([done](https://cadenlee.dev/cuisine)!)
 - Personal availability calendar/meeting scheduler based on [rical](https://github.com/Cadecraft/rical)
 - More blog posts
-- Self-hosted markdown notes
+- ~~Self-hosted markdown notes~~ ([done](https://notes.cadenlee.dev/misc/example)!)
 
 ## License
 See the included LICENSE.txt file for more information.

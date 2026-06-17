@@ -41,6 +41,12 @@
     }
   }
 
+  .explanation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .subspan {
     font-size: 14px;
   }
