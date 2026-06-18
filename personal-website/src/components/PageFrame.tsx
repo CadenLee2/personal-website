@@ -1,10 +1,10 @@
 import '../App.css';
 import './PageFrame.css';
-import { LinkButton } from '../components/Button';
-import { NavLink } from 'react-router-dom';
+import { LinkButton } from '~/components/Button';
+import { A } from '@solidjs/router';
 import { children, Show, JSX } from 'solid-js';
 
-import { MdHome, MdEmail, MdMenuBook } from 'react-icons/md';
+import { MdFillHome, MdFillEmail, MdFillMenu_book } from 'solid-icons/md';
 
 type PageName = 'home' | 'resume' | 'contact' | 'blog';
 
@@ -15,13 +15,13 @@ function TopBar(props: { pageName?: PageName }) {
       <div class="top-buttons">
         <div>
           <LinkButton href="/" disabled={props.pageName === "home"}>
-            <MdHome /> Home
+            <MdFillHome /> Home
           </LinkButton>
           <LinkButton href="/contact" disabled={props.pageName === "contact"}>
-            <MdEmail /> Contact
+            <MdFillEmail /> Contact
           </LinkButton>
           <LinkButton href="/blog" disabled={props.pageName === "blog"}>
-            <MdMenuBook /> Blog
+            <MdFillMenu_book /> Blog
           </LinkButton>
         </div>
       </div>
@@ -39,7 +39,7 @@ function Footer() {
       <span class="small-text">
         <a href="https://github.com/CadenLee2/personal-website">Website source</a>
         {" "}•{" "}
-        <NavLink to="/contact">Contact</NavLink>
+        <A href="/contact">Contact</A>
       </span>
     </div>
   );

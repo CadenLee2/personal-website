@@ -4,14 +4,18 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import "./app.css";
 
+// TODO: routing, better metadata
+
+// TODO: 404 page
+
+// TODO: lazy loading?
+
 export default function App() {
   return (
     <Router
       root={props => (
         <MetaProvider>
           <Title>Caden Lee: Student & Software Developer</Title>
-          <a href="/">Index</a>
-          <a href="/about">About</a>
           <Suspense>{props.children}</Suspense>
         </MetaProvider>
       )}
