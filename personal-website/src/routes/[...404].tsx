@@ -1,4 +1,3 @@
-import { Title } from "@solidjs/meta";
 import { HttpStatusCode } from "@solidjs/start";
 
 import '../App.css'
@@ -8,8 +7,7 @@ import { LinkButton } from '../components/Button';
 
 function Error() {
   return (
-    <PageFrame>
-      <Title>Not Found</Title>
+    <PageFrame metaTitle="Not Found">
       <HttpStatusCode code={404} />
       <div class="section error">
         <h2>Page not found</h2>

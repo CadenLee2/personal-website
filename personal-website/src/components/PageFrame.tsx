@@ -3,6 +3,7 @@ import './PageFrame.css';
 import { LinkButton } from '~/components/Button';
 import { A } from '@solidjs/router';
 import { children, Show, JSX } from 'solid-js';
+import { Meta, Title } from '@solidjs/meta';
 
 import { MdFillHome, MdFillEmail, MdFillMenu_book } from 'solid-icons/md';
 
@@ -45,11 +46,23 @@ function Footer() {
   );
 }
 
-export default function PageFrame(props: { children: JSX.Element, pageName?: PageName, hideTopBar?: true }) {
+export default function PageFrame(props: {
+  children: JSX.Element,
+  pageName?: PageName,
+  hideTopBar?: true,
+  metaDesc?: string,
+  metaTitle?: string,
+}) {
   const resolved = children(() => props.children);
 
   return (
     <div class="outer-wrapper">
+      <Title>{props.metaTitle}</Title>
+      <Meta name="title" content={props.metaTitle} />
+      <Meta name="description" content={props.metaDesc} />
+      <Meta name="author" content="Caden Lee" />
+      <Meta name="og:title" content={props.metaTitle} />
+      <Meta name="og:description" content={props.metaDesc} />
       <div class="inner-wrapper">
         <Show when={!props.hideTopBar}>
           <TopBar pageName={props.pageName} />
