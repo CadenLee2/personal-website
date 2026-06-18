@@ -1,19 +1,25 @@
 import { Title } from "@solidjs/meta";
 import { HttpStatusCode } from "@solidjs/start";
 
-export default function NotFound() {
+import '../App.css'
+import PageFrame from '../components/PageFrame';
+
+import { LinkButton } from '../components/Button';
+
+function Error() {
   return (
-    <main>
+    <PageFrame>
       <Title>Not Found</Title>
       <HttpStatusCode code={404} />
-      <h1>Page Not Found</h1>
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
-    </main>
+      <div class="section error">
+        <h2>Page not found</h2>
+        This page does not exist!
+        <br />
+        <br />
+        <LinkButton variant="blue" href="/">Home</LinkButton>
+      </div>
+    </PageFrame>
   );
 }
+
+export default Error;

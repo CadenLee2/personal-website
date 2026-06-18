@@ -10,6 +10,8 @@ import "./app.css";
 
 // TODO: lazy loading?
 
+// TODO: update readme
+
 export default function App() {
   return (
     <Router
