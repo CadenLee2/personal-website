@@ -1,0 +1,20 @@
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2px;
+
+  > div {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 4px 10px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

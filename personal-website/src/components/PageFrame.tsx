@@ -3,7 +3,7 @@ import './PageFrame.css';
 import { LinkButton } from '~/components/Button';
 import { A } from '@solidjs/router';
 import { children, Show, JSX } from 'solid-js';
-import { Meta, Title } from '@solidjs/meta';
+import { Meta, Title, Link } from '@solidjs/meta';
 
 import { MdFillHome, MdFillEmail, MdFillMenu_book } from 'solid-icons/md';
 
@@ -63,6 +63,7 @@ export default function PageFrame(props: {
       <Meta name="author" content="Caden Lee" />
       <Meta name="og:title" content={props.metaTitle} />
       <Meta name="og:description" content={props.metaDesc} />
+      <Link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       <div class="inner-wrapper">
         <Show when={!props.hideTopBar}>
           <TopBar pageName={props.pageName} />

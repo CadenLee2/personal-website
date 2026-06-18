@@ -5,12 +5,10 @@ import { Suspense } from "solid-js";
 import "./app.css";
 
 // TODO: routing, better metadata
-
 // TODO: 404 page
-
 // TODO: lazy loading?
-
 // TODO: update readme
+// TODO: ensure blog data and rss generation is correct
 
 export default function App() {
   return (

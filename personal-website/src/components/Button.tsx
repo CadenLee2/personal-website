@@ -7,9 +7,11 @@ type Variant = 'blue' | 'gray-light' | 'action-blue' | 'action-blue-small' | 'gr
 export function Button(props: {
   children: JSX.Element, disabled?: boolean, variant?: Variant, title?: string
 }) {
+  const resolved = children(() => props.children);
+
   return (
     <button class={`button ${props.variant ?? ''}`} disabled={props.disabled} title={props.title}>
-      {props.children}
+      {resolved()}
     </button>
   );
 }
@@ -17,15 +19,15 @@ export function Button(props: {
 export function LinkButton(props: {
   children: JSX.Element, href: string, disabled?: boolean, variant?: Variant, title?: string, newTabLink?: true
 }) {
+  const resolved = children(() => props.children);
+
   if (props.disabled) {
     return (
       <Button disabled={true} variant={props.variant} title={props.title}>
-        {props.children}
+        {resolved()}
       </Button>
     );
   }
-
-  const resolved = children(() => props.children);
 
   return (
     <A
@@ -43,15 +45,15 @@ export function LinkButton(props: {
 export function RawLinkButton(props: {
   children: JSX.Element, href: string, disabled?: boolean, variant?: Variant, title?: string
 }) {
+  const resolved = children(() => props.children)
+
   if (props.disabled) {
     return (
       <Button disabled={true} variant={props.variant} title={props.title}>
-        {props.children}
+        {resolved()}
       </Button>
     );
   }
-
-  const resolved = children(() => props.children)
 
   return (
     <a
