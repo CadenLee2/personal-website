@@ -1,13 +1,11 @@
-import PageFrame from '~/components/PageFrame';
-import BlogHeaderBox from '~/components/BlogHeaderBox';
+import BlogFrame from '~/components/BlogFrame';
 import { FootnoteContent, FootnoteRef } from '~/components/BlogFootnote';
 
 function Post() {
   const POST_ID = "less_of_the_internet";
 
   return (
-    <PageFrame pageName='blog'>
-      <BlogHeaderBox postId={POST_ID} />
+    <BlogFrame postId={POST_ID}>
       <div class="section">
         <h2 id="intro">Introduction</h2>
         <p>
@@ -139,7 +137,7 @@ function Post() {
           "Such as?" Talking to people, observing the scenery, thinking, stretching.
         </FootnoteContent>
       </div>
-    </PageFrame>
+    </BlogFrame>
   );
 }
 

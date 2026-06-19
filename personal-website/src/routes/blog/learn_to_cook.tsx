@@ -1,13 +1,11 @@
-import PageFrame from '~/components/PageFrame';
-import BlogHeaderBox from '~/components/BlogHeaderBox';
+import BlogFrame from '~/components/BlogFrame';
 import { FootnoteContent, FootnoteRef } from '~/components/BlogFootnote';
 
 function Post() {
   const POST_ID = "learn_to_cook";
 
   return (
-    <PageFrame pageName='blog'>
-      <BlogHeaderBox postId={POST_ID} />
+    <BlogFrame postId={POST_ID}>
       <div class="section">
         <h2 id="intro">Introduction</h2>
         <p>
@@ -105,6 +103,7 @@ function Post() {
       <div class="section">
         <h2 id="footnotes">Footnotes</h2>
         <FootnoteContent num={1}>
+          <>
           Consider the following scenario (though these numbers aren't perfect and might not age well with inflation, you get the idea):
           <ul>
             <li>Fruits and vegetables are $2/lb</li>
@@ -114,6 +113,7 @@ function Post() {
             <li>Spices/seasonings are negligible</li>
             <li>So, adding the amounts up respectively: <span class="codesmall">$2/lb * 0.3 + $4/lb * 0.4 + $2/12 * 2 + $1/lb * 0.4 = $2.93</span>.</li>
           </ul>
+          </>
         </FootnoteContent>
         <FootnoteContent num={2}>
           Thanks <a href="https://alexanderliu.com/">Alex</a>!
@@ -128,7 +128,7 @@ function Post() {
           The "skill-based vs. accumulation-based" distinction isn't always clear-cut. For instance, a professional gardener might lend their expertise to many gardens at once without being tied down to any one of them; this would make their practice skill-based. Conversely, some cooking practices do involve accumulation over time (see <a href="https://en.wikipedia.org/wiki/Perpetual_stew">perpetual stews</a>).
         </FootnoteContent>
       </div>
-    </PageFrame>
+    </BlogFrame>
   );
 }
 

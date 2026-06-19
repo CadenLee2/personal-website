@@ -1,13 +1,11 @@
-import PageFrame from '~/components/PageFrame';
-import BlogHeaderBox from '~/components/BlogHeaderBox';
+import BlogFrame from '~/components/BlogFrame';
 import { LinkButton } from '~/components/Button';
 
 function Post() {
   const POST_ID = "building_for_yourself";
 
   return (
-    <PageFrame pageName='blog'>
-      <BlogHeaderBox postId={POST_ID} />
+    <BlogFrame postId={POST_ID}>
       <div class="section">
         <h2 id="cuisine">Preface: Cuisine</h2>
         <p>
@@ -162,7 +160,7 @@ function Post() {
           The reason I got into programming is because I like building things. Whether it's by myself or in teams, that won't change; all projects have their own freedoms and limitations, and I'll keep finding ways to enjoy contributing to them. Hopefully this post has given you some ways to do that as well.
         </p>
       </div>
-    </PageFrame>
+    </BlogFrame>
   );
 }
 

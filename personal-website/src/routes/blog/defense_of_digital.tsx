@@ -1,12 +1,10 @@
-import PageFrame from '~/components/PageFrame';
-import BlogHeaderBox from '~/components/BlogHeaderBox';
+import BlogFrame from '~/components/BlogFrame';
 
 function Post() {
   const POST_ID = "defense_of_digital";
 
   return (
-    <PageFrame pageName='blog'>
-      <BlogHeaderBox postId={POST_ID} />
+    <BlogFrame postId={POST_ID}>
       <div class="section">
         <h2 id="intro">Introduction</h2>
         <p>
@@ -133,9 +131,8 @@ function Post() {
           Of course, it's hard to achieve these ideals, and some of us still prefer paper because of the texture, the sensation of writing, or the nuance we can produce through our penmanship, but that's okay. Paper isn't going anywhere--we haven't actually <i>lost</i> anything with the invention of computers. Rather, it's important to recognize that innovation continues to bring new possibilities that we could use to improve our lives if we're open to change.
         </p>
       </div>
-    </PageFrame>
+    </BlogFrame>
   );
 }
 
 export default Post;
-

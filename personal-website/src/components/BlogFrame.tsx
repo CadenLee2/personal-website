@@ -1,10 +1,11 @@
-import './BlogHeaderBox.css';
+import './BlogFrame.css';
 import blogMetadata from '../blogMetadata';
+import PageFrame from '~/components/PageFrame';
 import { MdFillLink, MdFillArrow_back, MdFillCheck, MdFillRss_feed } from 'solid-icons/md';
 import { A } from '@solidjs/router';
-import { createSignal } from 'solid-js';
+import { JSX, children, createSignal } from 'solid-js';
 
-function BlogHeaderBox(props: { postId: string }) {
+function BlogFrame(props: { postId: string, children: JSX.Element }) {
   const { date, title, descr, imageUrl } = blogMetadata[props.postId];
 
   const [copiedLink, setCopiedLink] = createSignal(false);
@@ -14,13 +15,10 @@ function BlogHeaderBox(props: { postId: string }) {
     setCopiedLink(true);
   }
 
+  const resolved = children(() => props.children);
+
   return (
-    <>
-      <meta name="title" content={title} />
-      <meta name="description" content={descr} />
-      <meta name="author" content="Caden Lee" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={descr} />
+    <PageFrame pageName="blog" metaTitle={title} metaDesc={descr}>
       <div class="blog-header-box" style={{ 'background-image': `url('${imageUrl}')` }}>
         <h2>{title}</h2>
         <span>{date}</span>
@@ -38,8 +36,9 @@ function BlogHeaderBox(props: { postId: string }) {
           <MdFillRss_feed />
         </a>
       </div>
-    </>
+      {resolved()}
+    </PageFrame>
   );
 }
 
-export default BlogHeaderBox;
+export default BlogFrame;
