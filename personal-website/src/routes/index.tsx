@@ -6,9 +6,10 @@ import Showcase, { PeekingContainerVert, ToolsList, RoadmapTree } from '~/compon
 import Devicon from '~/components/Devicon';
 import { LinkButton } from '~/components/Button';
 
-import MyTools from '~/components/MyTools';
 import Marquee from '~/components/Marquee';
 import { MakingLifeEasierRow, GamesGrid, AlbumCover } from '~/components/SharedShowcases';
+
+import { clientOnly } from '@solidjs/start';
 
 import {
   MdFillMore_horiz,
@@ -21,9 +22,11 @@ import {
 import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '~/constants';
 
 // TODO: fix color of mini contacts
-// TODO: image layout shifts
-// TODO: fix icon colors in my tools
+// TODO: image layout shifts, and layout shift from loading client-side lazy mytools
+// TODO: fix icon colors in my tools and allow interaction
+// TODO: fix devicon glyph errors?
 // TODO: refactor fancy album cover
+// TODO: reactivity of mytools click selection
 
 export default function Home() {
   // Don't worry, this isn't actual code
@@ -32,6 +35,8 @@ export default function Home() {
   let anchorProjects!: HTMLHeadingElement;
   let anchorTools!: HTMLHeadingElement;
   let anchorOtherInterests!: HTMLHeadingElement;
+
+  const ClientMyTools = clientOnly(() => import('~/components/MyTools'), { lazy: true });
 
   return (
     <main>
@@ -157,7 +162,7 @@ export default function Home() {
         </div>
         <div class="section">
           <h2 ref={anchorTools}>My Tools</h2>
-          <MyTools />
+          <ClientMyTools fallback={<p>Loading...</p>} />
           <Marquee duration={50}>
             {marqueeTextDemo}
           </Marquee>

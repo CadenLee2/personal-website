@@ -60,7 +60,7 @@ function Showcase(props: {
   const resolved = children(() => props.children);
 
   const classNames = `showcase ${className ?? ''}`;
-  const style = backgroundImageUrl ? { backgroundImage: `url('${backgroundImageUrl}')` } : {};
+  const style = backgroundImageUrl ? { 'background-image': `url('${backgroundImageUrl}')` } : {};
 
   if (href) {
     return (

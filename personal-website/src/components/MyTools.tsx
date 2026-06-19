@@ -1,6 +1,6 @@
 import './MyTools.css';
 
-import { JSX, createSignal, For } from 'solid-js';
+import { JSX, createSignal, For, Accessor } from 'solid-js';
 import Devicon from '~/components/Devicon';
 
 type ToolInfo = {
@@ -147,17 +147,18 @@ const tools: ToolInfo[] = [
   },
 ]
 
-function ToolIcon(props: { toolInfo: ToolInfo, onHover: () => void, onClick: () => void, selected: boolean }) {
-  const { toolInfo, onHover, onClick, selected } = props;
+function ToolIcon(props: { toolInfo: ToolInfo, onHover: () => void, onClick: () => void, clickedTitle: string | null }) {
+
+  const className = () => `tool-icon-button ${props.clickedTitle === props.toolInfo.title ? 'selected' : ''}`;
 
   return (
     <button
-      class={`tool-icon-button ${selected ? 'selected' : ''}`}
-      onMouseOver={onHover}
-      onClick={onClick}
-      title={toolInfo.title}
+      class={className()}
+      onmouseover={props.onHover}
+      onclick={props.onClick}
+      title={props.toolInfo.title}
     >
-      <Devicon deviconId={toolInfo.icon} size="30px" />
+      <Devicon deviconId={props.toolInfo.icon} size="30px" />
     </button>
   );
 }
@@ -174,7 +175,7 @@ function MyTools() {
     else setClickedTitle(newTitle);
   }
 
-  const selectedTitle = clickedTitle() ?? hoveredTitle();
+  const selectedTitle = () => clickedTitle() ?? hoveredTitle();
 
   return (
     <>
@@ -186,7 +187,7 @@ function MyTools() {
                 onHover={() => setHoveredTitle(t.title)}
                 onClick={() => handleClickTitle(t.title)}
                 toolInfo={t}
-                selected={t.title === clickedTitle()}
+                clickedTitle={clickedTitle()}
               />
             )}
           </For>
@@ -198,23 +199,23 @@ function MyTools() {
                 onHover={() => setHoveredTitle(t.title)}
                 onClick={() => handleClickTitle(t.title)}
                 toolInfo={t}
-                selected={t.title === clickedTitle()}
+                clickedTitle={clickedTitle()}
               />
             )}
           </For>
         </div>
       </div>
       <div class="selected-item">
-        <h3>{selectedTitle ?? <>&nbsp;</>}</h3>
+        <h3>{selectedTitle() ?? <>&nbsp;</>}</h3>
         <div class="descr">
           <For each={tools}>
             {(t) => (
-              <span style={{ visibility: t.title === selectedTitle ? 'visible' : 'hidden' }}>
+              <span style={{ visibility: t.title === selectedTitle() ? 'visible' : 'hidden' }}>
                 {t.descr}
               </span>
             )}
           </For>
-          {!selectedTitle && <span class="hover-prompt">Hover or click a tool to see how I use it!</span>}
+          {!selectedTitle() && <span class="hover-prompt">Hover or click a tool to see how I use it!</span>}
         </div>
       </div>
     </>

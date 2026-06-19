@@ -11,7 +11,7 @@ export default function Contact() {
     <main>
       <PageFrame
         pageName="contact"
-        metaTitle="Caden Lee - Contact"
+        metaTitle="Contact Caden Lee"
         metaDesc="I'm a CS student at UC Irvine with a passion for programming."
       >
         <div class="section">
