@@ -9,7 +9,7 @@ import { LinkButton } from '~/components/Button';
 import Marquee from '~/components/Marquee';
 import { MakingLifeEasierRow, GamesGrid, AlbumCover } from '~/components/SharedShowcases';
 
-import { clientOnly } from '@solidjs/start';
+import MyTools from '~/components/MyTools';
 
 import {
   MdFillMore_horiz,
@@ -35,8 +35,6 @@ export default function Home() {
   let anchorProjects!: HTMLHeadingElement;
   let anchorTools!: HTMLHeadingElement;
   let anchorOtherInterests!: HTMLHeadingElement;
-
-  const ClientMyTools = clientOnly(() => import('~/components/MyTools'), { lazy: true });
 
   return (
     <main>
@@ -162,7 +160,7 @@ export default function Home() {
         </div>
         <div class="section">
           <h2 ref={anchorTools}>My Tools</h2>
-          <ClientMyTools fallback={<p>Loading...</p>} />
+          <MyTools />
           <Marquee duration={50}>
             {marqueeTextDemo}
           </Marquee>

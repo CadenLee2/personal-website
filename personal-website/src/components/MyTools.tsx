@@ -147,13 +147,11 @@ const tools: ToolInfo[] = [
   },
 ]
 
-function ToolIcon(props: { toolInfo: ToolInfo, onHover: () => void, onClick: () => void, clickedTitle: string | null }) {
-
-  const className = () => `tool-icon-button ${props.clickedTitle === props.toolInfo.title ? 'selected' : ''}`;
+function ToolIcon(props: { toolInfo: ToolInfo, onHover: () => void, onClick: () => void, selected: boolean }) {
 
   return (
     <button
-      class={className()}
+      class={`tool-icon-button ${props.selected ? 'selected' : ''}`}
       onmouseover={props.onHover}
       onclick={props.onClick}
       title={props.toolInfo.title}
@@ -187,7 +185,7 @@ function MyTools() {
                 onHover={() => setHoveredTitle(t.title)}
                 onClick={() => handleClickTitle(t.title)}
                 toolInfo={t}
-                clickedTitle={clickedTitle()}
+                selected={clickedTitle() == t.title}
               />
             )}
           </For>
@@ -199,7 +197,7 @@ function MyTools() {
                 onHover={() => setHoveredTitle(t.title)}
                 onClick={() => handleClickTitle(t.title)}
                 toolInfo={t}
-                clickedTitle={clickedTitle()}
+                selected={clickedTitle() == t.title}
               />
             )}
           </For>
