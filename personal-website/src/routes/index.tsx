@@ -8,16 +8,22 @@ import { LinkButton } from '~/components/Button';
 
 import MyTools from '~/components/MyTools';
 import Marquee from '~/components/Marquee';
-import { MakingLifeEasierRow, GamesGrid } from '~/components/SharedShowcases';
+import { MakingLifeEasierRow, GamesGrid, AlbumCover } from '~/components/SharedShowcases';
 
-import { MdFillMore_horiz, MdFillArrow_outward } from 'solid-icons/md';
+import {
+  MdFillMore_horiz,
+  MdFillArrow_outward,
+  MdFillArrow_forward,
+  MdFillMusic_note,
+  MdFillRestaurant,
+} from 'solid-icons/md';
 
 import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '~/constants';
 
-// TODO: clickable anchors
 // TODO: fix color of mini contacts
 // TODO: image layout shifts
 // TODO: fix icon colors in my tools
+// TODO: refactor fancy album cover
 
 export default function Home() {
   // Don't worry, this isn't actual code
@@ -25,7 +31,7 @@ export default function Home() {
 
   let anchorProjects!: HTMLHeadingElement;
   let anchorTools!: HTMLHeadingElement;
-  //let anchorOtherInterests;
+  let anchorOtherInterests!: HTMLHeadingElement;
 
   return (
     <main>
@@ -57,7 +63,7 @@ export default function Home() {
             <button title="Jump to tools" onClick={() => anchorTools.scrollIntoView({ behavior: 'smooth' })}>
               <img src="/images/CodeEditor.png" />
             </button>
-            <button title="Jump to other interests" onClick={() => /*anchorOtherInterests.current?.scrollIntoView({ behavior: 'smooth' })*/{}}>
+            <button title="Jump to other interests" onClick={() => anchorOtherInterests.scrollIntoView({ behavior: 'smooth' })}>
               <img src="/images/BombayBoat.jpg" />
             </button>
           </div>
@@ -164,6 +170,40 @@ export default function Home() {
         <div class="section">
           <h2>Games I've Built</h2>
           <GamesGrid />
+        </div>
+        <div class="section">
+          <h2 ref={anchorOtherInterests}>Other Interests</h2>
+          <div class="interests-section">
+            <AlbumCover />
+            <div class="music-descr">
+              <span>In my free time, I make trance, synthwave, and other electronic music. I also enjoy photography, science fiction books, and cooking.</span>
+              <br />
+              <div class="interests-links">
+                <LinkButton variant="gray-mid" href="https://www.youtube.com/playlist?list=PLbN2H2xs0W6tlWWImF9bK6xp-U0PCpN7a&si=za9rSy9WBiHHEivw">
+                  <MdFillMusic_note />
+                  Listen on YouTube
+                </LinkButton>
+                <LinkButton variant="gray-mid" href="/cuisine">
+                  <MdFillRestaurant />
+                  See my favorite foods
+                </LinkButton>
+              </div>
+            </div>
+          </div>
+          <div class="photography">
+            <img title="UCI's Engineering Tower" src="/images/ICSTrees.jpg" />
+            <img title="The Hermosa Beach pier" src="/images/HermosaPier.jpg" />
+            <img title="Bombay Beach by the Salton Sea" src="/images/BombayBoat.jpg" />
+          </div>
+        </div>
+        <div class="section get-in-touch">
+          <h2>Get in touch!</h2>
+          <LinkButton href="/contact" variant="blue">
+            <MdFillArrow_forward size={18} /> Contact
+          </LinkButton>
+          <LinkButton href="/resume" variant="blue">
+            <MdFillArrow_forward size={18} /> Resume
+          </LinkButton>
         </div>
       </PageFrame>
     </main>

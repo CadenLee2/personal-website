@@ -2,6 +2,8 @@ import './SharedShowcases.css';
 
 import Showcase, { ToolsList, PeekingContainer } from '../components/Showcase';
 
+import { MdFillPlay_arrow } from 'solid-icons/md';
+
 export function MakingLifeEasierRow() {
   return (
     <div class="showcase-row">
@@ -89,6 +91,21 @@ export function GamesGrid() {
         </div>
         <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
       </Showcase>
+    </div>
+  );
+}
+
+export function AlbumCover() {
+  return (
+    <div class="album-container">
+      <a
+        class="showcase album-cover album-cover-top clickable"
+        href="https://youtu.be/QRya2g7BbXs?si=Sqa9VzWz5GmYPFXq"
+        title="Listen to Skyline by Cadecraft on YouTube"
+      >
+        <MdFillPlay_arrow />
+      </a>
+      <div class="showcase album-cover album-cover-bottom" />
     </div>
   );
 }
