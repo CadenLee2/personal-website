@@ -1,5 +1,6 @@
 import './Showcase.css';
 import { children, JSX, For } from 'solid-js';
+import Devicon from '~/components/Devicon';
 import { A } from '@solidjs/router';
 
 type RoadmapTreeItem = {
@@ -28,10 +29,14 @@ export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
   );
 }
 
-// TODO: refactor to just take in a list of strings for devicons?
-export function ToolsList(props: { children: JSX.Element }) {
-  const resolved = children(() => props.children);
-  return <div class="toolslist">{resolved()}</div>;
+export function ToolsList(props: { deviconIds: string[], size?: string }) {
+  return <div class="toolslist">
+    <For each={props.deviconIds}>
+      {(id) => (
+        <Devicon deviconId={id} size={props.size} />
+      )}
+    </For>
+  </div>;
 }
 
 export function PeekingContainer(props: { children: JSX.Element }) {

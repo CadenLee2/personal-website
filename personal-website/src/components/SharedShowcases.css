@@ -1,0 +1,108 @@
+div.games-grid {
+  display: grid;
+  grid-template-columns: minmax(20%, 228px) 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 10px;
+  height: 762px;
+
+  > :first-child {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-column-end: 2;
+    grid-row-end: 3;
+  }
+
+  @media (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+div.rical, div.sheatfish, div.homepage-omni {
+  img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px var(--darkshadow);
+  }
+
+  .toolslist {
+    margin-top: auto;
+  }
+
+  > span, > img {
+    margin-bottom: 8px;
+  }
+}
+
+div.rical {
+  background-image: url('/images/projects/RicalTerminal_Blur.png');
+}
+
+div.sheatfish {
+  background-image: url('/images/projects/Sheatfish_Blur.png');
+}
+
+div.homepage-omni {
+  background-image: url('/images/projects/HomepageOmni_Blur.png');
+}
+
+div.landform-eclipse, div.speedstreets, div.platscifi {
+  > div:first-child {
+    display: flex;
+    gap: 10px;
+  }
+
+  img {
+    border-radius: 4px;
+  }
+}
+
+div.tetrome {
+  background-image: url('/images/projects/Tetrome_Blur.png');
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: auto;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 580px) {
+    > div:first-child {
+      display: flex;
+      img {
+        max-height: 200px;
+      }
+    }
+  }
+}
+
+div.landform-eclipse {
+  background-image: url('/images/projects/Landform_Blur.png');
+}
+
+div.speedstreets {
+  background-image: url('/images/projects/Speedstreets_Blur.png');
+}
+
+div.platscifi {
+  background-image: url('/images/projects/Platscifi_Blur.png');
+}
+
+div.regnatural {
+  background-image: url('/images/projects/Regnatural_Blur.png');
+
+  span {
+    margin-bottom: 10px;
+  }
+
+  .toolslist {
+    margin-top: auto;
+  }
+}

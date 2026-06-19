@@ -143,6 +143,7 @@ div.knickknack {
     flex-direction: column;
     gap: 10px;
 
+    min-width: 30%;
     height: 100%;
 
     align-items: center;
