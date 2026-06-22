@@ -4,7 +4,7 @@ import type { CuisineMap, CuisineEntry, SimpleEntry, Friend, GroceryStore, Resta
 import { useIdNav } from './hooks';
 import { EntryIdentifier, RatingDisp } from '~/components/cuisine/shared';
 
-import { For, Switch, Match, Show, Resource, createMemo } from 'solid-js';
+import { For, Switch, Match, Show, Resource } from 'solid-js';
 
 import { MdFillArrow_outward, MdFillPeople_alt } from 'solid-icons/md';
 
@@ -129,7 +129,7 @@ function DetailsContent(props: {cuisineData: CuisineMap, entry: CuisineEntry}) {
   );
 }
 
-function Details(props: {cuisineData: Resource<CuisineMap> | undefined, entryId: string}) {
+function Details(props: {cuisineData: Resource<CuisineMap>, entryId: string}) {
   const { navigateToId } = useIdNav();
 
   const escape = () => {
@@ -141,13 +141,13 @@ function Details(props: {cuisineData: Resource<CuisineMap> | undefined, entryId:
       <div class="details">
         <button onClick={escape} class="escape-hotkey">[ESC]</button>
         <Switch>
-          <Match when={!props.cuisineData || props.cuisineData.state !== 'ready'}>
+          <Match when={props.cuisineData.state !== 'ready'}>
             <i>Loading...</i>
           </Match>
-          <Match when={props.cuisineData && props.cuisineData.state === 'ready' && !(props.entryId in props.cuisineData())}>
+          <Match when={props.cuisineData.state === 'ready' && !(props.entryId in props.cuisineData())}>
             <i>This entry doesn't exist!</i>
           </Match>
-          <Match when={props.cuisineData && props.cuisineData()}>
+          <Match when={props.cuisineData()}>
             {(cuisineData) => (
               <DetailsContent cuisineData={cuisineData()} entry={cuisineData()[props.entryId]} />
             )}
@@ -159,7 +159,7 @@ function Details(props: {cuisineData: Resource<CuisineMap> | undefined, entryId:
 }
 
 export default function DetailsOverlay(props: {
-  cuisineData: Resource<CuisineMap> | undefined,
+  cuisineData: Resource<CuisineMap>,
 }) {
   const { selectedId, navigateToId } = useIdNav();
 
