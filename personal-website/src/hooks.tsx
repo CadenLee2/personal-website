@@ -6,6 +6,7 @@ export function useIsMobile() {
   const [isMobile, setIsMobile] = createSignal(false);
 
   createEffect(() => {
+    setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     const respondToChange = () => {
       setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     }

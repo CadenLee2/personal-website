@@ -3,6 +3,8 @@ import './cuisine.css';
 import { createEffect, createSignal, createResource, Show, For, Accessor } from 'solid-js';
 import { clientOnly } from '@solidjs/start';
 
+import { Meta, Title } from '@solidjs/meta';
+
 import type {
   CuisineMap,
   CuisineEntry,
@@ -28,7 +30,7 @@ import { A } from '@solidjs/router';
 // TODO: fix SSR issue that's introduced in this commit
 
 // TODO: lazy?
-const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: true });
+const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: false });
 
 function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
   const entry = props.entry;
@@ -122,8 +124,6 @@ export default function Cuisine() {
 
   const [cuisineData] = createResource(fetchAllCuisineData);
 
-  //const coalescedCuisineData = () => cuisineData.state === 'ready' ? cuisineData() : {};
-
   // TODO: handle leaflet
   // Avoid Leaflet issues with size not updating properly after first render
   createEffect(() => {
@@ -131,15 +131,6 @@ export default function Cuisine() {
   });
 
   const { selectedId, navigateToId } = useIdNav();
-
-  // TODO: remove dead comments
-  //useEffect(() => {
-  //  fetchAllCuisineData().then(res => setCuisineData(res));
-  //  }, [setCuisineData]);
-
-  /*createEffect(() => {
-    setFiltered();
-    });*/
 
   // TODO: this fails
   const filtered = (cuisineData: Accessor<CuisineMap>) => {
@@ -160,7 +151,7 @@ export default function Cuisine() {
 
   const selectedEntry = () => {
     const selectedIdVal = selectedId();
-    return (cuisineData.state === "ready" && selectedIdVal && selectedIdVal in cuisineData()) ? cuisineData()[selectedIdVal] : null;
+    return (cuisineData.state === 'ready' && selectedIdVal && selectedIdVal in cuisineData()) ? cuisineData()[selectedIdVal] : null;
   }
 
   const pageTitle = () => {
@@ -168,14 +159,25 @@ export default function Cuisine() {
     return selectedEntryVal ? (`${selectedEntryVal.title} - Cuisine`) : "Cuisine";
   }
 
-  // TODO: better metadata, incl. server-side
-  // TODO: reload properly on changing url params
+  const pageDescription = () => {
+    const selectedEntryVal = selectedEntry();
+    if (selectedEntryVal && selectedEntryVal.explanation !== undefined) {
+      return `${selectedEntryVal.explanation.substring(0, 100)}...`;
+    } else {
+      return undefined;
+    }
+  }
 
   return (
     <div class="cuisine-main">
-      <title>{pageTitle()}</title>
-      <meta name="title" content={pageTitle()} />
-      <meta name="description" content="Food ratings" />
+      <Title>{pageTitle()}</Title>
+      <Show when={selectedId() === undefined || selectedEntry()}>
+        <Meta name="title" content={pageTitle()} />
+        <Meta name="description" content={pageDescription()} />
+        <Meta name="author" content="Caden Lee" />
+        <Meta name="og:title" content={pageTitle()} />
+        <Meta name="og:description" content={pageDescription()} />
+      </Show>
       <div class="sidebar">
         <div class="sidebar-header">
           <div class="top-header">
@@ -188,7 +190,7 @@ export default function Cuisine() {
             See recipes, dishes, groceries, restaurants, and grocery stores in one place. You can trust that only first-hand reports are included.
           </Marquee>
         </div>
-        <Show when={!isMobile || mobileScreen() === 'list'}>
+        <Show when={!isMobile() || mobileScreen() === 'list'}>
           <SearchAndFilter filters={filters()} setFilters={setFilters} />
           <div class="main-list">
             <Show when={cuisineData()}>
