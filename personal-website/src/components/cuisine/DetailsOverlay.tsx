@@ -1,22 +1,17 @@
 import './DetailsOverlay.css';
 
-import type { CuisineMap, CuisineEntry, SimpleEntry, Friend } from './CuisineTypes';
+import type { CuisineMap, CuisineEntry, SimpleEntry, Friend, GroceryStore, Restaurant } from './CuisineTypes';
 import { useIdNav } from './hooks';
 import { EntryIdentifier, RatingDisp } from '~/components/cuisine/shared';
 
 import { For, Switch, Match, Show, Resource, createMemo } from 'solid-js';
 
-// TODO: is MdFillPin the right icon?
 import { MdFillArrow_outward, MdFillPeople_alt } from 'solid-icons/md';
 
 function LocationMark(props: {entry: CuisineEntry}) {
-  const entry = props.entry;
-
-  // TODO: type error with mapsLink
-
   return (
-    <Show when={(entry.type === 'grocery-store' || entry.type === 'restaurant') && entry.mapsLink}>
-      <a target="_blank" title="View on maps" href={('mapsLink' in entry) ? entry.mapsLink : undefined} class="map-icon">
+    <Show when={(props.entry.type === 'grocery-store' || props.entry.type === 'restaurant') && props.entry.mapsLink}>
+      <a target="_blank" title="View on maps" href={(props.entry as GroceryStore | Restaurant).mapsLink} class="map-icon">
         <MdFillArrow_outward />
       </a>
     </Show>
@@ -24,29 +19,30 @@ function LocationMark(props: {entry: CuisineEntry}) {
 }
 
 function MiniCard(props: { id?: string, title: string, rating: number }) {
-  const { id, title, rating } = props;
-
   const { navigateToId } = useIdNav();
 
   return (
     <div class="mini-card">
-      <RatingDisp rating={rating} />
-      <span>{id ? <button onClick={() => navigateToId(id)}>{title}</button> : title}</span>
+      <RatingDisp rating={props.rating} />
+      <span>
+        <Switch fallback={props.title}>
+          <Match keyed when={props.id}>
+            {(id) => <button onClick={() => navigateToId(id)}>{props.title}</button>}
+          </Match>
+        </Switch>
+      </span>
     </div>
   );
 }
 
 function MiniList(props: { cuisineData: CuisineMap, flat?: SimpleEntry[], ids?: string[], title: string }) {
-  // TODO: is this non-destructuring allowed?
-  const cuisineData = props.cuisineData;
-
   return (
     <>
       <h3>{props.title}</h3>
       <div class="mini-list">
-        <For each={props.ids?.filter(i => i in cuisineData)}>
+        <For each={props.ids?.filter(i => i in props.cuisineData)}>
           {(i) => (
-            <MiniCard id={i} title={cuisineData[i].title} rating={cuisineData[i].rating} />
+            <MiniCard id={i} title={props.cuisineData[i].title} rating={props.cuisineData[i].rating} />
           )}
         </For>
         <For each={props.flat}>
@@ -83,92 +79,82 @@ function TriedWith(props: {friends: Friend[]}) {
 }
 
 function ExplanationParagraphs(props: {explanation: string | undefined}) {
-  const explanation = props.explanation;
-  if (!explanation) {
+  if (!props.explanation) {
     return <i>No details provided</i>;
   }
+  // Must be a component for reactivity
+  // TODO: switch to usememo, keep explanation comment
   return (
     <>
-      {explanation.split('\n').map(s => s.length > 0 ? <p>{s}</p> : null)}
+      {props.explanation.split('\n').map(s => s.length > 0 ? <p>{s}</p> : null)}
     </>
   )
 }
 
 function DetailsContent(props: {cuisineData: CuisineMap, entry: CuisineEntry}) {
-  const entry = props.entry;
-
   return (
-    <div class="details">
+    <>
       <div class="cuisine-header">
-        <h2>{entry.title}</h2>
-        <span title="Date reviewed">{entry.dateReviewed}</span>
+        <h2>{props.entry.title}</h2>
+        <span title="Date reviewed">{props.entry.dateReviewed}</span>
       </div>
-      <EntryIdentifier entry={entry} />
+      <EntryIdentifier entry={props.entry} />
       <div class="misc-info">
-        <RatingDisp rating={entry.rating} />
-        <LocationMark entry={entry} />
-        <Show when={entry.type === 'grocery'}>
+        <RatingDisp rating={props.entry.rating} />
+        <LocationMark entry={props.entry} />
+        <Show when={props.entry.type === 'grocery'}>
           <>
             <span class="subspan">(For the price:</span>
-            <RatingDisp rating={entry.type === 'grocery' ? entry.priceEfficiencyRating! : 0} />
+            <RatingDisp rating={props.entry.type === 'grocery' ? props.entry.priceEfficiencyRating! : 0} />
             <span class="subspan">)</span>
           </>
-          )}
         </Show>
-        {entry.triedWith && <TriedWith friends={entry.triedWith} />}
+        {props.entry.triedWith && <TriedWith friends={props.entry.triedWith} />}
       </div>
       <div class="section-divider"><hr /></div>
       <div class="explanation">
-        <ExplanationParagraphs explanation={entry.explanation} />
+        <ExplanationParagraphs explanation={props.entry.explanation} />
       </div>
       <div class="section-divider"><hr /></div>
-      {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
-        <MiniList title="Groceries" cuisineData={props.cuisineData!} flat={entry.groceriesFlat} ids={entry.groceryIds} />
+      {props.entry.type === 'grocery-store' && (props.entry.groceriesFlat || props.entry.groceryIds) && (
+        <MiniList title="Groceries" cuisineData={props.cuisineData!} flat={props.entry.groceriesFlat} ids={props.entry.groceryIds} />
       )}
-      {entry.type === 'restaurant' && (entry.dishesFlat || entry.dishIds) && (
-        <MiniList title="Dishes" cuisineData={props.cuisineData!} flat={entry.dishesFlat} ids={entry.dishIds} />
+      {props.entry.type === 'restaurant' && (props.entry.dishesFlat || props.entry.dishIds) && (
+        <MiniList title="Dishes" cuisineData={props.cuisineData!} flat={props.entry.dishesFlat} ids={props.entry.dishIds} />
       )}
       <span class="disclaimer">
         Disclaimer: views expressed are purely the personal opinions of the author
         and should not be taken as advice. The author is not affiliated with any listed establishments.
       </span>
-    </div>
+    </>
   );
 }
 
 function Details(props: {cuisineData: Resource<CuisineMap>, entryId: string}) {
-  // TODO: clean up
-  const cuisineData = props.cuisineData;
-  const entryId = props.entryId;
-
   const { navigateToId } = useIdNav();
 
   const escape = () => {
     navigateToId(undefined);
   }
 
-  const notLoaded = cuisineData.state !== 'ready' || !(entryId in cuisineData());
-  if (notLoaded) return (
-    <div class="details-wrapper" onClick={(e) => e.stopPropagation()}>
-      <button onClick={escape} class="escape-hotkey">[ESC]</button>
-      <div class="details">
-        <i>Loading...</i>
-      </div>
-    </div>
-  );
-
-  const entry = createMemo(() => {
-    return cuisineData()[entryId];
-  });
-
-  // TODO: replace all conditional returns with match or show
-
-  // TODO: LOADING ANIMATION based on the resource
-
   return (
     <div class="details-wrapper" onClick={(e) => e.stopPropagation()}>
-      <button onClick={escape} class="escape-hotkey">[ESC]</button>
-      <DetailsContent cuisineData={cuisineData()} entry={entry()} />
+      <div class="details">
+        <button onClick={escape} class="escape-hotkey">[ESC]</button>
+        <Switch>
+          <Match when={props.cuisineData.state !== 'ready'}>
+            <i>Loading...</i>
+          </Match>
+          <Match when={props.cuisineData.state === 'ready' && !(props.entryId in props.cuisineData())}>
+            <i>This entry doesn't exist!</i>
+          </Match>
+          <Match when={props.cuisineData()}>
+            {(cuisineData) => (
+              <DetailsContent cuisineData={cuisineData()} entry={cuisineData()[props.entryId]} />
+            )}
+          </Match>
+        </Switch>
+      </div>
     </div>
   );
 }

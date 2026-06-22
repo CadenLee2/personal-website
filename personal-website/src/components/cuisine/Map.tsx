@@ -107,6 +107,8 @@ export default function CuisineMapContainer(props: {
 
   // TODO: support AutoRecenter
 
+  // TODO: support markers
+
   return (
     <>
       <MapContainer />
