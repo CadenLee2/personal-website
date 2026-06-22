@@ -15,37 +15,39 @@ const DEFAULT_ZOOM = 10;
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const TILE_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const MAP_ID = 'cuisine-leaflet-map';
+const MAP_OPTIONS: L.MapOptions = {
+  worldCopyJump: true,
+  scrollWheelZoom: true
+}
 
-function MapContainer(props: { markers: CuisineMap }) {
-  let map;
-
+function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression | null }) {
   const { navigateToId } = useIdNav();
 
   // onMount is necessary as per readme of <https://github.com/chris31415926535/solid-leaflet-reprex>
   onMount(async () => {
-    // TODO: make nicer?
-    // TODO: enable markers
     const leaflet = await import('leaflet');
     const L = leaflet.default;
-    map = L.map(MAP_ID, {
-      worldCopyJump: true,
-      scrollWheelZoom: true
-    }).setView(DEFAULT_CENTER as LatLngExpression, DEFAULT_ZOOM);
+    const map = L.map(MAP_ID, MAP_OPTIONS);
+    map.setView(DEFAULT_CENTER as LatLngExpression, DEFAULT_ZOOM);
     const tileLayer = L.tileLayer(TILE_URL, { attribution: TILE_ATTR });
-    tileLayer.addTo(map);
+    map.addLayer(tileLayer);
 
-    // Markers
-    let pointClusters = L.layerGroup();
-    let mapref = map;
+    let markerLayers = L.layerGroup();
 
     createEffect(() => {
-      mapref.removeLayer(pointClusters);
-      pointClusters = L.layerGroup();
+      map.removeLayer(markerLayers);
+      markerLayers = L.layerGroup();
       Object.entries(props.markers)
         .map(([id, entry]) => toCuisineMarker(entry, L, () => navigateToId(id)))
         .filter((m) => m !== null)
-        .forEach((m) => pointClusters.addLayer(m));
-      mapref.addLayer(pointClusters);
+        .forEach((m) => markerLayers.addLayer(m));
+      map.addLayer(markerLayers);
+    });
+
+    createEffect(() => {
+      if (props.autoCenter) {
+        map.panTo(props.autoCenter)
+      }
     });
 
   });
@@ -56,9 +58,7 @@ function MapContainer(props: { markers: CuisineMap }) {
 }
 
 function toCuisineMarker(entry: CuisineEntry, L: typeof import('leaflet'), nav: () => void) {
-  const handleClick = () => {
-    nav();
-  }
+  const handleClick = nav;
 
   const handleKeydown: LeafletKeyboardEventHandlerFn = (e) => {
     if (e.originalEvent.key === 'Enter') {
@@ -82,42 +82,28 @@ function toCuisineMarker(entry: CuisineEntry, L: typeof import('leaflet'), nav: 
     });
 
     return L.marker([entry.latitude, entry.longitude], {
-        title: entry.title,
-        icon: icon,
+      title: entry.title,
+      icon: icon,
     }).on('click', handleClick).on('keydown', handleKeydown).bindTooltip(tooltip);
   } else {
     return null;
   }
 }
 
-/*function AutoRecenter(props: { latitude: number, longitude: number }) {
-  const leafletMap = useMap();
-
-  useEffect(() => {
-    leafletMap.panTo([props.latitude, props.longitude])
-  }, [props.latitude, props.longitude, leafletMap]);
-
-  return null;
-  }*/
-
 export default function CuisineMapContainer(props: {
   filtered: CuisineMap,
   selected: CuisineEntry | null
 }) {
-  // TODO: stop destructuring props here
-  const selected = props.selected;
-  const target = (selected && 'latitude' in selected && 'longitude' in selected && selected['latitude'] && selected['longitude'])
-    ? [selected.latitude, selected.longitude] : null;
-
-  // TODO: support AutoRecenter
-
-  // TODO: support markers
+  const target = () => {
+    const selected = props.selected;
+    if (selected && 'latitude' in selected && 'longitude' in selected && selected['latitude'] && selected['longitude']) {
+      return [selected.latitude, selected.longitude] as LatLngExpression;
+    } else {
+      return null;
+    }
+  }
 
   return (
-    <>
-      <MapContainer markers={props.filtered} />
-      {/*Object.entries(cuisineData).map(([key, val]) => <CuisineMarker id={key} key={key} entry={val} />)*/}
-      {/*target && <AutoRecenter latitude={targets[0]} longitude={targets[1]} />*/}
-    </>
+    <MapContainer markers={props.filtered} autoCenter={target()} />
   );
 }
