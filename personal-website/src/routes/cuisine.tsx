@@ -1,12 +1,17 @@
 import './cuisine.css';
 
-import { createEffect, createSignal, createResource, Show, For, Accessor } from 'solid-js';
+import {
+  createEffect,
+  createSignal,
+  createResource,
+  Show,
+  For,
+} from 'solid-js';
 import { clientOnly } from '@solidjs/start';
 
 import { Meta, Title } from '@solidjs/meta';
 
 import type {
-  CuisineMap,
   CuisineEntry,
   CuisineFilters,
   CuisineCategory,
@@ -25,11 +30,9 @@ import { useIdNav } from '~/components/cuisine/hooks';
 
 import { A } from '@solidjs/router';
 
-// TODO: stop destructuring props
+// TODO: computations created outside a `createRoot` or `render` will never be disposed
+// TODO: sometimes Error: `Map container not found.` when switching
 
-// TODO: fix SSR issue that's introduced in this commit
-
-// TODO: lazy?
 const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: false });
 
 function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
@@ -117,7 +120,8 @@ export default function Cuisine() {
 
   const [mobileScreen, setMobileScreen] = createSignal<MobileScreen>('list');
 
-  const [cuisineData] = createResource(fetchAllCuisineData);
+  // Defer so the metadata loads properly server-side (i.e. for og)
+  const [cuisineData] = createResource(fetchAllCuisineData, { deferStream: true });
 
   // Avoid Leaflet issues with size not updating properly after first render
   const [seenMap, setSeenMap] = createSignal(false);
@@ -133,7 +137,6 @@ export default function Cuisine() {
     return filterCuisine(cuisineData.state === 'ready' ? cuisineData() : {}, filters());
   };
 
-  // TODO: simple loading spinner
   // TODO: "copy link" option?
 
   createEffect(() => {
@@ -160,14 +163,14 @@ export default function Cuisine() {
     if (selectedEntryVal && selectedEntryVal.explanation !== undefined) {
       return `${selectedEntryVal.explanation.substring(0, 100)}...`;
     } else {
-      return undefined;
+      return "Your trustworthy site for food ratings";
     }
   }
 
   return (
     <div class="cuisine-main">
-      <Title>{pageTitle()}</Title>
-      <Show when={selectedId() === undefined || selectedEntry()}>
+      <Show when={cuisineData()}>
+        <Title>{pageTitle()}</Title>
         <Meta name="title" content={pageTitle()} />
         <Meta name="description" content={pageDescription()} />
         <Meta name="author" content="Caden Lee" />
