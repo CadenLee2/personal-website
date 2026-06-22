@@ -129,8 +129,8 @@ export default function Cuisine() {
 
   const { selectedId, navigateToId } = useIdNav();
 
-  const filtered = (givenCuisineData: CuisineMap) => {
-      return filterCuisine(givenCuisineData, filters());
+  const filtered = () => {
+    return filterCuisine(cuisineData.state === 'ready' ? cuisineData() : {}, filters());
   };
 
   // TODO: simple loading spinner
@@ -190,19 +190,17 @@ export default function Cuisine() {
           <SearchAndFilter filters={filters()} setFilters={setFilters} />
           <div class="main-list">
             <Show keyed when={cuisineData()}>
-              {(data) => (
-                <For each={Object.entries(filtered(data))}>
-                  {([key, val]) => (
-                    <EntryCard entry={val} onClick={() => navigateToId(key)} />
-                  )}
-                </For>
-              )}
+              <For each={Object.entries(filtered())}>
+                {([key, val]) => (
+                  <EntryCard entry={val} onClick={() => navigateToId(key)} />
+                )}
+              </For>
             </Show>
           </div>
         </Show>
         <Show when={isMobile() && seenMap()}>
           <div class={mobileScreen() === 'map' ? 'mobile-map' : 'hidden'}>
-            <CuisineMapContainer filtered={filtered(cuisineData.state === 'ready' ? cuisineData() : {})} selected={selectedEntry()} />
+            <CuisineMapContainer filtered={filtered()} selected={selectedEntry()} />
           </div>
         </Show>
         <Show when={isMobile()}>
@@ -214,7 +212,7 @@ export default function Cuisine() {
       </Show>
       <Show when={!isMobile()}>
         <div class="cuisine-right">
-          <CuisineMapContainer filtered={filtered(cuisineData.state === 'ready' ? cuisineData() : {})} selected={selectedEntry()} />
+          <CuisineMapContainer filtered={filtered()} selected={selectedEntry()} />
           <DetailsOverlay cuisineData={cuisineData} />
         </div>
       </Show>

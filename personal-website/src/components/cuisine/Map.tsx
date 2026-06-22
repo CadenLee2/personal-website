@@ -7,14 +7,9 @@ import { useIdNav } from '~/components/cuisine/hooks';
 
 import 'leaflet/dist/leaflet.css'
 import type { LeafletKeyboardEventHandlerFn, LatLngExpression } from 'leaflet';
-import { divIcon } from 'leaflet';
-import 'leaflet.markercluster';
 
-import { onMount, Resource, createEffect } from 'solid-js';
+import { onMount, createEffect } from 'solid-js';
 
-// TODO: update react map -> For, etc.
-
-// TODO: fix CuisineMarker
 const DEFAULT_CENTER = [33.8, -118];
 const DEFAULT_ZOOM = 10;
 const TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -23,6 +18,8 @@ const MAP_ID = 'cuisine-leaflet-map';
 
 function MapContainer(props: { markers: CuisineMap }) {
   let map;
+
+  const { navigateToId } = useIdNav();
 
   // onMount is necessary as per readme of <https://github.com/chris31415926535/solid-leaflet-reprex>
   onMount(async () => {
@@ -38,25 +35,14 @@ function MapContainer(props: { markers: CuisineMap }) {
     tileLayer.addTo(map);
 
     // Markers
-    // TODO: always show markers rather than requiring zoom level
-    // TODO: remove markerclustergroup dependency
-    let pointClusters = L.layerGroup()//.markerClusterGroup();
-    // TODO: bind popup
-    Object.entries(props.markers)
-      .map(([id, entry]) => toMarker(id, entry, L))
-      .filter((m) => m !== null)
-      .forEach((m) => pointClusters.addLayer(m));
-    map.addLayer(pointClusters);
-
+    let pointClusters = L.layerGroup();
     let mapref = map;
 
     createEffect(() => {
-      console.log('map cluster logic rerunning');
       mapref.removeLayer(pointClusters);
-      // TODO: refactor to a function
-      pointClusters = L.markerClusterGroup();
+      pointClusters = L.layerGroup();
       Object.entries(props.markers)
-        .map(([id, entry]) => toMarker(id, entry, L))
+        .map(([id, entry]) => toCuisineMarker(entry, L, () => navigateToId(id)))
         .filter((m) => m !== null)
         .forEach((m) => pointClusters.addLayer(m));
       mapref.addLayer(pointClusters);
@@ -69,92 +55,39 @@ function MapContainer(props: { markers: CuisineMap }) {
   );
 }
 
-function toMarker(id: string, entry: CuisineEntry, L: typeof import('leaflet')) {
-  //const { navigateToId } = useIdNav();
-
+function toCuisineMarker(entry: CuisineEntry, L: typeof import('leaflet'), nav: () => void) {
   const handleClick = () => {
-    // TODO: id nav
-    //navigateToId(id);
+    nav();
   }
 
   const handleKeydown: LeafletKeyboardEventHandlerFn = (e) => {
     if (e.originalEvent.key === 'Enter') {
-      //navigateToId(id);
+      nav();
     }
   }
 
   const numericRating = parseInt('' + entry.rating);
-
-  const icon = divIcon({
-    html: `<div class="r${numericRating}">${numericRating}/10</div>`,
-    iconSize: [44, 44],
-    iconAnchor: [22, 22],
-    className: `map-icon`
-  });
 
   if ('latitude' in entry && 'longitude' in entry && entry['latitude'] && entry['longitude']) {
-    return L.marker(
-      [entry.latitude, entry.longitude],
-      {
-        title: "TEST EXAMPLE",
+    const tooltip = L.tooltip({
+      direction: 'top',
+      offset: [0, -11],
+    }).setContent(entry.title);
+
+    const icon = L.divIcon({
+      html: `<div class="r${numericRating}">${numericRating}/10</div>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 22],
+      className: `map-icon`
+    });
+
+    return L.marker([entry.latitude, entry.longitude], {
+        title: entry.title,
         icon: icon,
-      }
-    );
-      /*<Marker
-        eventHandlers={{ click: handleClick, keydown: handleKeydown }}
-        position={[entry.latitude, entry.longitude]}
-        icon={icon}
-      >;
-        <Tooltip direction="top" offset={[0, -11]}>
-          {entry.title}
-        </Tooltip>
-      </Marker>
-      );*/
+    }).on('click', handleClick).on('keydown', handleKeydown).bindTooltip(tooltip);
   } else {
     return null;
   }
-}
-
-// TODO: remove dead code
-function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
-  const { id, entry } = props;
-
-  const { navigateToId } = useIdNav();
-
-  const handleClick = () => {
-    navigateToId(id);
-  }
-
-  const handleKeydown: LeafletKeyboardEventHandlerFn = (e) => {
-    if (e.originalEvent.key === 'Enter') {
-      navigateToId(id);
-    }
-  }
-
-  const numericRating = parseInt('' + entry.rating);
-
-  const icon = divIcon({
-    html: `<div class="r${numericRating}">${numericRating}/10</div>`,
-    iconSize: [44, 44],
-    iconAnchor: [22, 22],
-    className: `map-icon`
-  });
-
-  /*if ('latitude' in entry && 'longitude' in entry && entry['latitude'] && entry['longitude']) {
-    return (
-      <Marker
-        eventHandlers={{ click: handleClick, keydown: handleKeydown }}
-        position={[entry.latitude, entry.longitude]}
-        icon={icon}
-      >;
-        <Tooltip direction="top" offset={[0, -11]}>
-          {entry.title}
-        </Tooltip>
-      </Marker>
-    );
-  } else {
-    return null;
-    }*/
 }
 
 /*function AutoRecenter(props: { latitude: number, longitude: number }) {
