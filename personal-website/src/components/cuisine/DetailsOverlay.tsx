@@ -79,16 +79,15 @@ function TriedWith(props: {friends: Friend[]}) {
 }
 
 function ExplanationParagraphs(props: {explanation: string | undefined}) {
-  if (!props.explanation) {
-    return <i>No details provided</i>;
-  }
-  // Must be a component for reactivity
-  // TODO: switch to usememo, keep explanation comment
   return (
-    <>
-      {props.explanation.split('\n').map(s => s.length > 0 ? <p>{s}</p> : null)}
-    </>
-  )
+    <Switch fallback={<i>No details provided</i>}>
+      <Match keyed when={props.explanation}>
+        {(explanation) => (
+          explanation.split('\n').map(s => s.length > 0 ? <p>{s}</p> : null)
+        )}
+      </Match>
+    </Switch>
+  );
 }
 
 function DetailsContent(props: {cuisineData: CuisineMap, entry: CuisineEntry}) {

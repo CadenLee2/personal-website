@@ -13,8 +13,6 @@ import { onMount, Resource } from 'solid-js';
 
 // TODO: update react map -> For, etc.
 
-// TODO: pnpm audit fix
-
 // TODO: fix CuisineMarker
 const DEFAULT_CENTER: LatLngExpression = [33.8, -118];
 const DEFAULT_ZOOM = 10;
@@ -102,7 +100,7 @@ export default function CuisineMapContainer(props: {
   const selected = props.selected;
   const cuisineData = props.cuisineData;
 
-  const targets = (selected && 'latitude' in selected && 'longitude' in selected && selected['latitude'] && selected['longitude'])
+  const target = (selected && 'latitude' in selected && 'longitude' in selected && selected['latitude'] && selected['longitude'])
     ? [selected.latitude, selected.longitude] : null;
 
   // TODO: support AutoRecenter
@@ -113,7 +111,7 @@ export default function CuisineMapContainer(props: {
     <>
       <MapContainer />
       {/*Object.entries(cuisineData).map(([key, val]) => <CuisineMarker id={key} key={key} entry={val} />)*/}
-      {/*targets && <AutoRecenter latitude={targets[0]} longitude={targets[1]} />*/}
+      {/*target && <AutoRecenter latitude={targets[0]} longitude={targets[1]} />*/}
     </>
   );
 }

@@ -33,8 +33,6 @@ import { A } from '@solidjs/router';
 const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: false });
 
 function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
-  const entry = props.entry;
-
   return (
     <div
       role="button"
@@ -44,13 +42,13 @@ function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
       onClick={props.onClick}
     >
       <div class="cuisine-header">
-        <h3>{entry.title}</h3>
-        <span>{entry.dateReviewed}</span>
+        <h3>{props.entry.title}</h3>
+        <span>{props.entry.dateReviewed}</span>
       </div>
       <div>
-        <RatingDisp rating={entry.rating} /> - <EntryIdentifier entry={entry} />
+        <RatingDisp rating={props.entry.rating} /> - <EntryIdentifier entry={props.entry} />
       </div>
-      <div class="explanation">{entry.explanation}</div>
+      <div class="explanation">{props.entry.explanation}</div>
     </div>
   );
 }
@@ -117,22 +115,20 @@ export default function Cuisine() {
     category: 'all'
   });
 
-  const isMobile = useIsMobile();
-
   const [mobileScreen, setMobileScreen] = createSignal<MobileScreen>('list');
-  const [seenMap, setSeenMap] = createSignal(false);
 
   const [cuisineData] = createResource(fetchAllCuisineData);
 
-  // TODO: handle leaflet
   // Avoid Leaflet issues with size not updating properly after first render
+  const [seenMap, setSeenMap] = createSignal(false);
   createEffect(() => {
     if (mobileScreen() === 'map') setSeenMap(true);
   });
 
+  const isMobile = useIsMobile();
+
   const { selectedId, navigateToId } = useIdNav();
 
-  // TODO: this fails
   const filtered = (cuisineData: Accessor<CuisineMap>) => {
       return filterCuisine(cuisineData(), filters());
   };
