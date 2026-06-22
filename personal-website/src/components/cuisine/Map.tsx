@@ -9,7 +9,7 @@ import 'leaflet/dist/leaflet.css'
 //import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet'
 import type { LeafletKeyboardEventHandlerFn, LatLngExpression } from 'leaflet';
 import { divIcon } from 'leaflet';
-import { onMount } from 'solid-js';
+import { onMount, Resource } from 'solid-js';
 
 // TODO: update react map -> For, etc.
 
@@ -96,10 +96,11 @@ function CuisineMarker(props: { id: string, entry: CuisineEntry }) {
   }*/
 
 export default function CuisineMapContainer(props: {
-  cuisineData: CuisineMap,
+  cuisineData: Resource<CuisineMap>,
   selected: CuisineEntry | null
 }) {
-  const { cuisineData, selected } = props;
+  const selected = props.selected;
+  const cuisineData = props.cuisineData;
 
   const targets = (selected && 'latitude' in selected && 'longitude' in selected && selected['latitude'] && selected['longitude'])
     ? [selected.latitude, selected.longitude] : null;

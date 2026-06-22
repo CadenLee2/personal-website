@@ -4,10 +4,10 @@ import type { CuisineMap, CuisineEntry, SimpleEntry, Friend } from './CuisineTyp
 import { useIdNav } from './hooks';
 import { EntryIdentifier, RatingDisp } from '~/components/cuisine/shared';
 
-import { For, Switch, Match, Show } from 'solid-js';
+import { For, Switch, Match, Show, Resource, createMemo } from 'solid-js';
 
 // TODO: is MdFillPin the right icon?
-import { MdFillPin, MdFillPeople_alt } from 'solid-icons/md';
+import { MdFillArrow_outward, MdFillPeople_alt } from 'solid-icons/md';
 
 function LocationMark(props: {entry: CuisineEntry}) {
   const entry = props.entry;
@@ -17,7 +17,7 @@ function LocationMark(props: {entry: CuisineEntry}) {
   return (
     <Show when={(entry.type === 'grocery-store' || entry.type === 'restaurant') && entry.mapsLink}>
       <a target="_blank" title="View on maps" href={('mapsLink' in entry) ? entry.mapsLink : undefined} class="map-icon">
-        <MdFillPin />
+        <MdFillArrow_outward />
       </a>
     </Show>
   );
@@ -60,15 +60,13 @@ function MiniList(props: { cuisineData: CuisineMap, flat?: SimpleEntry[], ids?: 
 }
 
 function TriedWith(props: {friends: Friend[]}) {
-  const { friends } = props;
-
   return (
     <span class="tried-with subspan">
       <MdFillPeople_alt />
       <span>
         Tried with:
       </span>
-      <For each={friends}>
+      <For each={props.friends}>
         {(friend) => (
           <Switch>
             <Match when={friend.siteUrl}>
@@ -96,8 +94,52 @@ function ExplanationParagraphs(props: {explanation: string | undefined}) {
   )
 }
 
-function Details(props: {cuisineData: CuisineMap, entryId: string}) {
-  const { cuisineData, entryId } = props;
+function DetailsContent(props: {cuisineData: CuisineMap, entry: CuisineEntry}) {
+  const entry = props.entry;
+
+  return (
+    <div class="details">
+      <div class="cuisine-header">
+        <h2>{entry.title}</h2>
+        <span title="Date reviewed">{entry.dateReviewed}</span>
+      </div>
+      <EntryIdentifier entry={entry} />
+      <div class="misc-info">
+        <RatingDisp rating={entry.rating} />
+        <LocationMark entry={entry} />
+        <Show when={entry.type === 'grocery'}>
+          <>
+            <span class="subspan">(For the price:</span>
+            <RatingDisp rating={entry.type === 'grocery' ? entry.priceEfficiencyRating! : 0} />
+            <span class="subspan">)</span>
+          </>
+          )}
+        </Show>
+        {entry.triedWith && <TriedWith friends={entry.triedWith} />}
+      </div>
+      <div class="section-divider"><hr /></div>
+      <div class="explanation">
+        <ExplanationParagraphs explanation={entry.explanation} />
+      </div>
+      <div class="section-divider"><hr /></div>
+      {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
+        <MiniList title="Groceries" cuisineData={props.cuisineData!} flat={entry.groceriesFlat} ids={entry.groceryIds} />
+      )}
+      {entry.type === 'restaurant' && (entry.dishesFlat || entry.dishIds) && (
+        <MiniList title="Dishes" cuisineData={props.cuisineData!} flat={entry.dishesFlat} ids={entry.dishIds} />
+      )}
+      <span class="disclaimer">
+        Disclaimer: views expressed are purely the personal opinions of the author
+        and should not be taken as advice. The author is not affiliated with any listed establishments.
+      </span>
+    </div>
+  );
+}
+
+function Details(props: {cuisineData: Resource<CuisineMap>, entryId: string}) {
+  // TODO: clean up
+  const cuisineData = props.cuisineData;
+  const entryId = props.entryId;
 
   const { navigateToId } = useIdNav();
 
@@ -105,11 +147,8 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
     navigateToId(undefined);
   }
 
-  const entry = entryId in cuisineData ? cuisineData[entryId] : null;
-
-  // TODO: replace conditional returns with match or show
-
-  if (!entry) return (
+  const notLoaded = cuisineData.state !== 'ready' || !(entryId in cuisineData());
+  if (notLoaded) return (
     <div class="details-wrapper" onClick={(e) => e.stopPropagation()}>
       <button onClick={escape} class="escape-hotkey">[ESC]</button>
       <div class="details">
@@ -118,55 +157,34 @@ function Details(props: {cuisineData: CuisineMap, entryId: string}) {
     </div>
   );
 
+  const entry = createMemo(() => {
+    return cuisineData()[entryId];
+  });
+
+  // TODO: replace all conditional returns with match or show
+
+  // TODO: LOADING ANIMATION based on the resource
+
   return (
     <div class="details-wrapper" onClick={(e) => e.stopPropagation()}>
       <button onClick={escape} class="escape-hotkey">[ESC]</button>
-      <div class="details">
-        <div class="cuisine-header">
-          <h2>{entry.title}</h2>
-          <span title="Date reviewed">{entry.dateReviewed}</span>
-        </div>
-        <EntryIdentifier entry={entry} />
-        <div class="misc-info">
-          <RatingDisp rating={entry.rating} />
-          <LocationMark entry={entry} />
-          {entry.type === 'grocery' && (
-            <>
-              <span class="subspan">(For the price:</span>
-              <RatingDisp rating={entry.priceEfficiencyRating} />
-              <span class="subspan">)</span>
-            </>
-          )}
-          {entry.triedWith && <TriedWith friends={entry.triedWith} />}
-        </div>
-        <div class="section-divider"><hr /></div>
-        <div class="explanation">
-          <ExplanationParagraphs explanation={entry.explanation} />
-        </div>
-        <div class="section-divider"><hr /></div>
-        {entry.type === 'grocery-store' && (entry.groceriesFlat || entry.groceryIds) && (
-          <MiniList title="Groceries" cuisineData={cuisineData} flat={entry.groceriesFlat} ids={entry.groceryIds} />
-        )}
-        {entry.type === 'restaurant' && (entry.dishesFlat || entry.dishIds) && (
-          <MiniList title="Dishes" cuisineData={cuisineData} flat={entry.dishesFlat} ids={entry.dishIds} />
-        )}
-        <span class="disclaimer">
-          Disclaimer: views expressed are purely the personal opinions of the author
-          and should not be taken as advice. The author is not affiliated with any listed establishments.
-        </span>
-      </div>
+      <DetailsContent cuisineData={cuisineData()} entry={entry()} />
     </div>
   );
 }
 
 export default function DetailsOverlay(props: {
-  cuisineData: CuisineMap,
+  cuisineData: Resource<CuisineMap>,
 }) {
   const { selectedId, navigateToId } = useIdNav();
 
   return (
-    <div class={`cuisine-right-over ${selectedId ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
-      {selectedId && <Details cuisineData={props.cuisineData} entryId={selectedId} />}
+    <div class={`cuisine-right-over ${selectedId() ? 'selected' : ''}`} onClick={() => navigateToId(undefined)}>
+      <Show when={selectedId()}>
+        {(id) => (
+          <Details cuisineData={props.cuisineData} entryId={id()} />
+        )}
+      </Show>
     </div>
   );
 }

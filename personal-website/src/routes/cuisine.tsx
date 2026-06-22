@@ -1,9 +1,10 @@
 import './cuisine.css';
 
-import { createEffect, createSignal, createResource, Show, For } from 'solid-js';
+import { createEffect, createSignal, createResource, Show, For, Accessor } from 'solid-js';
 import { clientOnly } from '@solidjs/start';
 
 import type {
+  CuisineMap,
   CuisineEntry,
   CuisineFilters,
   CuisineCategory,
@@ -22,14 +23,24 @@ import { useIdNav } from '~/components/cuisine/hooks';
 
 import { A } from '@solidjs/router';
 
+// TODO: stop destructuring props
+
+// TODO: fix SSR issue that's introduced in this commit
+
 // TODO: lazy?
 const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: true });
 
 function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
-  const { entry, onClick } = props;
+  const entry = props.entry;
 
   return (
-    <button class="card" onClick={onClick}>
+    <div
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {if (e.key === 'Enter' || e.key === ' ') { props.onClick(); }}}
+      class="card"
+      onClick={props.onClick}
+    >
       <div class="cuisine-header">
         <h3>{entry.title}</h3>
         <span>{entry.dateReviewed}</span>
@@ -38,7 +49,7 @@ function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
         <RatingDisp rating={entry.rating} /> - <EntryIdentifier entry={entry} />
       </div>
       <div class="explanation">{entry.explanation}</div>
-    </button>
+    </div>
   );
 }
 
@@ -76,7 +87,7 @@ function SearchAndFilter(props: {
       <div class="search">
         <input
           value={props.filters.keywords ?? ''}
-          onChange={(e) => setKeywords(e.target.value)}
+          onInput={(e) => setKeywords(e.target.value)}
           placeholder="Search for keywords..."
         />
       </div>
@@ -87,14 +98,12 @@ function SearchAndFilter(props: {
 type MobileScreen = 'list' | 'map';
 
 function ScreenSelector(props: { screen: MobileScreen, setScreen: (s: MobileScreen) => void}) {
-  const { screen, setScreen } = props;
-
   return (
     <div class="screen-selector">
-      <button disabled={screen === 'list'} onClick={() => setScreen('list')}>
+      <button disabled={props.screen === 'list'} onClick={() => props.setScreen('list')}>
         <MdFillSearch />
       </button>
-      <button disabled={screen === 'map'} onClick={() => setScreen('map')}>
+      <button disabled={props.screen === 'map'} onClick={() => props.setScreen('map')}>
         <MdFillMap />
       </button>
     </div>
@@ -113,7 +122,7 @@ export default function Cuisine() {
 
   const [cuisineData] = createResource(fetchAllCuisineData);
 
-  const coalescedCuisineData = () => cuisineData.state === 'ready' ? cuisineData() : {};
+  //const coalescedCuisineData = () => cuisineData.state === 'ready' ? cuisineData() : {};
 
   // TODO: handle leaflet
   // Avoid Leaflet issues with size not updating properly after first render
@@ -132,9 +141,9 @@ export default function Cuisine() {
     setFiltered();
     });*/
 
-  const filtered = () => {
-    // TODO: correct usage of createResource result?
-    return filterCuisine(coalescedCuisineData(), filters());
+  // TODO: this fails
+  const filtered = (cuisineData: Accessor<CuisineMap>) => {
+      return filterCuisine(cuisineData(), filters());
   };
 
   // TODO: simple loading spinner
@@ -149,14 +158,23 @@ export default function Cuisine() {
     window.addEventListener('keydown', handleKeydown);
   });
 
-  const selectedEntry = (selectedId && cuisineData.state === "ready" && selectedId in cuisineData) ? cuisineData()[selectedId] : null;
+  const selectedEntry = () => {
+    const selectedIdVal = selectedId();
+    return (cuisineData.state === "ready" && selectedIdVal && selectedIdVal in cuisineData()) ? cuisineData()[selectedIdVal] : null;
+  }
 
-  const pageTitle = selectedEntry ? (`${selectedEntry.title} - Cuisine`) : "Cuisine";
+  const pageTitle = () => {
+    const selectedEntryVal = selectedEntry();
+    return selectedEntryVal ? (`${selectedEntryVal.title} - Cuisine`) : "Cuisine";
+  }
+
+  // TODO: better metadata, incl. server-side
+  // TODO: reload properly on changing url params
 
   return (
     <div class="cuisine-main">
-      <title>{pageTitle}</title>
-      <meta name="title" content={pageTitle} />
+      <title>{pageTitle()}</title>
+      <meta name="title" content={pageTitle()} />
       <meta name="description" content="Food ratings" />
       <div class="sidebar">
         <div class="sidebar-header">
@@ -170,33 +188,38 @@ export default function Cuisine() {
             See recipes, dishes, groceries, restaurants, and grocery stores in one place. You can trust that only first-hand reports are included.
           </Marquee>
         </div>
-        {(!isMobile || mobileScreen() === 'list') && (
-          <>
-            <SearchAndFilter filters={filters()} setFilters={setFilters} />
-            <div class="main-list">
-              <For each={Object.entries(filtered())}>
-                {([key, val]) => (
-                  <EntryCard entry={val} onClick={() => navigateToId(key)} />
-                )}
-              </For>
-            </div>
-          </>
-        )}
-        <Show when={isMobile() && seenMap}>
-          <div class={mobileScreen() === 'map' ? 'mobile-map' : 'hidden'}>
-            <CuisineMapContainer cuisineData={filtered()} selected={selectedEntry} />
+        <Show when={!isMobile || mobileScreen() === 'list'}>
+          <SearchAndFilter filters={filters()} setFilters={setFilters} />
+          <div class="main-list">
+            <Show when={cuisineData()}>
+              {(data) => (
+                <For each={Object.entries(filtered(data))}>
+                  {([key, val]) => (
+                    <EntryCard entry={val} onClick={() => navigateToId(key)} />
+                  )}
+                </For>
+              )}
+            </Show>
           </div>
         </Show>
-        <Show when={isMobile}>
+        <Show when={isMobile() && seenMap()}>
+          <div class={mobileScreen() === 'map' ? 'mobile-map' : 'hidden'}>
+            <CuisineMapContainer cuisineData={cuisineData} selected={selectedEntry()} />
+          </div>
+        </Show>
+        <Show when={isMobile()}>
           <ScreenSelector screen={mobileScreen()} setScreen={setMobileScreen} />
         </Show>
       </div>
-      {isMobile() ? <DetailsOverlay cuisineData={coalescedCuisineData()} /> : (
+      <Show when={isMobile()}>
+        <DetailsOverlay cuisineData={cuisineData} />
+      </Show>
+      <Show when={!isMobile()}>
         <div class="cuisine-right">
-          <CuisineMapContainer cuisineData={filtered()} selected={selectedEntry} />
-          <DetailsOverlay cuisineData={coalescedCuisineData()} />
+          <CuisineMapContainer cuisineData={cuisineData} selected={selectedEntry()} />
+          <DetailsOverlay cuisineData={cuisineData} />
         </div>
-      )}
+      </Show>
     </div>
   );
 }
