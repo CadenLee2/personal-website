@@ -7,6 +7,7 @@ import { useIdNav } from '~/components/cuisine/hooks';
 
 import 'leaflet/dist/leaflet.css'
 import type { LeafletKeyboardEventHandlerFn, LatLngExpression } from 'leaflet';
+import * as L from 'leaflet';
 
 import { onMount, createEffect } from 'solid-js';
 
@@ -23,11 +24,8 @@ const MAP_OPTIONS: L.MapOptions = {
 function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression | null }) {
   const { navigateToId } = useIdNav();
 
-  // TODO: is this the origin of disposed of error? Just import leaflet at the top level and ensure it doesn't break on the server?
   // onMount is necessary as per readme of <https://github.com/chris31415926535/solid-leaflet-reprex>
-  onMount(async () => {
-    const leaflet = await import('leaflet');
-    const L = leaflet.default;
+  onMount(() => {
     const map = L.map(MAP_ID, MAP_OPTIONS);
     map.setView(DEFAULT_CENTER as LatLngExpression, DEFAULT_ZOOM);
     const tileLayer = L.tileLayer(TILE_URL, { attribution: TILE_ATTR });
@@ -39,7 +37,7 @@ function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression
       map.removeLayer(markerLayers);
       markerLayers = L.layerGroup();
       Object.entries(props.markers)
-        .map(([id, entry]) => toCuisineMarker(entry, L, () => navigateToId(id)))
+        .map(([id, entry]) => toCuisineMarker(entry, () => navigateToId(id)))
         .filter((m) => m !== null)
         .forEach((m) => markerLayers.addLayer(m));
       map.addLayer(markerLayers);
@@ -58,7 +56,7 @@ function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression
   );
 }
 
-function toCuisineMarker(entry: CuisineEntry, L: typeof import('leaflet'), nav: () => void) {
+function toCuisineMarker(entry: CuisineEntry, nav: () => void) {
   const handleClick = nav;
 
   const handleKeydown: LeafletKeyboardEventHandlerFn = (e) => {

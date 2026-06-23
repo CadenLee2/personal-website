@@ -30,7 +30,6 @@ import { useIdNav } from '~/components/cuisine/hooks';
 
 import { A } from '@solidjs/router';
 
-// TODO: computations created outside a `createRoot` or `render` will never be disposed
 // TODO: sometimes Error: `Map container not found.` when switching
 
 const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: false });
