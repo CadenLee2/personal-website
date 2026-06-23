@@ -5,19 +5,22 @@ This is the latest version of my personal website, hosted at <https://cadenlee.d
 <img src="./homepage.png" alt="A screenshot of the homepage" width="550">
 
 ## Development
+This project uses `pnpm`, which you can install via `npm i -g pnpm`.
+
 Running the frontend is simple:
 ```sh
 cd frontend
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ## Stack & tools
-- React + Vite
-- Material icons (from `react-icons`) and Devicons
+- SolidJS, using SolidStart + Vite
+- Material icons and Devicons
 
-## Future goals
+## Features & future goals
 - ~~Restaurant rating map~~ ([done](https://cadenlee.dev/cuisine)!)
+- ~~RSS feed~~ ([done](https://cadenlee.dev/rss.xml)!)
 - Personal availability calendar/meeting scheduler based on [rical](https://github.com/Cadecraft/rical)
 - More blog posts
 - ~~Self-hosted markdown notes~~ ([done](https://notes.cadenlee.dev/misc/example)!)

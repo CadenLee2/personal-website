@@ -4,9 +4,6 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 import "./app.css";
 
-// TODO: update readme
-// TODO: deployment ensure blog data and rss generation is correct
-
 export default function App() {
   return (
     <Router
