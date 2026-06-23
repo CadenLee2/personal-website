@@ -23,6 +23,7 @@ const MAP_OPTIONS: L.MapOptions = {
 function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression | null }) {
   const { navigateToId } = useIdNav();
 
+  // TODO: is this the origin of disposed of error? Just import leaflet at the top level and ensure it doesn't break on the server?
   // onMount is necessary as per readme of <https://github.com/chris31415926535/solid-leaflet-reprex>
   onMount(async () => {
     const leaflet = await import('leaflet');

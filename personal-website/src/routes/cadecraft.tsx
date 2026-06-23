@@ -18,7 +18,7 @@ function ShowcasePage() {
 
   return (
     <div class="showcase-page">
-      <PageFrame hideTopBar>
+      <PageFrame hideTopBar metaTitle="Cadecraft" metaDesc="Making games, software, and music since 2017">
         <title>Cadecraft</title>
         <div class="section-break top-showcase-cadecraft">
             <h1>Cadecraft</h1>

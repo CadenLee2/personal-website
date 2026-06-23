@@ -21,7 +21,7 @@ import {
 
 import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '~/constants';
 
-// TODO: image layout shifts
+// TODO: improve image layout shifts
 
 export default function Home() {
   // Don't worry, this isn't actual code

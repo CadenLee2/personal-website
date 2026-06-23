@@ -1,3 +1,18 @@
+div.showcase-row {
+  display: flex;
+  gap: 10px;
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    img {
+      width: 70%;
+      max-width: 320px;
+      min-width: 200px;
+    }
+  }
+}
+
 div.games-grid {
   display: grid;
   grid-template-columns: minmax(20%, 228px) 2fr;
