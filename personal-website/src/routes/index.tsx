@@ -21,12 +21,7 @@ import {
 
 import { LINKEDIN_URL, GITHUB_PROFESSIONAL_URL } from '~/constants';
 
-// TODO: fix color of mini contacts
-// TODO: image layout shifts, and layout shift from loading client-side lazy mytools
-// TODO: fix icon colors in my tools and allow interaction
-// TODO: fix devicon glyph errors?
-// TODO: refactor fancy album cover
-// TODO: reactivity of mytools click selection
+// TODO: image layout shifts
 
 export default function Home() {
   // Don't worry, this isn't actual code
@@ -49,10 +44,10 @@ export default function Home() {
             Avid student & software engineer
             <div class="mini-contacts icon-colorize">
               <A title="GitHub" href={GITHUB_PROFESSIONAL_URL}>
-                <Devicon deviconId="devicon-github-original" size="18" />
+                <Devicon deviconId="devicon-github-original" size="18px" />
               </A>
               <A title="LinkedIn" href={LINKEDIN_URL}>
-                <Devicon deviconId="devicon-linkedin-plain" size="18" />
+                <Devicon deviconId="devicon-linkedin-plain" size="18px" />
               </A>
               <A title="More contact info" href="/contact">
                 <MdFillMore_horiz size={18} />
@@ -85,7 +80,7 @@ export default function Home() {
                   <MdFillArrow_outward size={18} /> Visit
                 </LinkButton>
                 <LinkButton newTabLink href="https://github.com/icssc/peterportal-client/" variant="action-blue">
-                  <Devicon deviconId="devicon-github-original" size="18" />
+                  <Devicon deviconId="devicon-github-original" size="18px" />
                   <span>Contribute on GitHub</span>
                 </LinkButton>
               </div>
@@ -129,7 +124,7 @@ export default function Home() {
                   variant="action-blue-small"
                   title="KnickKnack on LinkedIn"
                 >
-                  <Devicon deviconId="devicon-linkedin-plain wicon-link" size="18" />
+                  <Devicon deviconId="devicon-linkedin-plain wicon-link" size="18px" />
                 </LinkButton>
               </div>
               <RoadmapTree details={[
