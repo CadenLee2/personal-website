@@ -6,7 +6,8 @@
     "build": "vite build",
     "start": "vite start",
     "preview": "vite preview",
-    "preview-build": "node ./.output/server/index.mjs"
+    "preview-build": "node ./.output/server/index.mjs",
+    "gen-rss": "tsx src/scripts/generateRSS.ts"
   },
   "dependencies": {
     "@solidjs/meta": "^0.29.4",
@@ -16,12 +17,14 @@
     "leaflet": "^1.9.4",
     "solid-icons": "^1.2.0",
     "solid-js": "^1.9.13",
-    "vite": "^7.3.5"
+    "vite": "^7.3.5",
+    "xmlbuilder2": "^4.0.3"
   },
   "engines": {
     "node": ">=22"
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.21"
+    "@types/leaflet": "^1.9.21",
+    "tsx": "^4.22.4"
   }
 }

@@ -30,8 +30,6 @@ import { useIdNav } from '~/components/cuisine/hooks';
 
 import { A } from '@solidjs/router';
 
-// TODO: sometimes Error: `Map container not found.` when switching
-
 const CuisineMapContainer = clientOnly(() => import('~/components/cuisine/Map'), { lazy: false });
 
 function EntryCard(props: {entry: CuisineEntry, onClick: () => void}) {
