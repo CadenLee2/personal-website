@@ -1,4 +1,3 @@
-import '../App.css';
 import './cadecraft.css';
 
 import PageFrame from '~/components/PageFrame';

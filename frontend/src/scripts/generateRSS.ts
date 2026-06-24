@@ -1,4 +1,4 @@
-import blogMetadata from '~/blogMetadata';
+import blogMetadata from '../blogMetadata';
 import { create } from 'xmlbuilder2';
 
 // Run this script to generate the RSS feed (public/rss.xml)

@@ -10,13 +10,18 @@ RUN npm install -g pnpm
 
 # Copy files to the container and install
 COPY package*.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN pnpm ci --frozen-lockfile
+RUN pnpm clean
+RUN pnpm install --frozen-lockfile
 
 # Copy local code to the container
 COPY . ./
 
 # Generate RSS feed
-RUN pnpm --silent gen-rss > ./public/rss.xml
+# TODO: properly put into > ./public/rss.xml
+# TODO: put tsx back as a dev dependency?
+#ENV CI=true
+# TODO: silent
+#RUN pnpm exec tsx ./src/scripts/generateRSS.ts > ./public/rss.xml
 # Build
 RUN pnpm build
 

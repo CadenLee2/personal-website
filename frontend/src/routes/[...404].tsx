@@ -1,6 +1,5 @@
 import { HttpStatusCode } from "@solidjs/start";
 
-import '../App.css'
 import PageFrame from '../components/PageFrame';
 
 import { LinkButton } from '../components/Button';

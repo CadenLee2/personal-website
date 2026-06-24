@@ -1,4 +1,3 @@
-import '../App.css';
 import './PageFrame.css';
 import { LinkButton } from '~/components/Button';
 import { A } from '@solidjs/router';
