@@ -10,6 +10,7 @@ RUN npm install -g pnpm
 
 # Copy files to the container and install
 COPY package*.json pnpm-lock.yaml ./
+RUN pnpm approve-builds @parcel/watcher esbuild
 RUN pnpm ci --frozen-lockfile
 
 # Copy local code to the container
