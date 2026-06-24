@@ -26,5 +26,11 @@
   "devDependencies": {
     "@types/leaflet": "^1.9.21",
     "tsx": "^4.22.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild"
+    ]
   }
 }
