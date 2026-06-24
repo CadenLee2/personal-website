@@ -8,20 +8,18 @@ ENV NPM_CONFIG_FUND=false
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy files to the container and install
-COPY package*.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN pnpm clean
-RUN pnpm install --frozen-lockfile
-
 # Copy local code to the container
 COPY . ./
 
 # Generate RSS feed
-# TODO: properly put into > ./public/rss.xml
-# TODO: put tsx back as a dev dependency?
-#ENV CI=true
-# TODO: silent
-#RUN pnpm exec tsx ./src/scripts/generateRSS.ts > ./public/rss.xml
+ENV CI=true
+RUN pnpm clean
+# Installation is bundled into pnpm exec and build
+RUN pnpm exec tsx ./src/scripts/generateRSS.ts > ./public/rss.xml
+
+# Copy local code to the container again to prevent pnpm build from timing out
+COPY . ./
+
 # Build
 RUN pnpm build
 
