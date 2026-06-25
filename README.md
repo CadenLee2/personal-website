@@ -14,6 +14,11 @@ pnpm install
 pnpm dev
 ```
 
+To generate the RSS feed based on blog metadata:
+```sh
+pnpm --silent gen-rss > ./public/rss.xml
+```
+
 ## Stack & tools
 - SolidJS, using SolidStart + Vite
 - Material icons and Devicons

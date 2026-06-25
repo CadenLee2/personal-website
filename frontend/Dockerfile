@@ -8,16 +8,13 @@ ENV NPM_CONFIG_FUND=false
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy local code to the container
-COPY . ./
+# Install dependencies
+COPY package*.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Generate RSS feed
-ENV CI=true
 RUN pnpm clean
-# Installation is bundled into pnpm exec and build
-RUN pnpm exec tsx ./src/scripts/generateRSS.ts > ./public/rss.xml
+RUN pnpm install --frozen-lockfile
 
-# Copy local code to the container again to prevent pnpm build from timing out
+# Copy local code to the container
 COPY . ./
 
 # Build
