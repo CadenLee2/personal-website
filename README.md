@@ -19,6 +19,9 @@ To generate the RSS feed based on blog metadata:
 pnpm --silent gen-rss > ./public/rss.xml
 ```
 
+## Deployment
+This project is designed to be deployed with Railway's railpack.
+
 ## Stack & tools
 - SolidJS, using SolidStart + Vite
 - Material icons and Devicons

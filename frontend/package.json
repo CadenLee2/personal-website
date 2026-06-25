@@ -4,9 +4,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "start": "vite start",
+    "start": "node ./.output/server/index.mjs",
     "preview": "vite preview",
-    "preview-build": "node ./.output/server/index.mjs",
     "gen-rss": "tsx ./src/scripts/generateRSS.ts"
   },
   "dependencies": {
