@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react';
+import { createSignal, createEffect } from 'solid-js';
 
 const MOBILE_BREAKPOINT = 720;
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= MOBILE_BREAKPOINT);
+  const [isMobile, setIsMobile] = createSignal(false);
 
-  useEffect(() => {
+  createEffect(() => {
+    setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     const respondToChange = () => {
       setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     }
 
     window.addEventListener('resize', respondToChange);
-
-    return (() => {
-      window.removeEventListener('resize', respondToChange);
-    });
-  }, [setIsMobile]);
+  });
 
   return isMobile;
 }

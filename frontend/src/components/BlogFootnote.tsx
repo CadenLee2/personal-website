@@ -1,13 +1,13 @@
-import type { PropsWithChildren } from 'react';
+import { JSX, children } from 'solid-js';
 
-export function FootnoteContent(props: PropsWithChildren<{ num: number }>) {
-  const { num, children } = props;
+export function FootnoteContent(props: { num: number, children: JSX.Element }) {
+  const resolved = children(() => props.children);
 
   return (
-    <p id={`footnote-${num}`}>
-      {num}. {children}{' '}
-      <a href={`#footnote-${num}-ref`}>↩</a>
-    </p>
+    <div id={`footnote-${props.num}`}>
+      {props.num}. {resolved()}{' '}
+      <a href={`#footnote-${props.num}-ref`}>↩</a>
+    </div>
   );
 }
 

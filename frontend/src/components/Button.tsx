@@ -1,50 +1,56 @@
 import './Button.css';
-import type { ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
+import { children, JSX } from 'solid-js';
+import { A } from '@solidjs/router';
 
 type Variant = 'blue' | 'gray-light' | 'action-blue' | 'action-blue-small' | 'gray-mid';
 
 export function Button(props: {
-  children: ReactNode, disabled?: boolean, variant?: Variant, title?: string
+  children: JSX.Element, disabled?: boolean, variant?: Variant, title?: string
 }) {
+  const resolved = children(() => props.children);
+
   return (
-    <button className={`button ${props.variant ?? ''}`} disabled={props.disabled} title={props.title}>
-      {props.children}
+    <button class={`button ${props.variant ?? ''}`} disabled={props.disabled} title={props.title}>
+      {resolved()}
     </button>
   );
 }
 
 export function LinkButton(props: {
-  children: ReactNode, href: string, disabled?: boolean, variant?: Variant, title?: string, newTabLink?: true
+  children: JSX.Element, href: string, disabled?: boolean, variant?: Variant, title?: string, newTabLink?: true
 }) {
+  const resolved = children(() => props.children);
+
   if (props.disabled) {
     return (
       <Button disabled={true} variant={props.variant} title={props.title}>
-        {props.children}
+        {resolved()}
       </Button>
     );
   }
 
   return (
-    <NavLink
-      to={props.href}
+    <A
+      href={props.href}
       onDragStart={(e) => e.preventDefault()}
-      className={`button ${props.variant ?? ''}`}
+      class={`button ${props.variant ?? ''}`}
       title={props.title}
       target={props.newTabLink ? "_blank" : undefined}
     >
-      {props.children}
-    </NavLink>
+      {resolved()}
+    </A>
   );
 }
 
 export function RawLinkButton(props: {
-  children: ReactNode, href: string, disabled?: boolean, variant?: Variant, title?: string
+  children: JSX.Element, href: string, disabled?: boolean, variant?: Variant, title?: string
 }) {
+  const resolved = children(() => props.children)
+
   if (props.disabled) {
     return (
       <Button disabled={true} variant={props.variant} title={props.title}>
-        {props.children}
+        {resolved()}
       </Button>
     );
   }
@@ -53,10 +59,10 @@ export function RawLinkButton(props: {
     <a
       href={props.href}
       onDragStart={(e) => e.preventDefault()}
-      className={`button ${props.variant ?? ''}`}
+      class={`button ${props.variant ?? ''}`}
       title={props.title}
     >
-      {props.children}
+      {resolved()}
     </a>
   );
 }

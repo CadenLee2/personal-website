@@ -1,3 +1,18 @@
+div.showcase-row {
+  display: flex;
+  gap: 10px;
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    img {
+      width: 70%;
+      max-width: 320px;
+      min-width: 200px;
+    }
+  }
+}
+
 div.games-grid {
   display: grid;
   grid-template-columns: minmax(20%, 228px) 2fr;
@@ -37,15 +52,15 @@ div.rical, div.sheatfish, div.homepage-omni {
 }
 
 div.rical {
-  background-image: url('../assets/images/projects/RicalTerminal_Blur.png');
+  background-image: url('/images/projects/RicalTerminal_Blur.png');
 }
 
 div.sheatfish {
-  background-image: url('../assets/images/projects/Sheatfish_Blur.png');
+  background-image: url('/images/projects/Sheatfish_Blur.png');
 }
 
 div.homepage-omni {
-  background-image: url('../assets/images/projects/HomepageOmni_Blur.png');
+  background-image: url('/images/projects/HomepageOmni_Blur.png');
 }
 
 div.landform-eclipse, div.speedstreets, div.platscifi {
@@ -60,7 +75,7 @@ div.landform-eclipse, div.speedstreets, div.platscifi {
 }
 
 div.tetrome {
-  background-image: url('../assets/images/projects/Tetrome_Blur.png');
+  background-image: url('/images/projects/Tetrome_Blur.png');
 
   img {
     width: auto;
@@ -84,19 +99,19 @@ div.tetrome {
 }
 
 div.landform-eclipse {
-  background-image: url('../assets/images/projects/Landform_Blur.png');
+  background-image: url('/images/projects/Landform_Blur.png');
 }
 
 div.speedstreets {
-  background-image: url('../assets/images/projects/Speedstreets_Blur.png');
+  background-image: url('/images/projects/Speedstreets_Blur.png');
 }
 
 div.platscifi {
-  background-image: url('../assets/images/projects/Platscifi_Blur.png');
+  background-image: url('/images/projects/Platscifi_Blur.png');
 }
 
 div.regnatural {
-  background-image: url('../assets/images/projects/Regnatural_Blur.png');
+  background-image: url('/images/projects/Regnatural_Blur.png');
 
   span {
     margin-bottom: 10px;
@@ -105,4 +120,39 @@ div.regnatural {
   .toolslist {
     margin-top: auto;
   }
+}
+
+div.album-container {
+  min-width: 140px;
+  max-width: 140px;
+  min-height: 140px;
+  max-height: 140px;
+  position: relative;
+}
+div.album-cover, a.album-cover {
+  background-size: 100%;
+  min-height: 130px;
+  max-height: 130px;
+  width: 130px;
+  position: absolute;
+}
+a.album-cover-top {
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  background-image: url('/images/SkylineCover.png');
+
+  &, &:hover {
+    color: var(--textcolorwhite);
+  }
+}
+div.album-cover-bottom {
+  left: 10px;
+  top: 10px;
+  background-image: url('/images/DewdropsCover.png');
 }

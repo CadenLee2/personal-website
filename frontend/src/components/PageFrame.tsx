@@ -1,27 +1,27 @@
-import '../App.css';
 import './PageFrame.css';
-import type { ReactNode } from 'react';
-import { LinkButton } from '../components/Button';
-import { NavLink } from 'react-router-dom';
+import { LinkButton } from '~/components/Button';
+import { A } from '@solidjs/router';
+import { children, Show, JSX } from 'solid-js';
+import { Meta, Title, Link } from '@solidjs/meta';
 
-import { MdHome, MdEmail, MdMenuBook } from 'react-icons/md';
+import { MdFillHome, MdFillEmail, MdFillMenu_book } from 'solid-icons/md';
 
 type PageName = 'home' | 'resume' | 'contact' | 'blog';
 
 function TopBar(props: { pageName?: PageName }) {
   return (
-    <div className="top-bar">
+    <div class="top-bar">
       <h1>Caden Lee</h1>
-      <div className="top-buttons">
+      <div class="top-buttons">
         <div>
           <LinkButton href="/" disabled={props.pageName === "home"}>
-            <MdHome /> Home
+            <MdFillHome /> Home
           </LinkButton>
           <LinkButton href="/contact" disabled={props.pageName === "contact"}>
-            <MdEmail /> Contact
+            <MdFillEmail /> Contact
           </LinkButton>
           <LinkButton href="/blog" disabled={props.pageName === "blog"}>
-            <MdMenuBook /> Blog
+            <MdFillMenu_book /> Blog
           </LinkButton>
         </div>
       </div>
@@ -31,26 +31,43 @@ function TopBar(props: { pageName?: PageName }) {
 
 function Footer() {
   return (
-    <div className="section">
+    <div class="section">
       <span>© 2025-26 Caden Lee</span>
-      <span className="small-text">
+      <span class="small-text">
         Image credits: most images taken by me. For specific technology product icons, all their names, logos, and brands are property of their respective owners and are used here for identification purposes only.
       </span>
-      <span className="small-text">
+      <span class="small-text">
         <a href="https://github.com/CadenLee2/personal-website">Website source</a>
         {" "}•{" "}
-        <NavLink to="/contact">Contact</NavLink>
+        <A href="/contact">Contact</A>
       </span>
     </div>
   );
 }
 
-export default function PageFrame(props: { children: ReactNode, pageName?: PageName, hideTopBar?: true }) {
+export default function PageFrame(props: {
+  children: JSX.Element,
+  pageName?: PageName,
+  hideTopBar?: true,
+  metaDesc?: string,
+  metaTitle?: string,
+}) {
+  const resolved = children(() => props.children);
+
   return (
-    <div className="outer-wrapper">
-      <div className="inner-wrapper">
-        {!props.hideTopBar && <TopBar pageName={props.pageName} />}
-        {props.children}
+    <div class="outer-wrapper">
+      <Title>{props.metaTitle}</Title>
+      <Meta name="title" content={props.metaTitle} />
+      <Meta name="description" content={props.metaDesc} />
+      <Meta name="author" content="Caden Lee" />
+      <Meta name="og:title" content={props.metaTitle} />
+      <Meta name="og:description" content={props.metaDesc} />
+      <Link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      <div class="inner-wrapper">
+        <Show when={!props.hideTopBar}>
+          <TopBar pageName={props.pageName} />
+        </Show>
+        {resolved()}
         <Footer />
       </div>
     </div>

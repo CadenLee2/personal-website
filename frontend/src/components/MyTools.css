@@ -11,13 +11,9 @@
     justify-content: space-around;
   }
 
-  svg {
-    fill: var(--textcolor);
+  i {
+    color: var(--textcolor);
     transition: opacity 0.1s;
-
-    g, path {
-      fill: var(--textcolor);
-    }
   }
 }
 
@@ -58,7 +54,7 @@ div.selected-item {
   &:hover {
     cursor: pointer;
 
-    svg {
+    i {
       opacity: 0.85;
     }
   }
@@ -67,7 +63,7 @@ div.selected-item {
     opacity: 0.6;
   }
 
-  &.selected svg {
+  &.selected i {
     opacity: 0.75;
   }
 

@@ -1,7 +1,7 @@
-import '../App.css';
 import './Showcase.css';
-import type { ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
+import { children, JSX, For } from 'solid-js';
+import Devicon from '~/components/Devicon';
+import { A } from '@solidjs/router';
 
 type RoadmapTreeItem = {
   status: string,
@@ -11,57 +11,69 @@ type RoadmapTreeItem = {
 export function RoadmapTree(props: { details: RoadmapTreeItem[] } ) {
   const { details } = props;
   return (
-    <div className="roadmap-tree">
-      {details.map(detail => (
-        <div key={detail.status + '-' + detail.date} className="branch">
-          <img className="branchimg" />
-          <div className="contents">
-            <span className="head">
-              {detail.status}
-              <span className="subhead">{detail.date}</span>
-            </span>
+    <div class="roadmap-tree">
+      <For each={details}>
+        {(detail) => (
+          <div class="branch">
+            <img class="branchimg" />
+            <div class="contents">
+              <span class="head">
+                {detail.status}
+                <span class="subhead">{detail.date}</span>
+              </span>
+            </div>
           </div>
-        </div>
-      ))}
+        )}
+      </For>
     </div>
   );
 }
 
-export function ToolsList(props: { children: ReactNode | ReactNode[] }) {
-  return <div className="toolslist">{props.children}</div>;
+export function ToolsList(props: { deviconIds: string[], size?: string }) {
+  return <div class="toolslist">
+    <For each={props.deviconIds}>
+      {(id) => (
+        <Devicon deviconId={id} size={props.size} />
+      )}
+    </For>
+  </div>;
 }
 
-export function PeekingContainer(props: { children: ReactNode }) {
-  return <div className="peeking-container">{props.children}</div>;
+export function PeekingContainer(props: { children: JSX.Element }) {
+  const resolved = children(() => props.children);
+  return <div class="peeking-container">{resolved()}</div>;
 }
 
-export function PeekingContainerVert(props: { children: ReactNode }) {
-  return <div className="peeking-container-vert">{props.children}</div>;
+export function PeekingContainerVert(props: { children: JSX.Element }) {
+  const resolved = children(() => props.children);
+  return <div class="peeking-container-vert">{resolved()}</div>;
 }
 
 function Showcase(props: {
-  children: ReactNode,
+  children: JSX.Element,
   className?: string,
   href?: string,
   backgroundImageUrl?: string
 }) {
-  const { children, className, href, backgroundImageUrl } = props;
+  const { className, href, backgroundImageUrl } = props;
+
+  const resolved = children(() => props.children);
 
   const classNames = `showcase ${className ?? ''}`;
-  const style = backgroundImageUrl ? { backgroundImage: `url('${backgroundImageUrl}')` } : {};
+  const style = backgroundImageUrl ? { 'background-image': `url('${backgroundImageUrl}')` } : {};
 
   if (href) {
     return (
-      <NavLink className="outer-a" to={href}>
-        <div className={classNames} style={style}>
-          {children}
+      <A class="outer-a" href={href}>
+        <div class={classNames} style={style}>
+          {resolved()}
         </div>
-      </NavLink>
+      </A>
     );
   } else {
     return (
-      <div className={classNames} style={style}>
-        {children}
+      <div class={classNames} style={style}>
+        {resolved()}
       </div>
     );
   }

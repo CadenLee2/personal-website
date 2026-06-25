@@ -1,0 +1,270 @@
+div.top-showcase {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding-right: 0px;
+
+  > :first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.fastlinks {
+  display: flex;
+  flex-direction: row;
+  border-radius: 22px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+  justify-content: stretch;
+  flex-grow: 1;
+  gap: 4px;
+  height: 58px;
+  margin-top: 6px;
+
+  button {
+    height: 100%;
+    flex-grow: 1;
+    width: 10px;
+    padding: 0px;
+    border: none;
+
+    transition: opacity 0.1s;
+
+    &:focus-visible {
+      opacity: 0.8;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+	  img {
+	    height: 100%;
+	    flex-grow: 1;
+      width: 100%;
+	    object-fit: cover;
+    }
+  }
+}
+
+.mini-contacts {
+  width: 100%;
+  display: inline-flex;
+  gap: 6px;
+  padding-top: 6px;
+}
+
+/* Specific showcase sections */
+div.aa-planner {
+  background-image: url('/images/projects/AAP_Blur.png');
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  gap: 12px;
+
+  .left {
+    flex-grow: 1;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h3 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .right {
+    max-width: 42%;
+    min-width: 42%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    img {
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+
+      min-height: 130px;
+      object-fit:cover;
+    }
+
+    span {
+      opacity: 0.6;
+    }
+  }
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    > .right {
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+}
+
+div.knickknack {
+  background-image: url('/images/projects/KK_Blur.png');
+  object-fit:cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  gap: 12px;
+
+  .left {
+    flex-grow: 1;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    height: 100%;
+
+    h3 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .right {
+    max-width: 220px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    min-width: 30%;
+    height: 100%;
+
+    align-items: center;
+
+    img {
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+
+      min-height: 130px;
+      object-fit:cover;
+    }
+
+    span {
+      opacity: 0.6;
+    }
+
+    a {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    .right {
+      flex-direction: row;
+      min-width: 100%;
+      max-width: 100%;
+      gap: 20px;
+    }
+  }
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+
+  .wicon-link {
+    > :first-child { fill: var(--textcolorwhite); }
+    > :nth-child(2) { fill: black; }
+  }
+
+  & > :first-child {
+    width: fit-content;
+    white-space: nowrap;
+    padding-inline: 20px;
+  }
+
+  @media (max-width: 730px) {
+    flex-direction: column;
+
+    & > :first-child {
+      width: 100%;
+      max-width: 220px;
+    }
+  }
+}
+
+div.interests-section {
+  display: flex;
+  gap: 16px;
+
+  .music-descr {
+    width: 0px;
+    flex-grow: 1;
+
+    .interests-links {
+      margin-top: 10px;
+
+      a {
+        margin-top: 6px;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+div.photography {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 300px;
+  gap: 10px;
+
+  img {
+    max-width: auto;
+    max-height: auto;
+    min-height: 0px;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+  }
+
+  > :nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  > :nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  > :nth-child(3) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+}

@@ -1,0 +1,122 @@
+:root:has(.showcase-page) {
+  /* Dark theme colors */
+  --pagebg: rgb(17, 20, 30);
+  --sectionbg: rgb(27, 32, 43);
+  --sectionbgmid: rgb(50, 56, 71);
+  --sectionbgdark: rgb(56, 66, 84);
+  --sectionbglight: rgb(33, 39, 50);
+  --whitesectionbg: rgb(225, 233, 240);
+  --whitesectionbglight: rgb(233, 238, 242);
+  --sectionborder: rgb(47, 53, 58);
+  --sectionbordershadow: rgba(21, 22, 32, .5);
+  --sectionborderdark: rgb(165, 175, 184);
+  --hrborder: rgb(176, 186, 194);
+  --hrborderdark: rgb(156, 166, 173);
+  --headercolor: rgb(223, 229, 233);
+  --textcolor: rgb(183, 190, 197);
+  --textcolorlight: rgb(117, 125, 130);
+  --textcolorwhite: rgb(218, 226, 232);
+  --blue1light: rgb(82, 147, 194);
+  --blue1: rgb(62, 129, 188);
+  --blue1mid: rgb(42, 101, 164);
+  --blue1dark: rgb(50, 107, 169);
+  --darkb: rgba(169, 169, 169, .3);
+  --darkb2: rgba(0, 0, 0, .5);
+  --darkb3: rgba(0, 0, 0, .8);
+  --darkshadow: rgba(0, 0, 0, .2);
+  --focus-blue: rgb(98, 159, 212, .6);
+}
+
+.showcase-page {
+  .showcase {
+    /* Shadows look blurry in dark theme */
+    box-shadow: none;
+  }
+
+  .small-text a, a.textlink {
+    color: var(--blue1light);
+  }
+
+  .highlight {
+    background-color: var(--blue1dark);
+    width: fit-content;
+    margin-left: -22px;
+    transform: skew(-15deg);
+    padding-inline: 20px;
+
+    h2 {
+      transform: skew(15deg);
+    }
+  }
+
+  .top-showcase-cadecraft {
+    padding: 0px;
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 8px 10px;
+
+    border: solid 1px var(--sectionborder);
+    border-radius: 8px;
+
+    h1 {
+      position: absolute;
+      color: transparent;
+    }
+
+    img {
+      width: 120px;
+    }
+
+    .cadecraft-subtitle {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      justify-content: flex-end;
+
+      .mini-contacts {
+        width: auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        a {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .open-section {
+    padding: 10px;
+    display: flex;
+    font-family: monospace;
+  }
+}
+
+div.music-section {
+  display: flex;
+  gap: 16px;
+
+  .music-descr {
+    width: 0px;
+    flex-grow: 1;
+
+    .interests-links {
+      margin-top: 10px;
+
+      a {
+        margin-top: 6px;
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import './Marquee.css';
-import type { ReactNode } from 'react';
+import { JSX, children } from 'solid-js';
 
-function Marquee(props: { children: ReactNode, duration: number }) {
-  const { children, duration } = props;
+function Marquee(props: { children: JSX.Element, duration: number }) {
+  const resolved = children(() => props.children);
 
   return (
-    <div className="marquee">
-      <span style={{animation: `marquee ${duration}s linear infinite`}}>{children}</span>
+    <div class="marquee">
+      <span style={{animation: `marquee ${props.duration}s linear infinite`}}>{resolved()}</span>
     </div>
   );
 }
