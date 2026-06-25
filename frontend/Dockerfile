@@ -10,12 +10,15 @@ RUN npm install -g pnpm
 
 # Install dependencies
 COPY package*.json pnpm-lock.yaml pnpm-workspace.yaml ./
-
-RUN pnpm clean
-RUN pnpm install --frozen-lockfile
+RUN pnpm ci
 
 # Copy local code to the container
 COPY . ./
+
+# TODO: fix builds taking forever, and eventually add back the build-time rss with pnpm exec
+
+# Without this line in this exact location, pnpm build times out with no logs
+ENV CI=true
 
 # Build
 RUN pnpm build
