@@ -32,7 +32,7 @@ function BlogFrame(props: { postId: string, children: JSX.Element }) {
         >
           {copiedLink() ? <MdFillCheck /> : <MdFillLink />}
         </button>
-        <a class="blog-icon-rss" href="/rss.xml" title="RSS Feed">
+        <a target="_blank" class="blog-icon-rss" href="/rss.xml" title="RSS Feed">
           <MdFillRss_feed />
         </a>
       </div>

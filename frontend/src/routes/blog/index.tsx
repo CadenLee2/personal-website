@@ -28,7 +28,7 @@ export default function Blog() {
       >
         <div class="section blog">
           <h2>Blog</h2>
-          <a class="rss" href="/rss.xml" title="RSS Feed">
+          <a target="_blank" class="rss" href="/rss.xml" title="RSS Feed">
             <MdFillRss_feed />
           </a>
           I started this blog in Summer 2025 to share my ideas on software, life, and the world. All my articles will show up here (once I write them).

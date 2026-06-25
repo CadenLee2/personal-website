@@ -102,7 +102,7 @@ function Post() {
             Have a list of favorite artists, authors, and accounts; intentionally look out for new content from them
             <ul>
               <li>
-                One cool example of this is RSS feeds (<a href="https://cadenlee.dev/rss.xml">check out mine</a>!)
+                One cool example of this is RSS feeds (<a target="_blank" href="https://cadenlee.dev/rss.xml">check out mine</a>!)
               </li>
             </ul>
           </li>
