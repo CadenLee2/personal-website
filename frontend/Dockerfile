@@ -15,8 +15,6 @@ RUN pnpm ci
 # Copy local code to the container
 COPY . ./
 
-# TODO: fix builds taking forever, and eventually add back the build-time rss with pnpm exec
-
 # Without this line in this exact location, pnpm build times out with no logs
 ENV CI=true
 
