@@ -189,9 +189,9 @@ export default function Home() {
             </div>
           </div>
           <div class="photography">
-            <img title="UCI's Engineering Tower" src="/images/ICSTrees.jpg" />
-            <img title="The Hermosa Beach pier" src="/images/HermosaPier.jpg" />
-            <img title="Bombay Beach by the Salton Sea" src="/images/BombayBoat.jpg" />
+            <img loading="lazy" title="UCI's Engineering Tower" src="/images/ICSTrees.jpg" />
+            <img loading="lazy" title="The Hermosa Beach pier" src="/images/HermosaPier.jpg" />
+            <img loading="lazy" title="Bombay Beach by the Salton Sea" src="/images/BombayBoat.jpg" />
           </div>
         </div>
         <div class="section get-in-touch">

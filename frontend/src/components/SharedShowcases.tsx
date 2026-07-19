@@ -38,7 +38,7 @@ export function GamesGrid() {
             <h3>Tetrome</h3>
             <span>A full-featured stacker game. Add the extension to your browser!</span>
           </div>
-          <img src="/images/projects/TetromeDemo.gif" />
+          <img loading="lazy" src="/images/projects/TetromeDemo.gif" />
         </div>
         <ToolsList deviconIds={["devicon-javascript-plain", "devicon-html5-plain", "devicon-css3-plain"]} />
       </Showcase>
@@ -49,7 +49,7 @@ export function GamesGrid() {
             <span>A 2d open-world exploration web game with procedural generation</span>
           </div>
           <PeekingContainer>
-            <img src="/images/projects/Landform.png" />
+            <img loading="lazy" src="/images/projects/Landform.png" />
           </PeekingContainer>
         </div>
         <ToolsList deviconIds={["devicon-javascript-plain", "devicon-html5-plain", "devicon-css3-plain"]} />
@@ -61,7 +61,7 @@ export function GamesGrid() {
             <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
           </div>
           <PeekingContainer>
-            <img src="/images/projects/Speedstreets_Detail.png"  />
+            <img loading="lazy" src="/images/projects/Speedstreets_Detail.png"  />
           </PeekingContainer>
         </div>
         <ToolsList
@@ -86,7 +86,7 @@ export function GamesGrid() {
             <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
           </div>
           <PeekingContainer>
-            <img src="/images/projects/Platscifi.png" />
+            <img loading="lazy" src="/images/projects/Platscifi.png" />
           </PeekingContainer>
         </div>
         <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
