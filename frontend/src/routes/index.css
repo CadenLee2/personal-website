@@ -121,6 +121,8 @@ div.knickknack {
   justify-content: stretch;
   gap: 12px;
 
+  min-height: 410px;
+
   .left {
     flex-grow: 1;
     height: fit-content;

@@ -10,19 +10,19 @@ export function MakingLifeEasierRow() {
       <Showcase className="rical" href="https://github.com/Cadecraft/rical/">
         <h3>Rical</h3>
         <span>Cross-device calendar app for minimalists</span>
-        <img src="/images/projects/RicalTerminal_Detail.png" />
+        <img loading="lazy" src="/images/projects/RicalTerminal_Detail.png" />
         <ToolsList deviconIds={["devicon-rust-original"]} />
       </Showcase>
       <Showcase className="sheatfish" href="https://github.com/Cadecraft/sheatfish">
         <h3>Sheatfish</h3>
         <span>Lightweight, efficient terminal spreadsheet editor</span>
-        <img src="/images/projects/Sheatfish_Detail.png" />
+        <img loading="lazy" src="/images/projects/Sheatfish_Detail.png" />
         <ToolsList deviconIds={["devicon-rust-original"]} />
       </Showcase>
       <Showcase className="homepage-omni" href="https://github.com/Cadecraft/HomepageOmni">
         <h3>HomepageOmni</h3>
         <span>Configurable homepage for your browser</span>
-        <img src="/images/projects/HomepageOmni_Detail.jpg" />
+        <img loading="lazy" src="/images/projects/HomepageOmni_Detail.jpg" />
         <ToolsList deviconIds={["devicon-html5-plain", "devicon-javascript-plain"]} />
       </Showcase>
     </div>

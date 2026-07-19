@@ -11,6 +11,8 @@ div.showcase-row {
       min-width: 200px;
     }
   }
+
+  min-height: 250px;
 }
 
 div.games-grid {
