@@ -62,7 +62,6 @@ export default function PageFrame(props: {
       <Meta name="author" content="Caden Lee" />
       <Meta name="og:title" content={props.metaTitle} />
       <Meta name="og:description" content={props.metaDesc} />
-      <Link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       <div class="inner-wrapper">
         <Show when={!props.hideTopBar}>
           <TopBar pageName={props.pageName} />

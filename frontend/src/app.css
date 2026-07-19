@@ -167,10 +167,18 @@ div.section-break {
     fill: var(--textcolor);
     transition: opacity 0.1s;
   }
+}
 
-  i.styled-devicon {
-    color: var(--textcolor);
-    transition: opacity 0.1s;
+.styled-devicon {
+  font-size: inherit;
+  color: inherit;
+
+  width: 1em;
+  height: 1em;
+
+  svg {
+    width: 1em;
+    height: 1em;
   }
 }
 
