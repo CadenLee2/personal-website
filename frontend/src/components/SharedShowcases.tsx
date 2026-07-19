@@ -38,11 +38,11 @@ export function GamesGrid() {
             <h3>Tetrome</h3>
             <span>A full-featured stacker game. Add the extension to your browser!</span>
           </div>
-          <img src="https://github.com/Cadecraft/tetrome-source/raw/master/repo_images/TetromeDemo.gif" />
+          <img src="/images/projects/TetromeDemo.gif" />
         </div>
         <ToolsList deviconIds={["devicon-javascript-plain", "devicon-html5-plain", "devicon-css3-plain"]} />
       </Showcase>
-      <Showcase className="landform-eclipse" href="https://github.com/Cadecraft/Cadecraft.github.io/tree/main/static/landform-eclipse">
+      <Showcase className="landform-eclipse" href="https://cadecraft.github.io/landform-eclipse">
         <div>
           <div>
             <h3>Landform: Eclipse</h3>
@@ -61,7 +61,7 @@ export function GamesGrid() {
             <span>This multiplayer geography game tests how well you know the streets in your city, built for IrvineHacks 2025</span>
           </div>
           <PeekingContainer>
-            <img src="https://github.com/Big-Dyl/IrvineHacks2025/raw/main/screenshot/Screenshot_Game.png"  />
+            <img src="/images/projects/Speedstreets_Detail.png"  />
           </PeekingContainer>
         </div>
         <ToolsList
