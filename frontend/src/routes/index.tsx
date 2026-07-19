@@ -124,7 +124,7 @@ export default function Home() {
                   variant="action-blue-small"
                   title="KnickKnack on LinkedIn"
                 >
-                  <Devicon deviconId="devicon-linkedin-plain wicon-link" size="18px" />
+                  <Devicon deviconId="devicon-linkedin-plain" class="wicon-link" size="18px" />
                 </LinkButton>
               </div>
               <RoadmapTree details={[

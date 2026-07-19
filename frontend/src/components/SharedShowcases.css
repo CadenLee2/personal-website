@@ -113,7 +113,7 @@ div.platscifi {
 div.regnatural {
   background-image: url('/images/projects/Regnatural_Blur.png');
 
-  span {
+  > span {
     margin-bottom: 10px;
   }
 

@@ -56,6 +56,7 @@ div.top-showcase {
   display: inline-flex;
   gap: 6px;
   padding-top: 6px;
+  font-size: 18px;
 }
 
 /* Specific showcase sections */

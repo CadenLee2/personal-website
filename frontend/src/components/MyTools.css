@@ -11,8 +11,8 @@
     justify-content: space-around;
   }
 
-  i {
-    color: var(--textcolor);
+  svg {
+    fill: var(--textcolor);
     transition: opacity 0.1s;
   }
 }
@@ -50,20 +50,17 @@ div.selected-item {
   background: none;
   border-radius: 4px;
   padding: 4px;
+  height: 39px;
 
   &:hover {
     cursor: pointer;
 
-    i {
+    svg {
       opacity: 0.85;
     }
   }
 
-  &:active svg {
-    opacity: 0.6;
-  }
-
-  &.selected i {
+  &.selected svg, &:active svg {
     opacity: 0.75;
   }
 

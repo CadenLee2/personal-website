@@ -1,6 +1,6 @@
 import './MyTools.css';
 
-import { JSX, createSignal, For, Accessor } from 'solid-js';
+import { JSX, createSignal, For } from 'solid-js';
 import Devicon from '~/components/Devicon';
 
 type ToolInfo = {
