@@ -6,7 +6,6 @@
   border: none;
   transition: all 0.1s;
   box-shadow: 0px 2px 2px var(--sectionbordershadow);
-  flex: 1;
   position: relative;
   background-blend-mode: multiply;
   /* May want to adjust in specific instances, such as to 100% or auto 100% */
