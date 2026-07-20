@@ -189,11 +189,6 @@ div.knickknack {
     fill: var(--textcolorwhite);
   }
 
-  .wicon-link {
-    > :first-child { fill: var(--textcolorwhite); }
-    > :nth-child(2) { fill: black; }
-  }
-
   & > :first-child {
     width: fit-content;
     white-space: nowrap;
