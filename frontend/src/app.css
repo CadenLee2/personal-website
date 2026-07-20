@@ -156,12 +156,6 @@ div.section-break {
   font-size: 14px;
 }
 
-.wicon {
-  > path, g {
-    fill: var(--textcolorwhite);
-  }
-}
-
 .icon-colorize {
   svg {
     fill: var(--textcolor);
