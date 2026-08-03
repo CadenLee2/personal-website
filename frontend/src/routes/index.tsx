@@ -174,7 +174,7 @@ export default function Home() {
           <div class="interests-section">
             <AlbumCover />
             <div class="music-descr">
-              <span>In my free time, I make trance, synthwave, and other electronic music. I also enjoy photography, science fiction books, and cooking.</span>
+              <span>In my free time, I produce trance, synthwave, and other electronic music. I also enjoy cooking and reading science fiction.</span>
               <br />
               <div class="interests-links">
                 <LinkButton variant="gray-mid" href="https://www.youtube.com/playlist?list=PLbN2H2xs0W6tlWWImF9bK6xp-U0PCpN7a&si=za9rSy9WBiHHEivw">
