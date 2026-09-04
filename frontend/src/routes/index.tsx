@@ -199,9 +199,6 @@ export default function Home() {
           <LinkButton href="/contact" variant="blue">
             <MdFillArrow_forward size={18} /> Contact
           </LinkButton>
-          <LinkButton href="/resume" variant="blue">
-            <MdFillArrow_forward size={18} /> Resume
-          </LinkButton>
         </div>
       </PageFrame>
     </main>

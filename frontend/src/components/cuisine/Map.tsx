@@ -24,8 +24,7 @@ const MAP_OPTIONS: L.MapOptions = {
 function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression | null }) {
   const { navigateToId } = useIdNav();
 
-  // onMount is necessary as per readme of <https://github.com/chris31415926535/solid-leaflet-reprex>
-  onMount(() => {
+  const mountMap = () => {
     const map = L.map(MAP_ID, MAP_OPTIONS);
     map.setView(DEFAULT_CENTER as LatLngExpression, DEFAULT_ZOOM);
     const tileLayer = L.tileLayer(TILE_URL, { attribution: TILE_ATTR });
@@ -48,7 +47,16 @@ function MapContainer(props: { markers: CuisineMap, autoCenter: LatLngExpression
         map.panTo(props.autoCenter)
       }
     });
+  }
 
+  // onMount is necessary as per readme of <https://github.com/chris31415926535/solid-leaflet-reprex>
+  onMount(() => {
+    try {
+      mountMap();
+    } catch (err) {
+      console.error(`Map mount error: ${err}`);
+      location.reload();
+    }
   });
 
   return (

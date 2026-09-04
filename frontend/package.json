@@ -1,5 +1,5 @@
 {
-  "name": "example-basic",
+  "name": "personal-website",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
@@ -9,23 +9,23 @@
     "gen-rss": "tsx ./src/scripts/generateRSS.ts"
   },
   "dependencies": {
-    "@parcel/watcher": "^2.5.6",
+    "@parcel/watcher": "^2.6.0",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.15.4",
     "@solidjs/start": "2.0.0-alpha.2",
     "@solidjs/vite-plugin-nitro-2": "^0.1.0",
-    "esbuild": "^0.28.1",
+    "esbuild": "^0.28.2",
     "leaflet": "^1.9.4",
     "solid-icons": "^1.2.0",
-    "solid-js": "^1.9.13",
-    "vite": "^7.3.5",
+    "solid-js": "^1.9.15",
+    "vite": "^7.3.6",
     "xmlbuilder2": "^4.0.3"
   },
   "engines": {
     "node": ">=22"
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.21",
-    "tsx": "^4.22.4"
+    "@types/leaflet": "^1.9.22",
+    "tsx": "^4.23.13"
   }
 }

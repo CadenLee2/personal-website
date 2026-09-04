@@ -22,7 +22,6 @@
   border-bottom-right-radius: 8px;
   border: solid 1px var(--sectionborder);
   border-top: none;
-  box-shadow: 0px 0px 2px 2px var(--sectionbordershadow);
   margin-bottom: 2px;
   text-align: center;
 

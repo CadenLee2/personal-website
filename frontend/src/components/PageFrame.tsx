@@ -2,11 +2,11 @@ import './PageFrame.css';
 import { LinkButton } from '~/components/Button';
 import { A } from '@solidjs/router';
 import { children, Show, JSX } from 'solid-js';
-import { Meta, Title, Link } from '@solidjs/meta';
+import { Meta, Title } from '@solidjs/meta';
 
 import { MdFillHome, MdFillEmail, MdFillMenu_book } from 'solid-icons/md';
 
-type PageName = 'home' | 'resume' | 'contact' | 'blog';
+type PageName = 'home' | 'contact' | 'blog';
 
 function TopBar(props: { pageName?: PageName }) {
   return (
