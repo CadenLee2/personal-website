@@ -1,6 +1,5 @@
 import './contact.css';
 import PageFrame from '~/components/PageFrame';
-import { A } from '@solidjs/router';
 
 import Devicon from '~/components/Devicon';
 import { MdFillEmail } from 'solid-icons/md';
@@ -48,9 +47,6 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <p>
-            Curious about my experience? Check out my <A href="/resume">resume</A>.
-          </p>
         </div>
       </PageFrame>
     </main>
