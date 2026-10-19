@@ -64,7 +64,7 @@ export function GamesGrid() {
             <img loading="lazy" src="/images/projects/Beetroot.png" />
           </PeekingContainer>
         </div>
-        <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
+        <ToolsList deviconIds={["devicon-typescript-plain", "devicon-vitejs-plain", "devicon-html5-plain", "devicon-css3-plain"]} />
       </Showcase>
       <Showcase className="regnatural">
         <h3>Re:Gnatural</h3>
