@@ -111,7 +111,7 @@ div.speedstreets {
 div.beetroot-farm {
   background-image: url('/images/projects/Platscifi_Blur.png');
 
-  img {
+  .peeking-container img {
     box-shadow: none;
   }
 }
