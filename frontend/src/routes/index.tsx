@@ -72,21 +72,21 @@ export default function Home() {
             <div class="left">
               <h3>AntAlmanac Planner</h3>
               <span>
-                I'm leading the AA Planner team at UCI's ICS Student Council.
-                We're improving a course planning service used by thousands of students!
+                I'm leading the Projects Committee at UCI's ICS Student Council.
+                One of our projects is a course planning service used by thousands of students!
               </span>
               <div class="actions">
                 <LinkButton newTabLink href="https://antalmanac.com/planner" variant="blue">
                   <MdFillArrow_outward size={18} /> Visit
                 </LinkButton>
-                <LinkButton newTabLink href="https://github.com/icssc/peterportal-client/" variant="action-blue">
+                <LinkButton newTabLink href="https://github.com/icssc/antalmanac/" variant="action-blue">
                   <Devicon deviconId="devicon-github-original" size="18px" />
                   <span>Contribute on GitHub</span>
                 </LinkButton>
               </div>
               <RoadmapTree details={[
+                { status: "Committee Chair", date: "2026-27" },
                 { status: "Project Lead", date: "2025-26" },
-                { status: "Software Developer", date: "Fall 2024" },
               ]} />
               <ToolsList
                 size="18px"
@@ -128,7 +128,7 @@ export default function Home() {
                 </LinkButton>
               </div>
               <RoadmapTree details={[
-                { status: "Launching to Market!", date: "in 2026" },
+                { status: "Launching to Market!", date: "in 2027" },
                 { status: "Placed 1st in Demo Day Competition", date: "Spring 2025" },
                 { status: "Met in UCI's Product Fellowship", date: "2024" },
               ]} />
