@@ -54,6 +54,23 @@ export function GamesGrid() {
         </div>
         <ToolsList deviconIds={["devicon-javascript-plain", "devicon-html5-plain", "devicon-css3-plain"]} />
       </Showcase>
+      <Showcase className="beetroot-farm" href="https://beetroot.farm/">
+        <div>
+          <div>
+            <h3>beetroot.farm</h3>
+            <span>A collaborative real-time farming game. Join a farm with your friends!</span>
+          </div>
+          <PeekingContainer>
+            <img loading="lazy" src="/images/projects/Beetroot.png" />
+          </PeekingContainer>
+        </div>
+        <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
+      </Showcase>
+      <Showcase className="regnatural">
+        <h3>Re:Gnatural</h3>
+        <span>Coming soon: a time/physics-based simulation game inspired by falling sand</span>
+        <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
+      </Showcase>
       <Showcase className="speedstreets" href="https://github.com/Big-Dyl/IrvineHacks2025">
         <div>
           <div>
@@ -73,23 +90,6 @@ export function GamesGrid() {
             "devicon-socketio-original",
           ]}
         />
-      </Showcase>
-      <Showcase className="regnatural">
-        <h3>Re:Gnatural</h3>
-        <span>Coming soon: a time/physics-based simulation game inspired by falling sand</span>
-        <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
-      </Showcase>
-      <Showcase className="platscifi" href="https://github.com/tivect/PlatScifi">
-        <div>
-          <div>
-            <h3>PlatSciFi</h3>
-            <span>An experimental programmer's platformer game that lets you define levels by writing files in a custom language</span>
-          </div>
-          <PeekingContainer>
-            <img loading="lazy" src="/images/projects/Platscifi.png" />
-          </PeekingContainer>
-        </div>
-        <ToolsList deviconIds={["devicon-cplusplus-plain", "devicon-opengl-plain"]} />
       </Showcase>
     </div>
   );

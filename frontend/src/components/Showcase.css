@@ -102,6 +102,7 @@ div.peeking-container {
     padding-left: 22px;
     padding-right: 0px;
     overflow: hidden;
+    margin-left: auto;
 }
 div.showcase:hover div.peeking-container img {
     transform: translateX(-14px);
