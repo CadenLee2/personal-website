@@ -65,7 +65,7 @@ div.homepage-omni {
   background-image: url('/images/projects/HomepageOmni_Blur.png');
 }
 
-div.landform-eclipse, div.speedstreets, div.platscifi {
+div.landform-eclipse, div.speedstreets, div.beetroot-farm {
   > div:first-child {
     display: flex;
     gap: 10px;
@@ -108,8 +108,12 @@ div.speedstreets {
   background-image: url('/images/projects/Speedstreets_Blur.png');
 }
 
-div.platscifi {
+div.beetroot-farm {
   background-image: url('/images/projects/Platscifi_Blur.png');
+
+  .peeking-container img {
+    box-shadow: none;
+  }
 }
 
 div.regnatural {
